@@ -23,5 +23,11 @@ namespace WWOC_Desktop_App
            
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form Metrics = new Metrics();
+            Metrics.Show();
+        }
     }
 }
