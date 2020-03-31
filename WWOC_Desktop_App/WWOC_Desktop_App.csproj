@@ -46,10 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GROUP4DataSetGetParts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GROUP4DataSetGetParts.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GROUP4DataSetParts.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GROUP4DataSetParts.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GROUP4DataSetPartss.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GROUP4DataSetPartss.xsd</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -87,6 +97,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="GROUP4DataSetGetParts.xsc">
+      <DependentUpon>GROUP4DataSetGetParts.xsd</DependentUpon>
+    </None>
+    <None Include="GROUP4DataSetGetParts.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GROUP4DataSetGetParts.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GROUP4DataSetGetParts.xss">
+      <DependentUpon>GROUP4DataSetGetParts.xsd</DependentUpon>
+    </None>
     <None Include="GROUP4DataSetParts.xsc">
       <DependentUpon>GROUP4DataSetParts.xsd</DependentUpon>
     </None>
@@ -97,6 +118,17 @@
     </None>
     <None Include="GROUP4DataSetParts.xss">
       <DependentUpon>GROUP4DataSetParts.xsd</DependentUpon>
+    </None>
+    <None Include="GROUP4DataSetPartss.xsc">
+      <DependentUpon>GROUP4DataSetPartss.xsd</DependentUpon>
+    </None>
+    <None Include="GROUP4DataSetPartss.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GROUP4DataSetPartss.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GROUP4DataSetPartss.xss">
+      <DependentUpon>GROUP4DataSetPartss.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

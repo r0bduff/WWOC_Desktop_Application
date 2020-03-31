@@ -20,9 +20,9 @@ namespace WWOC_Desktop_App {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("GROUP4DataSetParts")]
+    [global::System.Xml.Serialization.XmlRootAttribute("GROUP4DataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class GROUP4DataSetParts : global::System.Data.DataSet {
+    public partial class GROUP4DataSet : global::System.Data.DataSet {
         
         private PartsDataTable tableParts;
         
@@ -30,7 +30,7 @@ namespace WWOC_Desktop_App {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public GROUP4DataSetParts() {
+        public GROUP4DataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace WWOC_Desktop_App {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected GROUP4DataSetParts(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected GROUP4DataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace WWOC_Desktop_App {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            GROUP4DataSetParts cln = ((GROUP4DataSetParts)(base.Clone()));
+            GROUP4DataSet cln = ((GROUP4DataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace WWOC_Desktop_App {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "GROUP4DataSetParts";
+            this.DataSetName = "GROUP4DataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/GROUP4DataSetParts.xsd";
+            this.Namespace = "http://tempuri.org/GROUP4DataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableParts = new PartsDataTable();
@@ -225,7 +225,7 @@ namespace WWOC_Desktop_App {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            GROUP4DataSetParts ds = new GROUP4DataSetParts();
+            GROUP4DataSet ds = new GROUP4DataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -439,7 +439,7 @@ namespace WWOC_Desktop_App {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PartsRow AddPartsRow(int partID, string itemDesc, double costUSD, string vendorID, int qty, int reorderPoint, int exptdLife, string shipmentTime, int locationID) {
+            public PartsRow AddPartsRow(int partID, string itemDesc, double costUSD, int vendorID, int qty, int reorderPoint, int exptdLife, string shipmentTime, int locationID) {
                 PartsRow rowPartsRow = ((PartsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         partID,
@@ -500,7 +500,7 @@ namespace WWOC_Desktop_App {
                 base.Columns.Add(this.columnitemDesc);
                 this.columncostUSD = new global::System.Data.DataColumn("costUSD", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncostUSD);
-                this.columnvendorID = new global::System.Data.DataColumn("vendorID", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnvendorID = new global::System.Data.DataColumn("vendorID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvendorID);
                 this.columnqty = new global::System.Data.DataColumn("qty", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnqty);
@@ -519,7 +519,6 @@ namespace WWOC_Desktop_App {
                 this.columnitemDesc.MaxLength = 50;
                 this.columncostUSD.AllowDBNull = false;
                 this.columnvendorID.AllowDBNull = false;
-                this.columnvendorID.MaxLength = 10;
                 this.columnreorderPoint.AllowDBNull = false;
                 this.columnexptdLife.AllowDBNull = false;
                 this.columnshipmentTime.AllowDBNull = false;
@@ -591,7 +590,7 @@ namespace WWOC_Desktop_App {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                GROUP4DataSetParts ds = new GROUP4DataSetParts();
+                GROUP4DataSet ds = new GROUP4DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -704,9 +703,9 @@ namespace WWOC_Desktop_App {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string vendorID {
+            public int vendorID {
                 get {
-                    return ((string)(this[this.tableParts.vendorIDColumn]));
+                    return ((int)(this[this.tableParts.vendorIDColumn]));
                 }
                 set {
                     this[this.tableParts.vendorIDColumn] = value;
@@ -850,7 +849,7 @@ namespace WWOC_Desktop_App {
         }
     }
 }
-namespace WWOC_Desktop_App.GROUP4DataSetPartsTableAdapters {
+namespace WWOC_Desktop_App.GROUP4DataSetTableAdapters {
     
     
     /// <summary>
@@ -992,7 +991,7 @@ namespace WWOC_Desktop_App.GROUP4DataSetPartsTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_itemDesc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "itemDesc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_itemDesc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "itemDesc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_costUSD", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "costUSD", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vendorID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vendorID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vendorID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vendorID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "qty", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "qty", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reorderPoint", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reorderPoint", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1008,7 +1007,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@partID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "partID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@itemDesc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "itemDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@costUSD", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "costUSD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vendorID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vendorID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vendorID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vendorID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "qty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reorderPoint", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reorderPoint", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@exptdLife", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "exptdLife", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1022,7 +1021,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@partID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "partID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@itemDesc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "itemDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@costUSD", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "costUSD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vendorID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vendorID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@vendorID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vendorID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "qty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reorderPoint", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reorderPoint", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@exptdLife", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "exptdLife", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1032,7 +1031,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_itemDesc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "itemDesc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_itemDesc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "itemDesc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_costUSD", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "costUSD", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vendorID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vendorID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_vendorID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "vendorID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "qty", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_qty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "qty", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reorderPoint", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reorderPoint", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1064,7 +1063,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(GROUP4DataSetParts.PartsDataTable dataTable) {
+        public virtual int Fill(GROUP4DataSet.PartsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1077,9 +1076,9 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual GROUP4DataSetParts.PartsDataTable GetData() {
+        public virtual GROUP4DataSet.PartsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            GROUP4DataSetParts.PartsDataTable dataTable = new GROUP4DataSetParts.PartsDataTable();
+            GROUP4DataSet.PartsDataTable dataTable = new GROUP4DataSet.PartsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1087,14 +1086,14 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(GROUP4DataSetParts.PartsDataTable dataTable) {
+        public virtual int Update(GROUP4DataSet.PartsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(GROUP4DataSetParts dataSet) {
+        public virtual int Update(GROUP4DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Parts");
         }
         
@@ -1117,7 +1116,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_partID, string Original_itemDesc, double Original_costUSD, string Original_vendorID, global::System.Nullable<int> Original_qty, int Original_reorderPoint, int Original_exptdLife, string Original_shipmentTime, global::System.Nullable<int> Original_locationID) {
+        public virtual int Delete(int Original_partID, string Original_itemDesc, double Original_costUSD, int Original_vendorID, global::System.Nullable<int> Original_qty, int Original_reorderPoint, int Original_exptdLife, string Original_shipmentTime, global::System.Nullable<int> Original_locationID) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_partID));
             if ((Original_itemDesc == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -1128,12 +1127,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_itemDesc));
             }
             this.Adapter.DeleteCommand.Parameters[3].Value = ((double)(Original_costUSD));
-            if ((Original_vendorID == null)) {
-                throw new global::System.ArgumentNullException("Original_vendorID");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_vendorID));
-            }
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_vendorID));
             if ((Original_qty.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_qty.Value));
@@ -1178,7 +1172,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int partID, string itemDesc, double costUSD, string vendorID, global::System.Nullable<int> qty, int reorderPoint, int exptdLife, string shipmentTime, global::System.Nullable<int> locationID) {
+        public virtual int Insert(int partID, string itemDesc, double costUSD, int vendorID, global::System.Nullable<int> qty, int reorderPoint, int exptdLife, string shipmentTime, global::System.Nullable<int> locationID) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(partID));
             if ((itemDesc == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1187,12 +1181,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(itemDesc));
             }
             this.Adapter.InsertCommand.Parameters[2].Value = ((double)(costUSD));
-            if ((vendorID == null)) {
-                throw new global::System.ArgumentNullException("vendorID");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(vendorID));
-            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(vendorID));
             if ((qty.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((int)(qty.Value));
             }
@@ -1237,7 +1226,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
                     int partID, 
                     string itemDesc, 
                     double costUSD, 
-                    string vendorID, 
+                    int vendorID, 
                     global::System.Nullable<int> qty, 
                     int reorderPoint, 
                     int exptdLife, 
@@ -1246,7 +1235,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
                     int Original_partID, 
                     string Original_itemDesc, 
                     double Original_costUSD, 
-                    string Original_vendorID, 
+                    int Original_vendorID, 
                     global::System.Nullable<int> Original_qty, 
                     int Original_reorderPoint, 
                     int Original_exptdLife, 
@@ -1260,12 +1249,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(itemDesc));
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((double)(costUSD));
-            if ((vendorID == null)) {
-                throw new global::System.ArgumentNullException("vendorID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(vendorID));
-            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(vendorID));
             if ((qty.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(qty.Value));
             }
@@ -1296,12 +1280,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_itemDesc));
             }
             this.Adapter.UpdateCommand.Parameters[12].Value = ((double)(Original_costUSD));
-            if ((Original_vendorID == null)) {
-                throw new global::System.ArgumentNullException("Original_vendorID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_vendorID));
-            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_vendorID));
             if ((Original_qty.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_qty.Value));
@@ -1349,7 +1328,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
         public virtual int Update(
                     string itemDesc, 
                     double costUSD, 
-                    string vendorID, 
+                    int vendorID, 
                     global::System.Nullable<int> qty, 
                     int reorderPoint, 
                     int exptdLife, 
@@ -1358,7 +1337,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
                     int Original_partID, 
                     string Original_itemDesc, 
                     double Original_costUSD, 
-                    string Original_vendorID, 
+                    int Original_vendorID, 
                     global::System.Nullable<int> Original_qty, 
                     int Original_reorderPoint, 
                     int Original_exptdLife, 
@@ -1459,7 +1438,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(GROUP4DataSetParts dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(GROUP4DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._partsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Parts.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1478,7 +1457,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(GROUP4DataSetParts dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(GROUP4DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._partsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Parts.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1496,7 +1475,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(GROUP4DataSetParts dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(GROUP4DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._partsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Parts.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1538,7 +1517,7 @@ SELECT partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipme
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(GROUP4DataSetParts dataSet) {
+        public virtual int UpdateAll(GROUP4DataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
