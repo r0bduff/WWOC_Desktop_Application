@@ -37,7 +37,7 @@
             this.tabPagePending = new System.Windows.Forms.TabPage();
             this.tabPageRequest = new System.Windows.Forms.TabPage();
             this.tabPageHistory = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.DataGridView = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.gROUP4DataSetParts = new WWOC_Desktop_App.GROUP4DataSetParts();
             this.gROUP4DataSetPartsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -52,6 +52,7 @@
             this.exptdLifeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shipmentTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DGVMainMenu = new System.Windows.Forms.TabPage();
             this.tabControlMain.SuspendLayout();
             this.tabPageParts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -94,7 +95,8 @@
             this.tabControlMain.Controls.Add(this.tabPagePending);
             this.tabControlMain.Controls.Add(this.tabPageRequest);
             this.tabControlMain.Controls.Add(this.tabPageHistory);
-            this.tabControlMain.Controls.Add(this.tabPage1);
+            this.tabControlMain.Controls.Add(this.DataGridView);
+            this.tabControlMain.Controls.Add(this.DGVMainMenu);
             this.tabControlMain.Location = new System.Drawing.Point(13, 87);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
@@ -142,15 +144,15 @@
             this.tabPageHistory.Text = "Order History";
             this.tabPageHistory.UseVisualStyleBackColor = true;
             // 
-            // tabPage1
+            // DataGridView
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1246, 460);
-            this.tabPage1.TabIndex = 4;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.DataGridView.Location = new System.Drawing.Point(4, 22);
+            this.DataGridView.Name = "DataGridView";
+            this.DataGridView.Padding = new System.Windows.Forms.Padding(3);
+            this.DataGridView.Size = new System.Drawing.Size(1246, 460);
+            this.DataGridView.TabIndex = 4;
+            this.DataGridView.Text = "Vendors";
+            this.DataGridView.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -245,6 +247,16 @@
             this.locationIDDataGridViewTextBoxColumn.HeaderText = "locationID";
             this.locationIDDataGridViewTextBoxColumn.Name = "locationIDDataGridViewTextBoxColumn";
             // 
+            // DGVMainMenu
+            // 
+            this.DGVMainMenu.Location = new System.Drawing.Point(4, 22);
+            this.DGVMainMenu.Name = "DGVMainMenu";
+            this.DGVMainMenu.Padding = new System.Windows.Forms.Padding(3);
+            this.DGVMainMenu.Size = new System.Drawing.Size(1246, 460);
+            this.DGVMainMenu.TabIndex = 5;
+            this.DGVMainMenu.Text = "Manage";
+            this.DGVMainMenu.UseVisualStyleBackColor = true;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,7 +290,7 @@
         private System.Windows.Forms.TabPage tabPagePending;
         private System.Windows.Forms.TabPage tabPageRequest;
         private System.Windows.Forms.TabPage tabPageHistory;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage DataGridView;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource gROUP4DataSetPartsBindingSource;
         private GROUP4DataSetParts gROUP4DataSetParts;
@@ -293,5 +305,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn exptdLifeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn shipmentTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn locationIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabPage DGVMainMenu;
     }
 }
