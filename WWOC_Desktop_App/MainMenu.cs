@@ -30,5 +30,12 @@ namespace WWOC_Desktop_App
             Form Metrics = new Metrics();
             Metrics.Show();
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Form Login = new Login();
+            Login.Show();
+            this.Hide();
+        }
     }
 }

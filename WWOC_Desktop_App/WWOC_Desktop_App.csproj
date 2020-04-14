@@ -89,6 +89,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="GROUP4DataSetParts.xsc">
       <DependentUpon>GROUP4DataSetParts.xsd</DependentUpon>
@@ -113,6 +114,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main menu %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Luis Oil Logo #2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main menu %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main menu %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main menu %286%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

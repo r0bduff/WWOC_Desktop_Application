@@ -29,20 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageParts = new System.Windows.Forms.TabPage();
-            this.tabPagePending = new System.Windows.Forms.TabPage();
-            this.tabPageRequest = new System.Windows.Forms.TabPage();
-            this.tabPageHistory = new System.Windows.Forms.TabPage();
-            this.DataGridView = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.gROUP4DataSetParts = new WWOC_Desktop_App.GROUP4DataSetParts();
-            this.gROUP4DataSetPartsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.partsTableAdapter = new WWOC_Desktop_App.GROUP4DataSetPartsTableAdapters.PartsTableAdapter();
             this.partIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costUSDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,42 +41,26 @@
             this.exptdLifeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shipmentTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gROUP4DataSetPartsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gROUP4DataSetParts = new WWOC_Desktop_App.GROUP4DataSetParts();
+            this.tabPagePending = new System.Windows.Forms.TabPage();
+            this.tabPageRequest = new System.Windows.Forms.TabPage();
+            this.tabPageHistory = new System.Windows.Forms.TabPage();
+            this.DataGridView = new System.Windows.Forms.TabPage();
             this.DGVMainMenu = new System.Windows.Forms.TabPage();
+            this.partsTableAdapter = new WWOC_Desktop_App.GROUP4DataSetPartsTableAdapters.PartsTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPageParts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetParts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPartsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPartsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetParts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 69);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Home";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(104, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 69);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Metrics Menu";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1105, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "checkin checkout in mobile app";
             // 
             // tabControlMain
             // 
@@ -97,62 +70,24 @@
             this.tabControlMain.Controls.Add(this.tabPageHistory);
             this.tabControlMain.Controls.Add(this.DataGridView);
             this.tabControlMain.Controls.Add(this.DGVMainMenu);
-            this.tabControlMain.Location = new System.Drawing.Point(13, 87);
+            this.tabControlMain.Location = new System.Drawing.Point(284, 17);
+            this.tabControlMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(1254, 486);
+            this.tabControlMain.Size = new System.Drawing.Size(1123, 597);
             this.tabControlMain.TabIndex = 8;
             // 
             // tabPageParts
             // 
             this.tabPageParts.Controls.Add(this.dataGridView1);
-            this.tabPageParts.Location = new System.Drawing.Point(4, 22);
+            this.tabPageParts.Location = new System.Drawing.Point(4, 25);
+            this.tabPageParts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageParts.Name = "tabPageParts";
-            this.tabPageParts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageParts.Size = new System.Drawing.Size(1246, 460);
+            this.tabPageParts.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageParts.Size = new System.Drawing.Size(1115, 568);
             this.tabPageParts.TabIndex = 0;
             this.tabPageParts.Text = "Inventory";
             this.tabPageParts.UseVisualStyleBackColor = true;
-            // 
-            // tabPagePending
-            // 
-            this.tabPagePending.Location = new System.Drawing.Point(4, 22);
-            this.tabPagePending.Name = "tabPagePending";
-            this.tabPagePending.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePending.Size = new System.Drawing.Size(1246, 460);
-            this.tabPagePending.TabIndex = 1;
-            this.tabPagePending.Text = "Pending Orders";
-            this.tabPagePending.UseVisualStyleBackColor = true;
-            // 
-            // tabPageRequest
-            // 
-            this.tabPageRequest.Location = new System.Drawing.Point(4, 22);
-            this.tabPageRequest.Name = "tabPageRequest";
-            this.tabPageRequest.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRequest.Size = new System.Drawing.Size(1246, 460);
-            this.tabPageRequest.TabIndex = 2;
-            this.tabPageRequest.Text = "Make Order Request";
-            this.tabPageRequest.UseVisualStyleBackColor = true;
-            // 
-            // tabPageHistory
-            // 
-            this.tabPageHistory.Location = new System.Drawing.Point(4, 22);
-            this.tabPageHistory.Name = "tabPageHistory";
-            this.tabPageHistory.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageHistory.Size = new System.Drawing.Size(1246, 460);
-            this.tabPageHistory.TabIndex = 3;
-            this.tabPageHistory.Text = "Order History";
-            this.tabPageHistory.UseVisualStyleBackColor = true;
-            // 
-            // DataGridView
-            // 
-            this.DataGridView.Location = new System.Drawing.Point(4, 22);
-            this.DataGridView.Name = "DataGridView";
-            this.DataGridView.Padding = new System.Windows.Forms.Padding(3);
-            this.DataGridView.Size = new System.Drawing.Size(1246, 460);
-            this.DataGridView.TabIndex = 4;
-            this.DataGridView.Text = "Vendors";
-            this.DataGridView.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -169,29 +104,11 @@
             this.shipmentTimeDataGridViewTextBoxColumn,
             this.locationIDDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.partsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 7);
+            this.dataGridView1.Location = new System.Drawing.Point(5, 9);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1124, 447);
+            this.dataGridView1.Size = new System.Drawing.Size(1499, 550);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // gROUP4DataSetParts
-            // 
-            this.gROUP4DataSetParts.DataSetName = "GROUP4DataSetParts";
-            this.gROUP4DataSetParts.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // gROUP4DataSetPartsBindingSource
-            // 
-            this.gROUP4DataSetPartsBindingSource.DataSource = this.gROUP4DataSetParts;
-            this.gROUP4DataSetPartsBindingSource.Position = 0;
-            // 
-            // partsBindingSource
-            // 
-            this.partsBindingSource.DataMember = "Parts";
-            this.partsBindingSource.DataSource = this.gROUP4DataSetPartsBindingSource;
-            // 
-            // partsTableAdapter
-            // 
-            this.partsTableAdapter.ClearBeforeFill = true;
             // 
             // partIDDataGridViewTextBoxColumn
             // 
@@ -247,44 +164,142 @@
             this.locationIDDataGridViewTextBoxColumn.HeaderText = "locationID";
             this.locationIDDataGridViewTextBoxColumn.Name = "locationIDDataGridViewTextBoxColumn";
             // 
+            // partsBindingSource
+            // 
+            this.partsBindingSource.DataMember = "Parts";
+            this.partsBindingSource.DataSource = this.gROUP4DataSetPartsBindingSource;
+            // 
+            // gROUP4DataSetPartsBindingSource
+            // 
+            this.gROUP4DataSetPartsBindingSource.DataSource = this.gROUP4DataSetParts;
+            this.gROUP4DataSetPartsBindingSource.Position = 0;
+            // 
+            // gROUP4DataSetParts
+            // 
+            this.gROUP4DataSetParts.DataSetName = "GROUP4DataSetParts";
+            this.gROUP4DataSetParts.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tabPagePending
+            // 
+            this.tabPagePending.Location = new System.Drawing.Point(4, 25);
+            this.tabPagePending.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPagePending.Name = "tabPagePending";
+            this.tabPagePending.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPagePending.Size = new System.Drawing.Size(1115, 568);
+            this.tabPagePending.TabIndex = 1;
+            this.tabPagePending.Text = "Pending Orders";
+            this.tabPagePending.UseVisualStyleBackColor = true;
+            // 
+            // tabPageRequest
+            // 
+            this.tabPageRequest.Location = new System.Drawing.Point(4, 25);
+            this.tabPageRequest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageRequest.Name = "tabPageRequest";
+            this.tabPageRequest.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageRequest.Size = new System.Drawing.Size(1115, 568);
+            this.tabPageRequest.TabIndex = 2;
+            this.tabPageRequest.Text = "Make Order Request";
+            this.tabPageRequest.UseVisualStyleBackColor = true;
+            // 
+            // tabPageHistory
+            // 
+            this.tabPageHistory.Location = new System.Drawing.Point(4, 25);
+            this.tabPageHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageHistory.Name = "tabPageHistory";
+            this.tabPageHistory.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageHistory.Size = new System.Drawing.Size(1115, 568);
+            this.tabPageHistory.TabIndex = 3;
+            this.tabPageHistory.Text = "Order History";
+            this.tabPageHistory.UseVisualStyleBackColor = true;
+            // 
+            // DataGridView
+            // 
+            this.DataGridView.Location = new System.Drawing.Point(4, 25);
+            this.DataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DataGridView.Name = "DataGridView";
+            this.DataGridView.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DataGridView.Size = new System.Drawing.Size(1115, 568);
+            this.DataGridView.TabIndex = 4;
+            this.DataGridView.Text = "Vendors";
+            this.DataGridView.UseVisualStyleBackColor = true;
+            // 
             // DGVMainMenu
             // 
-            this.DGVMainMenu.Location = new System.Drawing.Point(4, 22);
+            this.DGVMainMenu.Location = new System.Drawing.Point(4, 25);
+            this.DGVMainMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DGVMainMenu.Name = "DGVMainMenu";
-            this.DGVMainMenu.Padding = new System.Windows.Forms.Padding(3);
-            this.DGVMainMenu.Size = new System.Drawing.Size(1246, 460);
+            this.DGVMainMenu.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DGVMainMenu.Size = new System.Drawing.Size(1115, 568);
             this.DGVMainMenu.TabIndex = 5;
             this.DGVMainMenu.Text = "Manage";
             this.DGVMainMenu.UseVisualStyleBackColor = true;
             // 
+            // partsTableAdapter
+            // 
+            this.partsTableAdapter.ClearBeforeFill = true;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::WWOC_Desktop_App.Properties.Resources.main_menu__5_;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(32, 399);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(209, 128);
+            this.button1.TabIndex = 10;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::WWOC_Desktop_App.Properties.Resources.Luis_Oil_Logo__2;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(32, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(209, 202);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button3
+            // 
+            this.button3.BackgroundImage = global::WWOC_Desktop_App.Properties.Resources.main_menu__3_;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.Location = new System.Drawing.Point(32, 251);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(209, 128);
+            this.button3.TabIndex = 2;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1279, 585);
-            this.Controls.Add(this.tabControlMain);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
+            this.BackColor = System.Drawing.Color.DimGray;
+            this.ClientSize = new System.Drawing.Size(1425, 628);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.tabControlMain);
+            this.Controls.Add(this.button3);
+            this.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainMenu";
             this.Text = "MainMenu";
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.tabControlMain.ResumeLayout(false);
             this.tabPageParts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetParts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPartsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPartsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetParts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControlMain;
         private System.Windows.Forms.TabPage tabPageParts;
         private System.Windows.Forms.TabPage tabPagePending;
@@ -306,5 +321,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn shipmentTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn locationIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage DGVMainMenu;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -71,6 +71,7 @@ namespace WWOC_Desktop_App
 
                 cnn.Close();
             }//end using
+            this.Hide();
         }//end button click
 
         /* Method checks to see if the user is locked out of their account, will update lockedout if found that user is locked out.
