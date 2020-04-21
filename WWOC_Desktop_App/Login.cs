@@ -245,7 +245,9 @@ namespace WWOC_Desktop_App
             }
         }
 
+        private void tbUsername_TextChanged(object sender, EventArgs e)
+        {
 
-        
+        }
     }//end login class
 }
