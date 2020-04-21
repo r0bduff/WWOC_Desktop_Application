@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GROUP4DataSetVendors.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GROUP4DataSetVendors.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GROUP4DataSetParts.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,6 +96,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="GROUP4DataSetVendors.xsc">
+      <DependentUpon>GROUP4DataSetVendors.xsd</DependentUpon>
+    </None>
+    <None Include="GROUP4DataSetVendors.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GROUP4DataSetVendors.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GROUP4DataSetVendors.xss">
+      <DependentUpon>GROUP4DataSetVendors.xsd</DependentUpon>
+    </None>
     <None Include="GROUP4DataSetParts.xsc">
       <DependentUpon>GROUP4DataSetParts.xsd</DependentUpon>
     </None>
