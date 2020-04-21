@@ -16,5 +16,10 @@ namespace WWOC_Desktop_App
         {
             InitializeComponent();
         }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
     }
 }
