@@ -1,4 +1,5 @@
-﻿namespace WWOC_Desktop_App
+﻿
+namespace WWOC_Desktop_App
 {
     partial class Login
     {

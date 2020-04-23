@@ -51,6 +51,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GROUP4DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GROUP4DataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GROUP4DataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GROUP4DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GROUP4DataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GROUP4DataSetParts.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -114,6 +124,28 @@
     </None>
     <None Include="GROUP4DataSet1.xss">
       <DependentUpon>GROUP4DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GROUP4DataSet11.xsc">
+      <DependentUpon>GROUP4DataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="GROUP4DataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GROUP4DataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GROUP4DataSet11.xss">
+      <DependentUpon>GROUP4DataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="GROUP4DataSet2.xsc">
+      <DependentUpon>GROUP4DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="GROUP4DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GROUP4DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GROUP4DataSet2.xss">
+      <DependentUpon>GROUP4DataSet2.xsd</DependentUpon>
     </None>
     <None Include="GROUP4DataSetParts.xsc">
       <DependentUpon>GROUP4DataSetParts.xsd</DependentUpon>

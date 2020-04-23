@@ -90,26 +90,30 @@
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.locationIDPart = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.shipmentTime = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.expectLife = new System.Windows.Forms.TextBox();
+            this.exptdLife = new System.Windows.Forms.TextBox();
             this.expectedLife = new System.Windows.Forms.Label();
             this.reorderPoint = new System.Windows.Forms.TextBox();
             this.reOrder = new System.Windows.Forms.Label();
             this.quanit = new System.Windows.Forms.TextBox();
             this.label = new System.Windows.Forms.Label();
-            this.vendor = new System.Windows.Forms.TextBox();
             this.VendorID = new System.Windows.Forms.Label();
             this.Cost = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.itemDesc = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.partID = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.partsTableAdapter = new WWOC_Desktop_App.GROUP4DataSetPartsTableAdapters.PartsTableAdapter();
             this.vendorsTableAdapter = new WWOC_Desktop_App.GROUP4DataSetTableAdapters.VendorsTableAdapter();
+            this.tableAdapterManager = new WWOC_Desktop_App.GROUP4DataSetTableAdapters.TableAdapterManager();
+            this.vendorNameComboBox = new System.Windows.Forms.ComboBox();
+            this.locationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.locationTableAdapter = new WWOC_Desktop_App.GROUP4DataSetTableAdapters.LocationTableAdapter();
+            this.gROUP4DataSet2 = new WWOC_Desktop_App.GROUP4DataSet2();
+            this.vendorsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.vendorsTableAdapter1 = new WWOC_Desktop_App.GROUP4DataSet2TableAdapters.VendorsTableAdapter();
+            this.locationIDComboBox = new System.Windows.Forms.ComboBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageParts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -125,6 +129,9 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.locationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -356,6 +363,7 @@
             // 
             // DGVMainMenu
             // 
+            this.DGVMainMenu.AutoScroll = true;
             this.DGVMainMenu.Controls.Add(this.groupBox4);
             this.DGVMainMenu.Controls.Add(this.groupBox3);
             this.DGVMainMenu.Controls.Add(this.groupBox2);
@@ -655,28 +663,26 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.locationIDComboBox);
+            this.groupBox1.Controls.Add(this.vendorNameComboBox);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.locationIDPart);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.shipmentTime);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.expectLife);
+            this.groupBox1.Controls.Add(this.exptdLife);
             this.groupBox1.Controls.Add(this.expectedLife);
             this.groupBox1.Controls.Add(this.reorderPoint);
             this.groupBox1.Controls.Add(this.reOrder);
             this.groupBox1.Controls.Add(this.quanit);
             this.groupBox1.Controls.Add(this.label);
-            this.groupBox1.Controls.Add(this.vendor);
             this.groupBox1.Controls.Add(this.VendorID);
             this.groupBox1.Controls.Add(this.Cost);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.itemDesc);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.partID);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(293, 448);
+            this.groupBox1.Size = new System.Drawing.Size(293, 462);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Part";
@@ -694,17 +700,10 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // locationIDPart
-            // 
-            this.locationIDPart.Location = new System.Drawing.Point(10, 374);
-            this.locationIDPart.Name = "locationIDPart";
-            this.locationIDPart.Size = new System.Drawing.Size(258, 20);
-            this.locationIDPart.TabIndex = 17;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 358);
+            this.label10.Location = new System.Drawing.Point(0, 312);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 13);
             this.label10.TabIndex = 16;
@@ -712,7 +711,7 @@
             // 
             // shipmentTime
             // 
-            this.shipmentTime.Location = new System.Drawing.Point(10, 333);
+            this.shipmentTime.Location = new System.Drawing.Point(3, 287);
             this.shipmentTime.Name = "shipmentTime";
             this.shipmentTime.Size = new System.Drawing.Size(258, 20);
             this.shipmentTime.TabIndex = 15;
@@ -720,23 +719,24 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 317);
+            this.label9.Location = new System.Drawing.Point(0, 271);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(77, 13);
             this.label9.TabIndex = 14;
             this.label9.Text = "Shipment Time";
             // 
-            // expectLife
+            // exptdLife
             // 
-            this.expectLife.Location = new System.Drawing.Point(10, 292);
-            this.expectLife.Name = "expectLife";
-            this.expectLife.Size = new System.Drawing.Size(258, 20);
-            this.expectLife.TabIndex = 13;
+            this.exptdLife.Location = new System.Drawing.Point(3, 246);
+            this.exptdLife.Name = "exptdLife";
+            this.exptdLife.Size = new System.Drawing.Size(258, 20);
+            this.exptdLife.TabIndex = 13;
+            this.exptdLife.TextChanged += new System.EventHandler(this.exptdLife_TextChanged);
             // 
             // expectedLife
             // 
             this.expectedLife.AutoSize = true;
-            this.expectedLife.Location = new System.Drawing.Point(7, 276);
+            this.expectedLife.Location = new System.Drawing.Point(0, 230);
             this.expectedLife.Name = "expectedLife";
             this.expectedLife.Size = new System.Drawing.Size(72, 13);
             this.expectedLife.TabIndex = 12;
@@ -744,7 +744,7 @@
             // 
             // reorderPoint
             // 
-            this.reorderPoint.Location = new System.Drawing.Point(10, 249);
+            this.reorderPoint.Location = new System.Drawing.Point(3, 203);
             this.reorderPoint.Name = "reorderPoint";
             this.reorderPoint.Size = new System.Drawing.Size(258, 20);
             this.reorderPoint.TabIndex = 11;
@@ -753,7 +753,7 @@
             // reOrder
             // 
             this.reOrder.AutoSize = true;
-            this.reOrder.Location = new System.Drawing.Point(7, 233);
+            this.reOrder.Location = new System.Drawing.Point(0, 187);
             this.reOrder.Name = "reOrder";
             this.reOrder.Size = new System.Drawing.Size(74, 13);
             this.reOrder.TabIndex = 10;
@@ -762,7 +762,7 @@
             // 
             // quanit
             // 
-            this.quanit.Location = new System.Drawing.Point(10, 206);
+            this.quanit.Location = new System.Drawing.Point(3, 160);
             this.quanit.Name = "quanit";
             this.quanit.Size = new System.Drawing.Size(258, 20);
             this.quanit.TabIndex = 9;
@@ -771,34 +771,26 @@
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(7, 190);
+            this.label.Location = new System.Drawing.Point(0, 144);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(43, 13);
             this.label.TabIndex = 8;
             this.label.Text = "Quanity";
             this.label.Click += new System.EventHandler(this.label6_Click);
             // 
-            // vendor
-            // 
-            this.vendor.Location = new System.Drawing.Point(10, 163);
-            this.vendor.Name = "vendor";
-            this.vendor.Size = new System.Drawing.Size(258, 20);
-            this.vendor.TabIndex = 7;
-            this.vendor.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
-            // 
             // VendorID
             // 
             this.VendorID.AutoSize = true;
-            this.VendorID.Location = new System.Drawing.Point(7, 147);
+            this.VendorID.Location = new System.Drawing.Point(0, 101);
             this.VendorID.Name = "VendorID";
-            this.VendorID.Size = new System.Drawing.Size(55, 13);
+            this.VendorID.Size = new System.Drawing.Size(41, 13);
             this.VendorID.TabIndex = 6;
-            this.VendorID.Text = "Vendor ID";
+            this.VendorID.Text = "Vendor";
             this.VendorID.Click += new System.EventHandler(this.label5_Click);
             // 
             // Cost
             // 
-            this.Cost.Location = new System.Drawing.Point(10, 120);
+            this.Cost.Location = new System.Drawing.Point(3, 74);
             this.Cost.Name = "Cost";
             this.Cost.Size = new System.Drawing.Size(258, 20);
             this.Cost.TabIndex = 5;
@@ -806,7 +798,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 104);
+            this.label4.Location = new System.Drawing.Point(0, 58);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 4;
@@ -814,7 +806,7 @@
             // 
             // itemDesc
             // 
-            this.itemDesc.Location = new System.Drawing.Point(10, 78);
+            this.itemDesc.Location = new System.Drawing.Point(3, 32);
             this.itemDesc.Name = "itemDesc";
             this.itemDesc.Size = new System.Drawing.Size(258, 20);
             this.itemDesc.TabIndex = 3;
@@ -822,28 +814,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 62);
+            this.label3.Location = new System.Drawing.Point(0, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Item Description";
-            // 
-            // partID
-            // 
-            this.partID.Location = new System.Drawing.Point(10, 36);
-            this.partID.Name = "partID";
-            this.partID.Size = new System.Drawing.Size(258, 20);
-            this.partID.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Part ID";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // partsTableAdapter
             // 
@@ -852,6 +827,58 @@
             // vendorsTableAdapter
             // 
             this.vendorsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.LocationTableAdapter = this.locationTableAdapter;
+            this.tableAdapterManager.OrdersTableAdapter = null;
+            this.tableAdapterManager.PartsTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = WWOC_Desktop_App.GROUP4DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.VendorsTableAdapter = this.vendorsTableAdapter;
+            // 
+            // vendorNameComboBox
+            // 
+            this.vendorNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vendorsBindingSource, "vendorName", true));
+            this.vendorNameComboBox.DataSource = this.vendorsBindingSource1;
+            this.vendorNameComboBox.FormattingEnabled = true;
+            this.vendorNameComboBox.Location = new System.Drawing.Point(6, 117);
+            this.vendorNameComboBox.Name = "vendorNameComboBox";
+            this.vendorNameComboBox.Size = new System.Drawing.Size(255, 21);
+            this.vendorNameComboBox.TabIndex = 19;
+            this.vendorNameComboBox.SelectedIndexChanged += new System.EventHandler(this.vendorNameComboBox_SelectedIndexChanged);
+            // 
+            // locationBindingSource
+            // 
+            this.locationBindingSource.DataMember = "Location";
+            this.locationBindingSource.DataSource = this.gROUP4DataSet;
+            // 
+            // locationTableAdapter
+            // 
+            this.locationTableAdapter.ClearBeforeFill = true;
+            // 
+            // gROUP4DataSet2
+            // 
+            this.gROUP4DataSet2.DataSetName = "GROUP4DataSet2";
+            this.gROUP4DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vendorsBindingSource1
+            // 
+            this.vendorsBindingSource1.DataMember = "Vendors";
+            this.vendorsBindingSource1.DataSource = this.gROUP4DataSet2;
+            // 
+            // vendorsTableAdapter1
+            // 
+            this.vendorsTableAdapter1.ClearBeforeFill = true;
+            // 
+            // locationIDComboBox
+            // 
+            this.locationIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.locationBindingSource, "locationID", true));
+            this.locationIDComboBox.FormattingEnabled = true;
+            this.locationIDComboBox.Location = new System.Drawing.Point(0, 328);
+            this.locationIDComboBox.Name = "locationIDComboBox";
+            this.locationIDComboBox.Size = new System.Drawing.Size(261, 21);
+            this.locationIDComboBox.TabIndex = 20;
             // 
             // MainMenu
             // 
@@ -884,6 +911,9 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.locationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -918,9 +948,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox itemDesc;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox partID;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox vendor;
         private System.Windows.Forms.Label VendorID;
         private System.Windows.Forms.TextBox Cost;
         private System.Windows.Forms.Label label4;
@@ -928,7 +955,7 @@
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.TextBox reorderPoint;
         private System.Windows.Forms.Label reOrder;
-        private System.Windows.Forms.TextBox expectLife;
+        private System.Windows.Forms.TextBox exptdLife;
         private System.Windows.Forms.Label expectedLife;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox accessLevel;
@@ -941,7 +968,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox userID;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox locationIDPart;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox shipmentTime;
         private System.Windows.Forms.Label label9;
@@ -972,5 +998,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vendorIDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendorNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendorEmailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox vendorNameComboBox;
+        private GROUP4DataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private GROUP4DataSetTableAdapters.LocationTableAdapter locationTableAdapter;
+        private System.Windows.Forms.BindingSource locationBindingSource;
+        private GROUP4DataSet2 gROUP4DataSet2;
+        private System.Windows.Forms.BindingSource vendorsBindingSource1;
+        private GROUP4DataSet2TableAdapters.VendorsTableAdapter vendorsTableAdapter1;
+        private System.Windows.Forms.ComboBox locationIDComboBox;
     }
 }
