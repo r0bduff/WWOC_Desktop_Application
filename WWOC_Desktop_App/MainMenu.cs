@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* Class: MainMenu.cs
+ * @Authors Rob Duff, 
+ * 
+ * Description: Handles logic behind all tabs within the main menu form
+ * 
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,13 +19,23 @@ namespace WWOC_Desktop_App
 {
     public partial class MainMenu : Form
     {
-        public MainMenu()
+        public int currentUserID;
+        private Order order;
+        private OrderLineItem item;
+
+        public MainMenu(int currentUser)
         {
             InitializeComponent();
+            currentUserID = currentUser;
+
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'gROUP4DataSetOrderLineItem.Parts' table. You can move, or remove it, as needed.
+            this.partsTableAdapter1.Fill(this.gROUP4DataSetOrderLineItem.Parts);
+            // TODO: This line of code loads data into the 'gROUP4DataSetOrderLineItem.Order_Line_Item' table. You can move, or remove it, as needed.
+            this.order_Line_ItemTableAdapter.Fill(this.gROUP4DataSetOrderLineItem.Order_Line_Item);
             // TODO: This line of code loads data into the 'gROUP4DataSet.Vendors' table. You can move, or remove it, as needed.
             this.vendorsTableAdapter.Fill(this.gROUP4DataSet.Vendors);
             // TODO: This line of code loads data into the 'gROUP4DataSetParts.Parts' table. You can move, or remove it, as needed.
@@ -49,66 +65,69 @@ namespace WWOC_Desktop_App
          */
         private void cBoxPartDescription_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cBoxPartDescription.Text != "")
+            if (cBoxPartDescription.Text != "")
             {
                 using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
                 {
                     cnn.Open();
-                    Order order = new Order();
-                    order.partID = GetPartID(cnn);
-                    int currentstock = 0;
-                    order = GetPartInfo(order, cnn, out currentstock);
-                    tbUnitPrice.Text = order.unitPrice.ToString();
-                    tbShippingTime.Text = order.shippingTime;
-                    tbPartID.Text = order.partID.ToString();
-                    tbVendor.Text = GetVendorName(order, cnn);
-                    tbQtyStock.Text = currentstock.ToString();
-                    tbPODate.Text = DateTime.Now.ToString();
+                    item = new OrderLineItem();
+                    item.FillPartInfo(cBoxPartDescription.Text, cnn);
+
+                    //fill textboxes with text duh
+                    tbPartID.Text = item.partID.ToString();
+                    tbUnitPrice.Text = item.unitPrice.ToString();
+                    tbQtyStock.Text = item.qtyOH.ToString();
+                    tbVendor.Text = item.ReturnVendorName(cnn);
+                    
                     cnn.Close();
                 }
             }
-
         }
 
-        /* ORDER REQUEST TAB
-         * Gets the part ID for the selected part from the drop table
-         * Returns: int partID
-         */
-        private int GetPartID(SqlConnection cnn)
+        private void btnCreateOrder_Click(object sender, EventArgs e)
         {
-            SqlCommand getPart = new SqlCommand("SELECT partID FROM Parts WHERE itemDesc ='" + cBoxPartDescription.Text + "'", cnn);
-            SqlDataReader reader = getPart.ExecuteReader(); reader.Read();
-            int partID = Convert.ToInt32(reader["partID"]); reader.Close();
-            return partID;
+            //Clear Old Order
+
+
+            //Unlock GroupBoxes
+            groupBoxOrderSummary.Enabled = true;
+            groupBoxOrderInfo.Enabled = true;
+            groupBoxPartInfo.Enabled = true;
+            groupBoxRemove.Enabled = true;
+
+            //create new order object
+            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
+            {
+                cnn.Open();
+                order = new Order(currentUserID, cnn);
+                cnn.Close();
+            }
         }
 
-        /* ORDER REQUEST TAB
-         * Populates the order class with things from the parts database
-         * Returns: order object
-         */
-        private Order GetPartInfo(Order order, SqlConnection cnn, out int qty)
+        private void btnAddToOrder_Click(object sender, EventArgs e)
         {
-            SqlCommand getInfo = new SqlCommand("SELECT * FROM Parts WHERE partID ='" + order.partID + "'", cnn);
-            SqlDataReader reader = getInfo.ExecuteReader(); reader.Read();
-            order.unitPrice = Convert.ToInt32(reader["costUSD"]);
-            order.vendorID = Convert.ToInt32(reader["vendorID"]);
-            order.shippingTime = reader["shipmentTime"].ToString();
-            qty = Convert.ToInt32(reader["qty"]);
-            reader.Close();
-            return order;
-        }
+            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
+            {
+                if(tbQtyOrder.Text == "")
+                {
+                    MessageBox.Show("Please Enter a Quantity");
+                }
+                else
+                {
+                    cnn.Open();
+                    item.qty = Convert.ToInt32(tbQtyOrder.Text);
+                    item.orderID = order.orderID;
+                    item.AddOrderLineItem(cnn);
 
-        /* ORDER REQUEST TAB
-         * when given a vendor ID it finds the matching name
-         * Returns: string name
-         */
-        private string GetVendorName(Order order, SqlConnection cnn)
-        {
-            SqlCommand getVendor = new SqlCommand("SELECT vendorName FROM Vendors WHERE vendorID='" + order.vendorID + "'", cnn);
-            SqlDataReader reader = getVendor.ExecuteReader(); reader.Read();
-            string name = reader["vendorName"].ToString();
-            reader.Close();
-            return name;
-        }
+                    cBoxPartDescription.Text = "";
+                    tbPartID.Text = "";
+                    tbUnitPrice.Text = "";
+                    tbQtyStock.Text = "";
+                    tbVendor.Text = "";
+                    tbQtyOrder.Text = "";
+                }//end else
+                
+            }//end using
+        }//end btnAddToOrderCLick
     }
 }

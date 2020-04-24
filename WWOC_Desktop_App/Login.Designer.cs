@@ -113,7 +113,7 @@
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Login";
-            this.Text = "Login";
+            this.Text = "7";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
