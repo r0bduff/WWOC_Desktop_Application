@@ -27,7 +27,6 @@ namespace WWOC_Desktop_App
         {
             InitializeComponent();
             currentUserID = currentUser;
-
         }
 
         /* Description: 
@@ -36,6 +35,9 @@ namespace WWOC_Desktop_App
          */
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'gROUP4DataSetPendingOrders.Orders' table. You can move, or remove it, as needed.
+            this.ordersTableAdapter.Fill(this.gROUP4DataSetPendingOrders.Orders);
+            this.ordersTableAdapter.FillBy(this.gROUP4DataSetPendingOrders.Orders);
             // TODO: This line of code loads data into the 'gROUP4DataSetOrderLineItem.Parts' table. You can move, or remove it, as needed.
             this.partsTableAdapter1.Fill(this.gROUP4DataSetOrderLineItem.Parts);
             // TODO: This line of code loads data into the 'gROUP4DataSetOrderLineItem.Order_Line_Item' table. You can move, or remove it, as needed.
@@ -44,6 +46,18 @@ namespace WWOC_Desktop_App
             this.vendorsTableAdapter.Fill(this.gROUP4DataSet.Vendors);
             // TODO: This line of code loads data into the 'gROUP4DataSetParts.Parts' table. You can move, or remove it, as needed.
             this.partsTableAdapter.Fill(this.gROUP4DataSetParts.Parts);
+
+            //prep datagridview on make order page
+            dataGridParts.Columns.Add("index", "Index");
+            dataGridParts.Columns.Add("itemDesc", "Item Description");
+            dataGridParts.Columns.Add("partID", "Part ID");
+            dataGridParts.Columns.Add("qty", "Quantity");
+            dataGridParts.Columns.Add("unitPrice", "Price per Part");
+            //prep datagridview on pending orders page
+            dataGridPO_PartsinOrder.Columns.Add("itemDesc", "Item Description");
+            dataGridPO_PartsinOrder.Columns.Add("partID", "Part ID");
+            dataGridPO_PartsinOrder.Columns.Add("qty", "Quantity");
+            dataGridPO_PartsinOrder.Columns.Add("unitPrice", "Price per Part");
         }
 
         /* Description: When the metrics button is clicked the metrics form is opened
@@ -103,23 +117,13 @@ namespace WWOC_Desktop_App
          */
         private void btnCreateOrder_Click(object sender, EventArgs e)
         {
-            //Clear Old Order
-
-
+           
             //Unlock GroupBoxes
             groupBoxOrderSummary.Enabled = true;
             groupBoxOrderInfo.Enabled = true;
             groupBoxPartInfo.Enabled = true;
             groupBoxRemove.Enabled = true;
             cBoxRemove.Items.Add("");
-
-            //prep datagridview for parts
-            dataGridParts.Columns.Add("index", "Index");
-            dataGridParts.Columns.Add("itemDesc", "Item Description");
-            dataGridParts.Columns.Add("partID", "Part ID");
-            dataGridParts.Columns.Add("qty", "Quantity");
-            dataGridParts.Columns.Add("unitPrice", "Price per Part");
-            
 
             //create new order object
             using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
@@ -215,9 +219,10 @@ namespace WWOC_Desktop_App
             }
         }
 
-        /* Description: 
-         * Req: 
-         * Returns: 
+        /* PAGE: Order request
+         * Description: Removes an item from the datagrid or cart
+         * Req: nothin
+         * Returns: drops that boi from the list
          */
         private void btnRemoveItem_Click(object sender, EventArgs e)
         {
@@ -232,9 +237,10 @@ namespace WWOC_Desktop_App
             }
         }
 
-        /* Description: 
-        * Req: 
-        * Returns: 
+        /* PAGE: Order request
+         * Description: Submits the order for approval or sends it out if you have the authority
+        * Req: nothing
+        * Returns: clears the page and updates the db
         */
         private void btnSubmitOrderRequest_Click(object sender, EventArgs e)
         {
@@ -268,6 +274,63 @@ namespace WWOC_Desktop_App
             checkBoxApprove.Checked = false;
 
             item = new OrderLineItem();
+        }
+
+        /* PAGE: Approve Order
+         * Description: this stupid idiot is hidden behind a groupbox on the pending orders page
+         * Req: nothing
+         * Returns: this dude does a little query on the datagridPO_PendingOrders
+         */
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ordersTableAdapter.FillBy(this.gROUP4DataSetPendingOrders.Orders);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        /* PAGE: Approve Order
+         * Description: when a user clicks an item in the datagridview this then updates the page with some more details for them.
+         * Req: event triggered on user mouse click
+         * Returns: updates the text boxes on the approve order page with selected information.
+         */
+        private void dataGridPO_PendingOrders_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            if (e.RowIndex >= 0)
+            { 
+                DataGridViewRow row = dataGridPO_PendingOrders.Rows[e.RowIndex];
+                using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
+                {
+                    cnn.Open();
+                    int id = Convert.ToInt32(row.Cells[0].Value);
+                    order = new Order(id, cnn, currentUserID);
+                    cnn.Close();
+                }
+
+                tbPO_OrderID.Text = order.orderID.ToString();
+                tbPO_Username.Text = order.userID.ToString();//change to a username
+                tbPO_PODate.Text = order.poDate.ToString();
+                tbPO_ShipTime.Text = order.shippingTime.ToString();
+                tbPO_Terms.Text = order.terms.ToString();
+                tbPO_SubTotal.Text = order.subtotal.ToString();
+                tbPO_SalesTax.Text = order.salesTax.ToString();
+                tbPO_ShippingHandling.Text = order.shippingHandling.ToString();
+                tbPO_TotalPrice.Text = order.totalPrice.ToString();
+
+                dataGridPO_PartsinOrder.Rows.Clear();
+                OrderLineItem[] arrCart = order.cart.ToArray();
+                for (int i = 0; i < arrCart.Length; i++)
+                {
+                    dataGridPO_PartsinOrder.Rows.Add(arrCart[i].itemDesc, arrCart[i].partID, arrCart[i].qty, arrCart[i].unitPrice);
+                }
+                
+            }
         }
     }
 }

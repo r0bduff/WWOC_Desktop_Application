@@ -52,6 +52,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GROUP4DataSetOrderLineItem.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GROUP4DataSetPendingOrders.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GROUP4DataSetPendingOrders.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GROUP4DataSetVendors.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -115,6 +120,17 @@
     </None>
     <None Include="GROUP4DataSetOrderLineItem.xss">
       <DependentUpon>GROUP4DataSetOrderLineItem.xsd</DependentUpon>
+    </None>
+    <None Include="GROUP4DataSetPendingOrders.xsc">
+      <DependentUpon>GROUP4DataSetPendingOrders.xsd</DependentUpon>
+    </None>
+    <None Include="GROUP4DataSetPendingOrders.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GROUP4DataSetPendingOrders.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GROUP4DataSetPendingOrders.xss">
+      <DependentUpon>GROUP4DataSetPendingOrders.xsd</DependentUpon>
     </None>
     <None Include="GROUP4DataSetVendors.xsc">
       <DependentUpon>GROUP4DataSetVendors.xsd</DependentUpon>

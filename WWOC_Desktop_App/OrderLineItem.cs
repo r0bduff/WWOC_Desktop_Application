@@ -50,6 +50,22 @@ namespace WWOC_Desktop_App
             reader.Close();
         }
 
+      /* Description: Fills in all the part info from what is stored in the database. 
+       *              I REALLY COULDA DONE THIS BETTER THE FIRST TIME.
+       * Req: string partID, SqlConnection cnn (open)
+       * Returns: nothing, updates the class
+       */
+        public void FillPartInfo2(int partID, SqlConnection cnn)
+        {
+            SqlCommand getInfo = new SqlCommand("SELECT * FROM Parts WHERE partID ='" + partID + "'", cnn);
+            SqlDataReader reader = getInfo.ExecuteReader(); reader.Read();
+            itemDesc = reader["itemDesc"].ToString();
+            unitPrice = Convert.ToInt32(reader["costUSD"]);
+            vendorID = Convert.ToInt32(reader["vendorID"]);
+            qtyOH = Convert.ToInt32(reader["qty"]);
+            reader.Close();
+        }
+
         /* Description: translates a vendor ID into a vendor name for better front end readability.
          * Req: SqlConnection cnn (open)
          * Returns: name; string containting name of the vendor 
