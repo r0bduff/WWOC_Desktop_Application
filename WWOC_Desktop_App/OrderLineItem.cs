@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* Class: OrderLineItem.cs
+ * @Authors Rob Duff
+ * 
+ * Description: Object class that handles the things shared by both a part and order. 
+ * 
+ */
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -17,11 +23,9 @@ namespace WWOC_Desktop_App
         public int qtyOH { get; set; }
         public int vendorID { get; set; }
 
-
-
-        /* Description: 
-        * Req: 
-        * Returns: 
+        /* Description: Finds the partid for a given part from the database
+        * Req: string partDesc, SqlConnection cnn (open)
+        * Returns: nothing, updates the class
         */
         private void GetPartID(string partDesc, SqlConnection cnn)
         {
@@ -30,9 +34,9 @@ namespace WWOC_Desktop_App
             partID = Convert.ToInt32(reader["partID"]); reader.Close();
         }
 
-        /* Description: 
-        * Req: 
-        * Returns: 
+        /* Description: Fills in all the part info from what is stored in the database.
+        * Req: string partDesc, SqlConnection cnn (open)
+        * Returns: nothing, updates the class
         */
         public void FillPartInfo(string partDesc, SqlConnection cnn)
         {
@@ -46,9 +50,9 @@ namespace WWOC_Desktop_App
             reader.Close();
         }
 
-        /* Description: 
-         * Req: 
-         * Returns: 
+        /* Description: translates a vendor ID into a vendor name for better front end readability.
+         * Req: SqlConnection cnn (open)
+         * Returns: name; string containting name of the vendor 
          */
         public string ReturnVendorName(SqlConnection cnn)
         {
@@ -59,9 +63,9 @@ namespace WWOC_Desktop_App
             return name;
         }
 
-        /* Description: 
-         * Req: 
-         * Returns: 
+        /* Description: Adds an Item to the database. 
+         * Req: SqlConnection cnn (open)
+         * Returns: nothing, updates database
          */
         public void AddOrderLineItem(SqlConnection cnn)
         {

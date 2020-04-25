@@ -232,7 +232,7 @@ namespace WWOC_Desktop_App
         }
 
 
-        /* Description: Methos that updates the counter for a given username.
+        /* Description: Method that updates the counter for a given username.
          * Req: string username - username given by the user
          *      int counter - current value of the counter
          *      SqlConnection cnn - SqlConnection to the database with user information

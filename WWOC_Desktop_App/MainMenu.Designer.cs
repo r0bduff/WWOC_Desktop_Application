@@ -46,18 +46,17 @@
             this.gROUP4DataSetParts = new WWOC_Desktop_App.GROUP4DataSetParts();
             this.tabPagePending = new System.Windows.Forms.TabPage();
             this.tabPageRequest = new System.Windows.Forms.TabPage();
+            this.btnCreateOrder = new System.Windows.Forms.Button();
             this.groupBoxRemove = new System.Windows.Forms.GroupBox();
             this.btnRemoveItem = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cBoxRemove = new System.Windows.Forms.ComboBox();
             this.groupBoxOrderSummary = new System.Windows.Forms.GroupBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.gROUP4DataSetOrderLineItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gROUP4DataSetOrderLineItem = new WWOC_Desktop_App.GROUP4DataSetOrderLineItem();
+            this.dataGridParts = new System.Windows.Forms.DataGridView();
             this.groupBoxOrderInfo = new System.Windows.Forms.GroupBox();
             this.checkBoxApprove = new System.Windows.Forms.CheckBox();
             this.tbTotalPrice = new System.Windows.Forms.TextBox();
-            this.tbOtherCharges = new System.Windows.Forms.TextBox();
+            this.tbSalesTax = new System.Windows.Forms.TextBox();
             this.btnSubmitOrderRequest = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tbShippingHandling = new System.Windows.Forms.TextBox();
@@ -95,23 +94,20 @@
             this.vendorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gROUP4DataSet = new WWOC_Desktop_App.GROUP4DataSet();
             this.DGVMainMenu = new System.Windows.Forms.TabPage();
+            this.orderLineItemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.gROUP4DataSetOrderLineItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gROUP4DataSetOrderLineItem = new WWOC_Desktop_App.GROUP4DataSetOrderLineItem();
             this.partsTableAdapter = new WWOC_Desktop_App.GROUP4DataSetPartsTableAdapters.PartsTableAdapter();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMetrics = new System.Windows.Forms.Button();
             this.vendorsTableAdapter = new WWOC_Desktop_App.GROUP4DataSetTableAdapters.VendorsTableAdapter();
             this.grouP4DataSet1 = new WWOC_Desktop_App.GROUP4DataSet();
-            this.btnCreateOrder = new System.Windows.Forms.Button();
             this.grouP4DataSet2 = new WWOC_Desktop_App.GROUP4DataSet();
             this.orderLineItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.order_Line_ItemTableAdapter = new WWOC_Desktop_App.GROUP4DataSetOrderLineItemTableAdapters.Order_Line_ItemTableAdapter();
             this.partsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.partsTableAdapter1 = new WWOC_Desktop_App.GROUP4DataSetOrderLineItemTableAdapters.PartsTableAdapter();
-            this.orderLineItemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.partIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtyDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlMain.SuspendLayout();
             this.tabPageParts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -121,21 +117,21 @@
             this.tabPageRequest.SuspendLayout();
             this.groupBoxRemove.SuspendLayout();
             this.groupBoxOrderSummary.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderLineItemBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderLineItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridParts)).BeginInit();
             this.groupBoxOrderInfo.SuspendLayout();
             this.groupBoxPartInfo.SuspendLayout();
             this.DataGridView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderLineItemBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderLineItemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderLineItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grouP4DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grouP4DataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderLineItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderLineItemBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -282,11 +278,21 @@
             this.tabPageRequest.Text = "Make Order Request";
             this.tabPageRequest.UseVisualStyleBackColor = true;
             // 
+            // btnCreateOrder
+            // 
+            this.btnCreateOrder.Location = new System.Drawing.Point(98, 16);
+            this.btnCreateOrder.Name = "btnCreateOrder";
+            this.btnCreateOrder.Size = new System.Drawing.Size(195, 40);
+            this.btnCreateOrder.TabIndex = 23;
+            this.btnCreateOrder.Text = "Create New Order";
+            this.btnCreateOrder.UseVisualStyleBackColor = true;
+            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
+            // 
             // groupBoxRemove
             // 
             this.groupBoxRemove.Controls.Add(this.btnRemoveItem);
             this.groupBoxRemove.Controls.Add(this.label14);
-            this.groupBoxRemove.Controls.Add(this.comboBox1);
+            this.groupBoxRemove.Controls.Add(this.cBoxRemove);
             this.groupBoxRemove.Enabled = false;
             this.groupBoxRemove.Location = new System.Drawing.Point(17, 386);
             this.groupBoxRemove.Name = "groupBoxRemove";
@@ -303,6 +309,7 @@
             this.btnRemoveItem.TabIndex = 4;
             this.btnRemoveItem.Text = "Remove Item";
             this.btnRemoveItem.UseVisualStyleBackColor = true;
+            this.btnRemoveItem.Click += new System.EventHandler(this.btnRemoveItem_Click);
             // 
             // label14
             // 
@@ -313,17 +320,18 @@
             this.label14.TabIndex = 3;
             this.label14.Text = "Select an Item:";
             // 
-            // comboBox1
+            // cBoxRemove
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(135, 40);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(195, 24);
-            this.comboBox1.TabIndex = 0;
+            this.cBoxRemove.FormattingEnabled = true;
+            this.cBoxRemove.Location = new System.Drawing.Point(135, 40);
+            this.cBoxRemove.Name = "cBoxRemove";
+            this.cBoxRemove.Size = new System.Drawing.Size(195, 24);
+            this.cBoxRemove.TabIndex = 0;
+            this.cBoxRemove.SelectedIndexChanged += new System.EventHandler(this.cBoxRemove_SelectedIndexChanged);
             // 
             // groupBoxOrderSummary
             // 
-            this.groupBoxOrderSummary.Controls.Add(this.dataGridView3);
+            this.groupBoxOrderSummary.Controls.Add(this.dataGridParts);
             this.groupBoxOrderSummary.Enabled = false;
             this.groupBoxOrderSummary.Location = new System.Drawing.Point(378, 7);
             this.groupBoxOrderSummary.Name = "groupBoxOrderSummary";
@@ -332,40 +340,24 @@
             this.groupBoxOrderSummary.TabStop = false;
             this.groupBoxOrderSummary.Text = "Order Summary";
             // 
-            // dataGridView3
+            // dataGridParts
             // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AutoGenerateColumns = false;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.partIDDataGridViewTextBoxColumn1,
-            this.orderIDDataGridViewTextBoxColumn,
-            this.qtyDataGridViewTextBoxColumn1,
-            this.unitPriceDataGridViewTextBoxColumn});
-            this.dataGridView3.DataSource = this.orderLineItemBindingSource1;
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(3, 19);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(724, 308);
-            this.dataGridView3.TabIndex = 0;
-            // 
-            // gROUP4DataSetOrderLineItemBindingSource
-            // 
-            this.gROUP4DataSetOrderLineItemBindingSource.DataSource = this.gROUP4DataSetOrderLineItem;
-            this.gROUP4DataSetOrderLineItemBindingSource.Position = 0;
-            // 
-            // gROUP4DataSetOrderLineItem
-            // 
-            this.gROUP4DataSetOrderLineItem.DataSetName = "GROUP4DataSetOrderLineItem";
-            this.gROUP4DataSetOrderLineItem.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dataGridParts.AllowUserToAddRows = false;
+            this.dataGridParts.AllowUserToDeleteRows = false;
+            this.dataGridParts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGridParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridParts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridParts.Location = new System.Drawing.Point(3, 19);
+            this.dataGridParts.Name = "dataGridParts";
+            this.dataGridParts.ReadOnly = true;
+            this.dataGridParts.Size = new System.Drawing.Size(724, 308);
+            this.dataGridParts.TabIndex = 0;
             // 
             // groupBoxOrderInfo
             // 
             this.groupBoxOrderInfo.Controls.Add(this.checkBoxApprove);
             this.groupBoxOrderInfo.Controls.Add(this.tbTotalPrice);
-            this.groupBoxOrderInfo.Controls.Add(this.tbOtherCharges);
+            this.groupBoxOrderInfo.Controls.Add(this.tbSalesTax);
             this.groupBoxOrderInfo.Controls.Add(this.btnSubmitOrderRequest);
             this.groupBoxOrderInfo.Controls.Add(this.label3);
             this.groupBoxOrderInfo.Controls.Add(this.tbShippingHandling);
@@ -405,13 +397,13 @@
             this.tbTotalPrice.Size = new System.Drawing.Size(195, 23);
             this.tbTotalPrice.TabIndex = 24;
             // 
-            // tbOtherCharges
+            // tbSalesTax
             // 
-            this.tbOtherCharges.Location = new System.Drawing.Point(529, 99);
-            this.tbOtherCharges.Name = "tbOtherCharges";
-            this.tbOtherCharges.ReadOnly = true;
-            this.tbOtherCharges.Size = new System.Drawing.Size(195, 23);
-            this.tbOtherCharges.TabIndex = 23;
+            this.tbSalesTax.Location = new System.Drawing.Point(529, 99);
+            this.tbSalesTax.Name = "tbSalesTax";
+            this.tbSalesTax.ReadOnly = true;
+            this.tbSalesTax.Size = new System.Drawing.Size(195, 23);
+            this.tbSalesTax.TabIndex = 23;
             // 
             // btnSubmitOrderRequest
             // 
@@ -421,6 +413,7 @@
             this.btnSubmitOrderRequest.TabIndex = 16;
             this.btnSubmitOrderRequest.Text = "Submit Order Request";
             this.btnSubmitOrderRequest.UseVisualStyleBackColor = true;
+            this.btnSubmitOrderRequest.Click += new System.EventHandler(this.btnSubmitOrderRequest_Click);
             // 
             // label3
             // 
@@ -502,11 +495,11 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(414, 102);
+            this.label12.Location = new System.Drawing.Point(438, 102);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(109, 16);
+            this.label12.Size = new System.Drawing.Size(78, 16);
             this.label12.TabIndex = 13;
-            this.label12.Text = "Other Charges:";
+            this.label12.Text = "Sales Tax:";
             // 
             // tbPODate
             // 
@@ -751,6 +744,21 @@
             this.DGVMainMenu.Text = "Manage";
             this.DGVMainMenu.UseVisualStyleBackColor = true;
             // 
+            // orderLineItemBindingSource1
+            // 
+            this.orderLineItemBindingSource1.DataMember = "Order_Line_Item";
+            this.orderLineItemBindingSource1.DataSource = this.gROUP4DataSetOrderLineItemBindingSource;
+            // 
+            // gROUP4DataSetOrderLineItemBindingSource
+            // 
+            this.gROUP4DataSetOrderLineItemBindingSource.DataSource = this.gROUP4DataSetOrderLineItem;
+            this.gROUP4DataSetOrderLineItemBindingSource.Position = 0;
+            // 
+            // gROUP4DataSetOrderLineItem
+            // 
+            this.gROUP4DataSetOrderLineItem.DataSetName = "GROUP4DataSetOrderLineItem";
+            this.gROUP4DataSetOrderLineItem.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // partsTableAdapter
             // 
             this.partsTableAdapter.ClearBeforeFill = true;
@@ -798,16 +806,6 @@
             this.grouP4DataSet1.DataSetName = "GROUP4DataSet";
             this.grouP4DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // btnCreateOrder
-            // 
-            this.btnCreateOrder.Location = new System.Drawing.Point(98, 16);
-            this.btnCreateOrder.Name = "btnCreateOrder";
-            this.btnCreateOrder.Size = new System.Drawing.Size(195, 40);
-            this.btnCreateOrder.TabIndex = 23;
-            this.btnCreateOrder.Text = "Press To Create New Order";
-            this.btnCreateOrder.UseVisualStyleBackColor = true;
-            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
-            // 
             // grouP4DataSet2
             // 
             this.grouP4DataSet2.DataSetName = "GROUP4DataSet";
@@ -830,39 +828,6 @@
             // partsTableAdapter1
             // 
             this.partsTableAdapter1.ClearBeforeFill = true;
-            // 
-            // orderLineItemBindingSource1
-            // 
-            this.orderLineItemBindingSource1.DataMember = "Order_Line_Item";
-            this.orderLineItemBindingSource1.DataSource = this.gROUP4DataSetOrderLineItemBindingSource;
-            // 
-            // partIDDataGridViewTextBoxColumn1
-            // 
-            this.partIDDataGridViewTextBoxColumn1.DataPropertyName = "partID";
-            this.partIDDataGridViewTextBoxColumn1.HeaderText = "partID";
-            this.partIDDataGridViewTextBoxColumn1.Name = "partIDDataGridViewTextBoxColumn1";
-            this.partIDDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // orderIDDataGridViewTextBoxColumn
-            // 
-            this.orderIDDataGridViewTextBoxColumn.DataPropertyName = "orderID";
-            this.orderIDDataGridViewTextBoxColumn.HeaderText = "orderID";
-            this.orderIDDataGridViewTextBoxColumn.Name = "orderIDDataGridViewTextBoxColumn";
-            this.orderIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // qtyDataGridViewTextBoxColumn1
-            // 
-            this.qtyDataGridViewTextBoxColumn1.DataPropertyName = "qty";
-            this.qtyDataGridViewTextBoxColumn1.HeaderText = "qty";
-            this.qtyDataGridViewTextBoxColumn1.Name = "qtyDataGridViewTextBoxColumn1";
-            this.qtyDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // unitPriceDataGridViewTextBoxColumn
-            // 
-            this.unitPriceDataGridViewTextBoxColumn.DataPropertyName = "unitPrice";
-            this.unitPriceDataGridViewTextBoxColumn.HeaderText = "unitPrice";
-            this.unitPriceDataGridViewTextBoxColumn.Name = "unitPriceDataGridViewTextBoxColumn";
-            this.unitPriceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // MainMenu
             // 
@@ -889,9 +854,7 @@
             this.groupBoxRemove.ResumeLayout(false);
             this.groupBoxRemove.PerformLayout();
             this.groupBoxOrderSummary.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderLineItemBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderLineItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridParts)).EndInit();
             this.groupBoxOrderInfo.ResumeLayout(false);
             this.groupBoxOrderInfo.PerformLayout();
             this.groupBoxPartInfo.ResumeLayout(false);
@@ -900,12 +863,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderLineItemBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderLineItemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderLineItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grouP4DataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grouP4DataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderLineItemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderLineItemBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -964,7 +929,7 @@
         private System.Windows.Forms.GroupBox groupBoxOrderInfo;
         private System.Windows.Forms.CheckBox checkBoxApprove;
         private System.Windows.Forms.TextBox tbTotalPrice;
-        private System.Windows.Forms.TextBox tbOtherCharges;
+        private System.Windows.Forms.TextBox tbSalesTax;
         private System.Windows.Forms.TextBox tbShippingHandling;
         private System.Windows.Forms.TextBox tbSubTotal;
         private System.Windows.Forms.TextBox tbShippingTime;
@@ -978,21 +943,17 @@
         private System.Windows.Forms.GroupBox groupBoxRemove;
         private System.Windows.Forms.Button btnRemoveItem;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cBoxRemove;
         private GROUP4DataSet grouP4DataSet1;
         private System.Windows.Forms.BindingSource gROUP4DataSetOrderLineItemBindingSource;
         private GROUP4DataSetOrderLineItem gROUP4DataSetOrderLineItem;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dataGridParts;
         private System.Windows.Forms.Button btnCreateOrder;
         private GROUP4DataSet grouP4DataSet2;
         private System.Windows.Forms.BindingSource orderLineItemBindingSource;
         private GROUP4DataSetOrderLineItemTableAdapters.Order_Line_ItemTableAdapter order_Line_ItemTableAdapter;
         private System.Windows.Forms.BindingSource partsBindingSource1;
         private GROUP4DataSetOrderLineItemTableAdapters.PartsTableAdapter partsTableAdapter1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn partIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtyDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource orderLineItemBindingSource1;
     }
 }

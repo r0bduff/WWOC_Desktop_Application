@@ -3,10 +3,9 @@
  * 
  * Description: Object class that stores and handles critical information about an order. 
  * 
+ * Things to do: Calculate estimated shipping time
+ * 
  */
-
-
-
 
 using System;
 using System.Collections.Generic;
@@ -25,11 +24,11 @@ namespace WWOC_Desktop_App
         public string shippingTime { get; set; }
         public string reasonForOrder { get; set; }
         public string terms { get; set; }
-        public float subtotal { get; set; }
-        public float salesTax { get; set; }
-        public float shippingHandling { get; set; }
-        public float otherCharges { get; set; }
-        public float totalPrice { get; set; }
+        public double subtotal { get; set; }
+        public double salesTax { get; set; }
+        public double shippingHandling { get; set; }
+        public double otherCharges { get; set; }
+        public double totalPrice { get; set; }
         public List<OrderLineItem> cart { get; set; }
         public Boolean approved { get; set; }
 
@@ -38,9 +37,12 @@ namespace WWOC_Desktop_App
          * Returns: 
          */
 
-        /* Description: 
-         * Req: 
-         * Returns: 
+        /* Description: Constructor class so that there is a place for things to go when we wanna update the database
+         *    Instanciates the cart list so things can be added to it. also holds who is making the order.
+         *    shh dont tell anyone im realizing its possible for it to not track exactly who made the order in 
+         *    one rare instance im not going to handle that yet
+         * Req: int currentUserID, SqlConnection cnn
+         * Returns: nothing, we are making the new object
          */
         public Order(int currentUserID, SqlConnection cnn)
         {
@@ -49,23 +51,44 @@ namespace WWOC_Desktop_App
             CreateDatabaseColumn(cnn);
         }
 
-        /* Description: 
-         * Req: 
-         * Returns: 
-         
-        public string AddPartToOrder(string partDesc, SqlConnection cnn)
+        /* Description: Adds a given part to the cart list
+         * Req: OrderLineItem part
+         * Returns: nothing
+         */
+        public void AddPartToOrder(OrderLineItem part)
         {
-            OrderLineItem newItem = new OrderLineItem();
-            newItem.GetPartID(partDesc, cnn);
-            newItem.FillPartInfo(cnn);
-            cart.Add(newItem);
-            return newItem.ReturnVendorName(cnn);
+            cart.Add(part);
         }
-        */
 
         /* Description: 
-         * Req: 
-         * Returns: 
+        * Req: 
+        * Returns: 
+        */
+        public void RemovePartFromOrder(string itemName, SqlConnection cnn, out int index)
+        {
+            index = 0;
+            OrderLineItem[] arrCart = cart.ToArray();
+            for (int i = 0; i < arrCart.Length; i++)
+            {
+                if(arrCart[i].itemDesc == itemName)
+                {
+                    cart.RemoveAt(i);
+                    index = i;
+                }
+                else
+                {
+                    index = 0;
+                }
+            }
+            
+        }
+        
+
+        /* Description: Creates a new database column only if the most recent order has been placed and filled. 
+         *      checks based on if the total price is set to 0 or not. I am assuming that you would not order something
+         *      that is somehow worth $0.
+         * Req: SqlConnection cnn
+         * Returns: nothing, updates the DB
          */
         public void CreateDatabaseColumn(SqlConnection cnn)
         {
@@ -85,16 +108,38 @@ namespace WWOC_Desktop_App
             else
             {
                 orderID = getMaxID;
+                SqlCommand pullOrderItems = new SqlCommand("DELETE FROM Order_Line_Item WHERE orderID = " + orderID + ";", cnn);
+                pullOrderItems.ExecuteNonQuery();
             }
         }
 
+        /* Description: Calculates all the stuff in the final costs groupbox.
+         * Req: nothing
+         * Returns: nothing, just updates the class so things can be pulled to MainMenu.cs
+         */
+        public void CalculateFinalCosts()
+        {
+            OrderLineItem[] arrCart = cart.ToArray();
+            for(int i = 0; i < arrCart.Length; i++)
+            {
+                subtotal += arrCart[i].qty * arrCart[i].unitPrice;
+            }
+            shippingHandling = subtotal * 0.05;
+            salesTax = subtotal * 0.0868;
+            totalPrice = subtotal + shippingHandling + salesTax;
+        }
+
+        
         /* Description: 
          * Req: 
          * Returns: 
          */
-        public void UpdateDatabase()
+        public void UpdateDatabase(SqlConnection cnn)
         {
-
+            SqlCommand AddOrder = new SqlCommand("UPDATE Orders SET poDate ='" + poDate + "', terms ='" + terms +"', subtotal=" + subtotal +", salesTax=" + salesTax 
+                                                                    +", shippingHandling=" + shippingHandling + ", totalPrice=" + totalPrice + ", approved='" + approved + "' " +
+                                                                    "WHERE orderID =" + orderID + ";", cnn);
+            AddOrder.ExecuteNonQuery();
         }
     }
 }

@@ -19,9 +19,9 @@ namespace WWOC_Desktop_App
 {
     public partial class MainMenu : Form
     {
-        public int currentUserID;
-        private Order order;
-        private OrderLineItem item;
+        public int currentUserID;//bad code ignore pls
+        private Order order;//maybe worse also ignore
+        private OrderLineItem item;//probably even worse chiltion just keep scrolling
 
         public MainMenu(int currentUser)
         {
@@ -30,6 +30,10 @@ namespace WWOC_Desktop_App
 
         }
 
+        /* Description: 
+         * Req: 
+         * Returns: 
+         */
         private void MainMenu_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'gROUP4DataSetOrderLineItem.Parts' table. You can move, or remove it, as needed.
@@ -42,16 +46,19 @@ namespace WWOC_Desktop_App
             this.partsTableAdapter.Fill(this.gROUP4DataSetParts.Parts);
         }
 
-        /* MAIN MENU NAVIGATION
-         * opens the metrics form on button click
+        /* Description: When the metrics button is clicked the metrics form is opened
+         * Req: clicking a button
+         * Returns: nothing
          */
         private void btnMetrics_Click(object sender, EventArgs e)
         {
             Form Metrics = new Metrics();
             Metrics.Show();
         }
-        /* MAIN MENU NAVIGATION
-         * logs the user out of the main menu and back to the login window
+
+        /* Description: When the logout button is clicked the main menu is closed
+         * Req: clicking the button
+         * Returns: nothing
          */
         private void btnLogOut_Click(object sender, EventArgs e)
         {
@@ -60,8 +67,11 @@ namespace WWOC_Desktop_App
             this.Hide();
         }
 
-        /* ORDER REQUEST TAB
-         * When a part is selected the information is updated. This handle the primary updates for the page
+        /* PAGE: Order Request 
+         * Description: When a part is selected from the drop down menu the information below
+         *              is updated to describe the selected part.
+         * Req: selecting a part
+         * Returns: displays some info on the order request page
          */
         private void cBoxPartDescription_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -84,6 +94,13 @@ namespace WWOC_Desktop_App
             }
         }
 
+        /* PAGE: Order request
+         * Description: Creates a new Order and allows the user to start selecting parts
+         *              this may have been added due to my own stupidity, but it works so we aint complaining.
+         *              Also utilized to update some stuff on the form page that needed to be done manually.
+         * Req: clicking the button
+         * Returns: Enables text boxes, adds some columns to the datagrid
+         */
         private void btnCreateOrder_Click(object sender, EventArgs e)
         {
             //Clear Old Order
@@ -94,6 +111,15 @@ namespace WWOC_Desktop_App
             groupBoxOrderInfo.Enabled = true;
             groupBoxPartInfo.Enabled = true;
             groupBoxRemove.Enabled = true;
+            cBoxRemove.Items.Add("");
+
+            //prep datagridview for parts
+            dataGridParts.Columns.Add("index", "Index");
+            dataGridParts.Columns.Add("itemDesc", "Item Description");
+            dataGridParts.Columns.Add("partID", "Part ID");
+            dataGridParts.Columns.Add("qty", "Quantity");
+            dataGridParts.Columns.Add("unitPrice", "Price per Part");
+            
 
             //create new order object
             using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
@@ -104,6 +130,11 @@ namespace WWOC_Desktop_App
             }
         }
 
+        /* PAGE: Order request
+         * Description: Add a new part to the order. Also updates the data grid view and wipes old info from part info groupbox
+         * Req: clicking the button
+         * Returns: not much, but does some background stuffs
+         */
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
             using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
@@ -118,6 +149,9 @@ namespace WWOC_Desktop_App
                     item.qty = Convert.ToInt32(tbQtyOrder.Text);
                     item.orderID = order.orderID;
                     item.AddOrderLineItem(cnn);
+                    order.AddPartToOrder(item);
+                    AddItemToDataGrid();
+                    order.CalculateFinalCosts();
 
                     cBoxPartDescription.Text = "";
                     tbPartID.Text = "";
@@ -125,9 +159,115 @@ namespace WWOC_Desktop_App
                     tbQtyStock.Text = "";
                     tbVendor.Text = "";
                     tbQtyOrder.Text = "";
+
+                    tbSubTotal.Text = order.subtotal.ToString();
+                    tbSalesTax.Text = order.salesTax.ToString();
+                    tbShippingHandling.Text = order.shippingHandling.ToString();
+                    tbTotalPrice.Text = order.totalPrice.ToString();
+                    tbPODate.Text = DateTime.Now.ToString();
+
                 }//end else
-                
+                cnn.Close();
             }//end using
         }//end btnAddToOrderCLick
+
+        /* PAGE: Order request
+         * Description: Adds and item to the dataGrid. Did I really need a method for this not really but its here.
+         *              Also populates the remove combo box list of stuff so this is important dont delete.
+         * Req: nothing
+         * Returns: updates combo box and datagridview
+         */
+        private void AddItemToDataGrid()
+        {
+            dataGridParts.Rows.Add(dataGridParts.Rows.Count, item.itemDesc, item.partID, item.qty, item.unitPrice);
+            cBoxRemove.Items.Add(item.itemDesc);  
+        }
+
+        /* PAGE: Order request
+         * Description: Does some selection on the datagridview when you select a part in the combo box.
+         *              was not intending to do this but it seemed like fun so i made it real quick.
+         * Req: select a part from the menu
+         * Returns: does some cool color things yay
+         */
+        private void cBoxRemove_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OrderLineItem[] arrCart = order.cart.ToArray();
+            if (cBoxRemove.Text != "")
+            {
+                for(int i = 0; i < arrCart.Length; i++)
+                {
+                    if(cBoxRemove.Text == arrCart[i].itemDesc)
+                    {
+                        dataGridParts.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
+                    }
+                    else
+                    {
+                        dataGridParts.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                    }
+                }
+            }
+            else
+            {
+                for(int i = 0; i < dataGridParts.Rows.Count; i++)
+                {
+                    dataGridParts.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                }
+            }
+        }
+
+        /* Description: 
+         * Req: 
+         * Returns: 
+         */
+        private void btnRemoveItem_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
+            {
+                cnn.Open();
+                string itemDesc = cBoxRemove.Text;
+                int index;
+                order.RemovePartFromOrder(itemDesc, cnn, out index);
+                dataGridParts.Rows.RemoveAt(index);
+                cnn.Close();
+            }
+        }
+
+        /* Description: 
+        * Req: 
+        * Returns: 
+        */
+        private void btnSubmitOrderRequest_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
+            {
+                cnn.Open();
+                order.poDate = DateTime.Now;
+                order.terms = tbTerms.Text;
+                order.approved = checkBoxApprove.Checked;
+                order.UpdateDatabase(cnn);
+                cnn.Close();
+            }
+
+            groupBoxOrderSummary.Enabled = false;
+            groupBoxOrderInfo.Enabled = false;
+            groupBoxPartInfo.Enabled = false;
+            groupBoxRemove.Enabled = false;
+            cBoxRemove.Items.Clear();
+
+            dataGridParts.Rows.Clear();
+            dataGridParts.Columns.Clear();
+
+            tbTotalPrice.Text = "";
+            tbTerms.Text = "";
+            tbSubTotal.Text = "";
+            tbShippingTime.Text = "";
+            tbShippingHandling.Text = "";
+            tbSalesTax.Text = "";
+            tbPODate.Text = "";
+
+            checkBoxApprove.Checked = false;
+
+            item = new OrderLineItem();
+        }
     }
 }
