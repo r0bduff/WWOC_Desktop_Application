@@ -66,9 +66,9 @@ namespace WWOC_Desktop_App
             cart.Add(part);
         }
 
-        /* Description: 
-        * Req: 
-        * Returns: 
+        /* Description: Removes a given part from the cart list.
+        * Req: string itemName, SqlConnection cnn, out int index
+        * Returns: the index in an out statement. Used to update the index for somethin
         */
         public void RemovePartFromOrder(string itemName, SqlConnection cnn, out int index)
         {
@@ -85,8 +85,7 @@ namespace WWOC_Desktop_App
                 {
                     index = 0;
                 }
-            }
-            
+            }    
         }
         
 
@@ -198,6 +197,29 @@ namespace WWOC_Desktop_App
                 arrCart[i].FillPartInfo2(arrCart[i].partID, cnn);
             }
             cart = arrCart.ToList<OrderLineItem>();
+        }
+
+        /* Description: Removes this order from the DB permenatnly. Also removes associated order_Line_items
+         * Req: SqlConnection cnn
+         * Returns: nothin
+         */
+        public void RemoveOrderDB(SqlConnection cnn)
+        {
+            SqlCommand remove = new SqlCommand("DELETE FROM Orders WHERE orderID=" + orderID, cnn);
+            remove.ExecuteNonQuery();
+            SqlCommand remove2 = new SqlCommand("DELETE FROM Order_Line_Item WHERE orderID =" + orderID, cnn);
+            remove2.ExecuteNonQuery();
+        }
+
+        /* Description: approves this order in the DB. updates local variable to match
+         * Req: SqlConnection cnn
+         * Returns: nothin
+         */
+        public void ApproveOrderDB(SqlConnection cnn)
+        {
+            approved = true;
+            SqlCommand approve = new SqlCommand("UPDATE Orders SET approved='true' WHERE orderID=" + orderID, cnn);
+            approve.ExecuteNonQuery();
         }
     }
 }

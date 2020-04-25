@@ -332,5 +332,61 @@ namespace WWOC_Desktop_App
             }
         }
 
+       /* PAGE: Approve Order
+        * Description: Approves the order on button click, and changes the status in the db
+        * Req: nothin
+        * Returns: updates the db
+        */
+        private void btnApproveOrder_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
+            {
+                cnn.Open();
+                order.ApproveOrderDB(cnn);
+                cnn.Close();
+            }
+            MessageBox.Show("Order Approved");
+
+            tbPO_OrderID.Text = "";
+            tbPO_Username.Text = "";
+            tbPO_PODate.Text = "";
+            tbPO_ShipTime.Text = "";
+            tbPO_Terms.Text = "";
+            tbPO_SubTotal.Text = "";
+            tbPO_SalesTax.Text = "";
+            tbPO_ShippingHandling.Text = "";
+            tbPO_TotalPrice.Text = "";
+
+            dataGridPO_PartsinOrder.Rows.Clear();
+        }
+
+      /* PAGE: Approve Order
+       * Description: Removes and cancels the order request on button click. Order information is removed from the db
+       * Req: nothin
+       * Returns: updates the db
+       */
+        private void btnRejectOrder_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
+            {
+                cnn.Open();
+                order.RemoveOrderDB(cnn);
+                cnn.Close();
+            }
+
+            MessageBox.Show("Order Rejected and Removed");
+
+            tbPO_OrderID.Text = "";
+            tbPO_Username.Text = "";
+            tbPO_PODate.Text = "";
+            tbPO_ShipTime.Text = "";
+            tbPO_Terms.Text = "";
+            tbPO_SubTotal.Text = "";
+            tbPO_SalesTax.Text = "";
+            tbPO_ShippingHandling.Text = "";
+            tbPO_TotalPrice.Text = "";
+
+            dataGridPO_PartsinOrder.Rows.Clear();
+        }
     }
 }

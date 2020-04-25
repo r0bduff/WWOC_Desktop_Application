@@ -373,6 +373,7 @@
             this.btnRejectOrder.TabIndex = 40;
             this.btnRejectOrder.Text = "Reject Order";
             this.btnRejectOrder.UseVisualStyleBackColor = true;
+            this.btnRejectOrder.Click += new System.EventHandler(this.btnRejectOrder_Click);
             // 
             // label24
             // 
@@ -537,6 +538,7 @@
             this.btnApproveOrder.TabIndex = 0;
             this.btnApproveOrder.Text = "Approve Order";
             this.btnApproveOrder.UseVisualStyleBackColor = true;
+            this.btnApproveOrder.Click += new System.EventHandler(this.btnApproveOrder_Click);
             // 
             // fillByToolStrip
             // 
