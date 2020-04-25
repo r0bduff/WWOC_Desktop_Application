@@ -252,6 +252,10 @@ namespace WWOC_Desktop_App
             }
         }
 
-        
+        private void btnSkip_Click(object sender, EventArgs e)
+        {
+            Form mainmenu = new MainMenu(1);
+            mainmenu.Show();
+        }
     }//end login class
 }

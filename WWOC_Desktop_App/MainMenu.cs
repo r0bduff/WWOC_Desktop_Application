@@ -35,6 +35,9 @@ namespace WWOC_Desktop_App
          */
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'gROUP4DataSetOrderHistory.Orders' table. You can move, or remove it, as needed.
+            this.ordersTableAdapter1.Fill(this.gROUP4DataSetOrderHistory.Orders);
+            this.ordersTableAdapter1.FillBy(this.gROUP4DataSetOrderHistory.Orders);
             // TODO: This line of code loads data into the 'gROUP4DataSetPendingOrders.Orders' table. You can move, or remove it, as needed.
             this.ordersTableAdapter.Fill(this.gROUP4DataSetPendingOrders.Orders);
             this.ordersTableAdapter.FillBy(this.gROUP4DataSetPendingOrders.Orders);
@@ -58,6 +61,11 @@ namespace WWOC_Desktop_App
             dataGridPO_PartsinOrder.Columns.Add("partID", "Part ID");
             dataGridPO_PartsinOrder.Columns.Add("qty", "Quantity");
             dataGridPO_PartsinOrder.Columns.Add("unitPrice", "Price per Part");
+            //prep datagridview on order history page
+            dataGridOH_PartsInOrder.Columns.Add("itemDesc", "Item Description");
+            dataGridOH_PartsInOrder.Columns.Add("partID", "Part ID");
+            dataGridOH_PartsInOrder.Columns.Add("qty", "Quantity");
+            dataGridOH_PartsInOrder.Columns.Add("unitPrice", "Price per Part");
         }
 
         /* Description: When the metrics button is clicked the metrics form is opened
@@ -262,6 +270,8 @@ namespace WWOC_Desktop_App
 
             dataGridParts.Rows.Clear();
 
+            UpdateDataGridPO();
+
             tbTotalPrice.Text = "";
             tbTerms.Text = "";
             tbSubTotal.Text = "";
@@ -358,6 +368,7 @@ namespace WWOC_Desktop_App
             tbPO_TotalPrice.Text = "";
 
             dataGridPO_PartsinOrder.Rows.Clear();
+            UpdateDataGridPO();
         }
 
       /* PAGE: Approve Order
@@ -387,6 +398,79 @@ namespace WWOC_Desktop_App
             tbPO_TotalPrice.Text = "";
 
             dataGridPO_PartsinOrder.Rows.Clear();
+
+            UpdateDataGridPO();
         }
+
+        /* PAGE: Approve Order
+       * Description: updates the datagridview to match what is in the DB
+       * Req: nothin
+       * Returns: updates the datagridPO_PendingOrders
+       */
+        private void UpdateDataGridPO()
+        {
+            this.ordersTableAdapter.Fill(this.gROUP4DataSetPendingOrders.Orders);
+            dataGridPO_PendingOrders.Refresh();
+            this.ordersTableAdapter.FillBy(this.gROUP4DataSetPendingOrders.Orders);
+        }
+
+        /* PAGE: Order History
+        * Description: queries out unapproved orders from orders table
+        * Req: nothing
+        * Returns: updates the order history datagridview
+        */
+        private void fillByToolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ordersTableAdapter1.FillBy(this.gROUP4DataSetOrderHistory.Orders);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        /* PAGE: Order History
+       * Description: when a user clicks an item in the datagridview this then updates the page with some more details for them.
+       * Req: click a cell
+       * Returns: updates the order details datagridview
+       */
+        private void dataGridOH_orderHistory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridOH_orderHistory.Rows[e.RowIndex];
+                using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
+                {
+                    cnn.Open();
+                    int id = Convert.ToInt32(row.Cells[0].Value);
+                    order = new Order(id, cnn, currentUserID);
+                    cnn.Close();
+                }
+
+                tbOH_orderID.Text = order.orderID.ToString();
+                tbOH_username.Text = order.userID.ToString();//change to a username
+                tbOH_POdate.Text = order.poDate.ToString();
+                tbOH_shippingTime.Text = order.shippingTime.ToString();
+                tbOH_terms.Text = order.terms.ToString();
+                tbOH_subtotal.Text = order.subtotal.ToString();
+                tbOH_salesTax.Text = order.salesTax.ToString();
+                tbOH_shippingHandling.Text = order.shippingHandling.ToString();
+                tbOH_totalPrice.Text = order.totalPrice.ToString();
+
+                dataGridOH_PartsInOrder.Rows.Clear();
+                OrderLineItem[] arrCart = order.cart.ToArray();
+                for (int i = 0; i < arrCart.Length; i++)
+                {
+                    dataGridOH_PartsInOrder.Rows.Add(arrCart[i].itemDesc, arrCart[i].partID, arrCart[i].qty, arrCart[i].unitPrice);
+                }
+
+            }
+        }
+
+       
+
     }
 }

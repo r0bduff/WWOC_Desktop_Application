@@ -44,41 +44,6 @@
             this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gROUP4DataSetPartsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gROUP4DataSetParts = new WWOC_Desktop_App.GROUP4DataSetParts();
-            this.tabPagePending = new System.Windows.Forms.TabPage();
-            this.groupBoxOrderDetailsP = new System.Windows.Forms.GroupBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.dataGridPO_PartsinOrder = new System.Windows.Forms.DataGridView();
-            this.btnRejectOrder = new System.Windows.Forms.Button();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.tbPO_Terms = new System.Windows.Forms.TextBox();
-            this.tbPO_TotalPrice = new System.Windows.Forms.TextBox();
-            this.tbPO_ShippingHandling = new System.Windows.Forms.TextBox();
-            this.tbPO_SalesTax = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.tbPO_SubTotal = new System.Windows.Forms.TextBox();
-            this.tbPO_ShipTime = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.tbPO_PODate = new System.Windows.Forms.TextBox();
-            this.tbPO_Username = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.tbPO_OrderID = new System.Windows.Forms.TextBox();
-            this.btnApproveOrder = new System.Windows.Forms.Button();
-            this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
-            this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBoxPendingOrders = new System.Windows.Forms.GroupBox();
-            this.dataGridPO_PendingOrders = new System.Windows.Forms.DataGridView();
-            this.orderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.poDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.approvedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gROUP4DataSetPendingOrders = new WWOC_Desktop_App.GROUP4DataSetPendingOrders();
             this.tabPageRequest = new System.Windows.Forms.TabPage();
             this.btnCreateOrder = new System.Windows.Forms.Button();
             this.groupBoxRemove = new System.Windows.Forms.GroupBox();
@@ -119,10 +84,73 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.tabPagePending = new System.Windows.Forms.TabPage();
+            this.groupBoxOrderDetailsP = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.dataGridPO_PartsinOrder = new System.Windows.Forms.DataGridView();
+            this.btnRejectOrder = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.tbPO_Terms = new System.Windows.Forms.TextBox();
+            this.tbPO_TotalPrice = new System.Windows.Forms.TextBox();
+            this.tbPO_ShippingHandling = new System.Windows.Forms.TextBox();
+            this.tbPO_SalesTax = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.tbPO_SubTotal = new System.Windows.Forms.TextBox();
+            this.tbPO_ShipTime = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.tbPO_PODate = new System.Windows.Forms.TextBox();
+            this.tbPO_Username = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tbPO_OrderID = new System.Windows.Forms.TextBox();
+            this.btnApproveOrder = new System.Windows.Forms.Button();
+            this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
+            this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBoxPendingOrders = new System.Windows.Forms.GroupBox();
+            this.dataGridPO_PendingOrders = new System.Windows.Forms.DataGridView();
+            this.orderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.poDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approvedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gROUP4DataSetPendingOrders = new WWOC_Desktop_App.GROUP4DataSetPendingOrders();
             this.tabPageHistory = new System.Windows.Forms.TabPage();
+            this.gbOH_orderDetails = new System.Windows.Forms.GroupBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.dataGridOH_PartsInOrder = new System.Windows.Forms.DataGridView();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.tbOH_terms = new System.Windows.Forms.TextBox();
+            this.tbOH_totalPrice = new System.Windows.Forms.TextBox();
+            this.tbOH_shippingHandling = new System.Windows.Forms.TextBox();
+            this.tbOH_salesTax = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.tbOH_subtotal = new System.Windows.Forms.TextBox();
+            this.tbOH_shippingTime = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.tbOH_POdate = new System.Windows.Forms.TextBox();
+            this.tbOH_username = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.tbOH_orderID = new System.Windows.Forms.TextBox();
+            this.fillByToolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.fillByToolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.groupBoxOrderHistory = new System.Windows.Forms.GroupBox();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.dataGridOH_orderHistory = new System.Windows.Forms.DataGridView();
             this.orderIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.poDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.approved = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ordersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.gROUP4DataSetOrderHistory = new WWOC_Desktop_App.GROUP4DataSetOrderHistory();
             this.DataGridView = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.vendorIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -146,13 +174,19 @@
             this.partsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.partsTableAdapter1 = new WWOC_Desktop_App.GROUP4DataSetOrderLineItemTableAdapters.PartsTableAdapter();
             this.ordersTableAdapter = new WWOC_Desktop_App.GROUP4DataSetPendingOrdersTableAdapters.OrdersTableAdapter();
-            this.groupBoxOrderDetailsH = new System.Windows.Forms.GroupBox();
+            this.ordersTableAdapter1 = new WWOC_Desktop_App.GROUP4DataSetOrderHistoryTableAdapters.OrdersTableAdapter();
             this.tabControlMain.SuspendLayout();
             this.tabPageParts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPartsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetParts)).BeginInit();
+            this.tabPageRequest.SuspendLayout();
+            this.groupBoxRemove.SuspendLayout();
+            this.groupBoxOrderSummary.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridParts)).BeginInit();
+            this.groupBoxOrderInfo.SuspendLayout();
+            this.groupBoxPartInfo.SuspendLayout();
             this.tabPagePending.SuspendLayout();
             this.groupBoxOrderDetailsP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPO_PartsinOrder)).BeginInit();
@@ -161,15 +195,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPO_PendingOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPendingOrders)).BeginInit();
-            this.tabPageRequest.SuspendLayout();
-            this.groupBoxRemove.SuspendLayout();
-            this.groupBoxOrderSummary.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridParts)).BeginInit();
-            this.groupBoxOrderInfo.SuspendLayout();
-            this.groupBoxPartInfo.SuspendLayout();
             this.tabPageHistory.SuspendLayout();
+            this.gbOH_orderDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridOH_PartsInOrder)).BeginInit();
+            this.fillByToolStrip1.SuspendLayout();
             this.groupBoxOrderHistory.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridOH_orderHistory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderHistory)).BeginInit();
             this.DataGridView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorsBindingSource)).BeginInit();
@@ -187,8 +220,8 @@
             // tabControlMain
             // 
             this.tabControlMain.Controls.Add(this.tabPageParts);
-            this.tabControlMain.Controls.Add(this.tabPagePending);
             this.tabControlMain.Controls.Add(this.tabPageRequest);
+            this.tabControlMain.Controls.Add(this.tabPagePending);
             this.tabControlMain.Controls.Add(this.tabPageHistory);
             this.tabControlMain.Controls.Add(this.DataGridView);
             this.tabControlMain.Controls.Add(this.DGVMainMenu);
@@ -300,341 +333,6 @@
             // 
             this.gROUP4DataSetParts.DataSetName = "GROUP4DataSetParts";
             this.gROUP4DataSetParts.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tabPagePending
-            // 
-            this.tabPagePending.Controls.Add(this.groupBoxOrderDetailsP);
-            this.tabPagePending.Controls.Add(this.fillByToolStrip);
-            this.tabPagePending.Controls.Add(this.label2);
-            this.tabPagePending.Controls.Add(this.groupBoxPendingOrders);
-            this.tabPagePending.Location = new System.Drawing.Point(4, 25);
-            this.tabPagePending.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPagePending.Name = "tabPagePending";
-            this.tabPagePending.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPagePending.Size = new System.Drawing.Size(1115, 568);
-            this.tabPagePending.TabIndex = 1;
-            this.tabPagePending.Text = "Pending Orders";
-            this.tabPagePending.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxOrderDetailsP
-            // 
-            this.groupBoxOrderDetailsP.Controls.Add(this.label25);
-            this.groupBoxOrderDetailsP.Controls.Add(this.dataGridPO_PartsinOrder);
-            this.groupBoxOrderDetailsP.Controls.Add(this.btnRejectOrder);
-            this.groupBoxOrderDetailsP.Controls.Add(this.label24);
-            this.groupBoxOrderDetailsP.Controls.Add(this.label23);
-            this.groupBoxOrderDetailsP.Controls.Add(this.label22);
-            this.groupBoxOrderDetailsP.Controls.Add(this.label21);
-            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_Terms);
-            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_TotalPrice);
-            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_ShippingHandling);
-            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_SalesTax);
-            this.groupBoxOrderDetailsP.Controls.Add(this.label20);
-            this.groupBoxOrderDetailsP.Controls.Add(this.label19);
-            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_SubTotal);
-            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_ShipTime);
-            this.groupBoxOrderDetailsP.Controls.Add(this.label18);
-            this.groupBoxOrderDetailsP.Controls.Add(this.label17);
-            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_PODate);
-            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_Username);
-            this.groupBoxOrderDetailsP.Controls.Add(this.label16);
-            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_OrderID);
-            this.groupBoxOrderDetailsP.Controls.Add(this.btnApproveOrder);
-            this.groupBoxOrderDetailsP.Location = new System.Drawing.Point(461, 54);
-            this.groupBoxOrderDetailsP.Name = "groupBoxOrderDetailsP";
-            this.groupBoxOrderDetailsP.Size = new System.Drawing.Size(647, 504);
-            this.groupBoxOrderDetailsP.TabIndex = 12;
-            this.groupBoxOrderDetailsP.TabStop = false;
-            this.groupBoxOrderDetailsP.Text = "Order Details";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(426, 19);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(123, 20);
-            this.label25.TabIndex = 42;
-            this.label25.Text = "Parts in Order";
-            // 
-            // dataGridPO_PartsinOrder
-            // 
-            this.dataGridPO_PartsinOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPO_PartsinOrder.Location = new System.Drawing.Point(324, 42);
-            this.dataGridPO_PartsinOrder.Name = "dataGridPO_PartsinOrder";
-            this.dataGridPO_PartsinOrder.Size = new System.Drawing.Size(317, 445);
-            this.dataGridPO_PartsinOrder.TabIndex = 41;
-            // 
-            // btnRejectOrder
-            // 
-            this.btnRejectOrder.Location = new System.Drawing.Point(163, 440);
-            this.btnRejectOrder.Name = "btnRejectOrder";
-            this.btnRejectOrder.Size = new System.Drawing.Size(137, 47);
-            this.btnRejectOrder.TabIndex = 40;
-            this.btnRejectOrder.Text = "Reject Order";
-            this.btnRejectOrder.UseVisualStyleBackColor = true;
-            this.btnRejectOrder.Click += new System.EventHandler(this.btnRejectOrder_Click);
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(78, 305);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(85, 16);
-            this.label24.TabIndex = 39;
-            this.label24.Text = "Total Price:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(6, 267);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(158, 16);
-            this.label23.TabIndex = 38;
-            this.label23.Text = "Shipping and Handling:";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(85, 228);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(78, 16);
-            this.label22.TabIndex = 37;
-            this.label22.Text = "Sales Tax:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(85, 190);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(78, 16);
-            this.label21.TabIndex = 36;
-            this.label21.Text = "Sub Total:";
-            // 
-            // tbPO_Terms
-            // 
-            this.tbPO_Terms.Location = new System.Drawing.Point(72, 340);
-            this.tbPO_Terms.Multiline = true;
-            this.tbPO_Terms.Name = "tbPO_Terms";
-            this.tbPO_Terms.ReadOnly = true;
-            this.tbPO_Terms.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbPO_Terms.Size = new System.Drawing.Size(228, 91);
-            this.tbPO_Terms.TabIndex = 35;
-            // 
-            // tbPO_TotalPrice
-            // 
-            this.tbPO_TotalPrice.Location = new System.Drawing.Point(169, 302);
-            this.tbPO_TotalPrice.Name = "tbPO_TotalPrice";
-            this.tbPO_TotalPrice.ReadOnly = true;
-            this.tbPO_TotalPrice.Size = new System.Drawing.Size(131, 23);
-            this.tbPO_TotalPrice.TabIndex = 34;
-            // 
-            // tbPO_ShippingHandling
-            // 
-            this.tbPO_ShippingHandling.Location = new System.Drawing.Point(169, 264);
-            this.tbPO_ShippingHandling.Name = "tbPO_ShippingHandling";
-            this.tbPO_ShippingHandling.ReadOnly = true;
-            this.tbPO_ShippingHandling.Size = new System.Drawing.Size(131, 23);
-            this.tbPO_ShippingHandling.TabIndex = 33;
-            // 
-            // tbPO_SalesTax
-            // 
-            this.tbPO_SalesTax.Location = new System.Drawing.Point(169, 225);
-            this.tbPO_SalesTax.Name = "tbPO_SalesTax";
-            this.tbPO_SalesTax.ReadOnly = true;
-            this.tbPO_SalesTax.Size = new System.Drawing.Size(131, 23);
-            this.tbPO_SalesTax.TabIndex = 32;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(12, 343);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(54, 16);
-            this.label20.TabIndex = 31;
-            this.label20.Text = "Terms:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(58, 152);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(105, 16);
-            this.label19.TabIndex = 30;
-            this.label19.Text = "Shipping Time:";
-            // 
-            // tbPO_SubTotal
-            // 
-            this.tbPO_SubTotal.Location = new System.Drawing.Point(169, 187);
-            this.tbPO_SubTotal.Name = "tbPO_SubTotal";
-            this.tbPO_SubTotal.ReadOnly = true;
-            this.tbPO_SubTotal.Size = new System.Drawing.Size(131, 23);
-            this.tbPO_SubTotal.TabIndex = 29;
-            // 
-            // tbPO_ShipTime
-            // 
-            this.tbPO_ShipTime.Location = new System.Drawing.Point(169, 149);
-            this.tbPO_ShipTime.Name = "tbPO_ShipTime";
-            this.tbPO_ShipTime.ReadOnly = true;
-            this.tbPO_ShipTime.Size = new System.Drawing.Size(131, 23);
-            this.tbPO_ShipTime.TabIndex = 27;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(12, 114);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(151, 16);
-            this.label18.TabIndex = 26;
-            this.label18.Text = "Purchase Order Date:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(27, 75);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(136, 16);
-            this.label17.TabIndex = 25;
-            this.label17.Text = "Employee Ordering:";
-            // 
-            // tbPO_PODate
-            // 
-            this.tbPO_PODate.Location = new System.Drawing.Point(169, 111);
-            this.tbPO_PODate.Name = "tbPO_PODate";
-            this.tbPO_PODate.ReadOnly = true;
-            this.tbPO_PODate.Size = new System.Drawing.Size(131, 23);
-            this.tbPO_PODate.TabIndex = 24;
-            // 
-            // tbPO_Username
-            // 
-            this.tbPO_Username.Location = new System.Drawing.Point(169, 72);
-            this.tbPO_Username.Name = "tbPO_Username";
-            this.tbPO_Username.ReadOnly = true;
-            this.tbPO_Username.Size = new System.Drawing.Size(131, 23);
-            this.tbPO_Username.TabIndex = 23;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(94, 37);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(69, 16);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "Order ID:";
-            // 
-            // tbPO_OrderID
-            // 
-            this.tbPO_OrderID.Location = new System.Drawing.Point(169, 34);
-            this.tbPO_OrderID.Name = "tbPO_OrderID";
-            this.tbPO_OrderID.ReadOnly = true;
-            this.tbPO_OrderID.Size = new System.Drawing.Size(131, 23);
-            this.tbPO_OrderID.TabIndex = 21;
-            // 
-            // btnApproveOrder
-            // 
-            this.btnApproveOrder.Location = new System.Drawing.Point(15, 440);
-            this.btnApproveOrder.Name = "btnApproveOrder";
-            this.btnApproveOrder.Size = new System.Drawing.Size(137, 47);
-            this.btnApproveOrder.TabIndex = 0;
-            this.btnApproveOrder.Text = "Approve Order";
-            this.btnApproveOrder.UseVisualStyleBackColor = true;
-            this.btnApproveOrder.Click += new System.EventHandler(this.btnApproveOrder_Click);
-            // 
-            // fillByToolStrip
-            // 
-            this.fillByToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fillByToolStripButton});
-            this.fillByToolStrip.Location = new System.Drawing.Point(1013, 88);
-            this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.Size = new System.Drawing.Size(51, 25);
-            this.fillByToolStrip.TabIndex = 11;
-            this.fillByToolStrip.Text = "fillByToolStrip";
-            // 
-            // fillByToolStripButton
-            // 
-            this.fillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillByToolStripButton.Name = "fillByToolStripButton";
-            this.fillByToolStripButton.Size = new System.Drawing.Size(39, 22);
-            this.fillByToolStripButton.Text = "FillBy";
-            this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(299, 24);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Approve Pending Orders Form";
-            // 
-            // groupBoxPendingOrders
-            // 
-            this.groupBoxPendingOrders.Controls.Add(this.dataGridPO_PendingOrders);
-            this.groupBoxPendingOrders.Location = new System.Drawing.Point(7, 54);
-            this.groupBoxPendingOrders.Name = "groupBoxPendingOrders";
-            this.groupBoxPendingOrders.Size = new System.Drawing.Size(448, 507);
-            this.groupBoxPendingOrders.TabIndex = 0;
-            this.groupBoxPendingOrders.TabStop = false;
-            this.groupBoxPendingOrders.Text = "Pending Orders";
-            // 
-            // dataGridPO_PendingOrders
-            // 
-            this.dataGridPO_PendingOrders.AutoGenerateColumns = false;
-            this.dataGridPO_PendingOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPO_PendingOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.orderIDDataGridViewTextBoxColumn,
-            this.poDateDataGridViewTextBoxColumn,
-            this.totalPriceDataGridViewTextBoxColumn,
-            this.approvedDataGridViewCheckBoxColumn});
-            this.dataGridPO_PendingOrders.DataSource = this.ordersBindingSource;
-            this.dataGridPO_PendingOrders.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridPO_PendingOrders.Location = new System.Drawing.Point(3, 19);
-            this.dataGridPO_PendingOrders.MultiSelect = false;
-            this.dataGridPO_PendingOrders.Name = "dataGridPO_PendingOrders";
-            this.dataGridPO_PendingOrders.ReadOnly = true;
-            this.dataGridPO_PendingOrders.Size = new System.Drawing.Size(442, 485);
-            this.dataGridPO_PendingOrders.TabIndex = 0;
-            this.dataGridPO_PendingOrders.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridPO_PendingOrders_CellMouseClick);
-            // 
-            // orderIDDataGridViewTextBoxColumn
-            // 
-            this.orderIDDataGridViewTextBoxColumn.DataPropertyName = "orderID";
-            this.orderIDDataGridViewTextBoxColumn.HeaderText = "orderID";
-            this.orderIDDataGridViewTextBoxColumn.Name = "orderIDDataGridViewTextBoxColumn";
-            this.orderIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // poDateDataGridViewTextBoxColumn
-            // 
-            this.poDateDataGridViewTextBoxColumn.DataPropertyName = "poDate";
-            this.poDateDataGridViewTextBoxColumn.HeaderText = "poDate";
-            this.poDateDataGridViewTextBoxColumn.Name = "poDateDataGridViewTextBoxColumn";
-            this.poDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalPriceDataGridViewTextBoxColumn
-            // 
-            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "totalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "totalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
-            this.totalPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // approvedDataGridViewCheckBoxColumn
-            // 
-            this.approvedDataGridViewCheckBoxColumn.DataPropertyName = "approved";
-            this.approvedDataGridViewCheckBoxColumn.HeaderText = "approved";
-            this.approvedDataGridViewCheckBoxColumn.Name = "approvedDataGridViewCheckBoxColumn";
-            this.approvedDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // ordersBindingSource
-            // 
-            this.ordersBindingSource.DataMember = "Orders";
-            this.ordersBindingSource.DataSource = this.gROUP4DataSetPendingOrders;
-            // 
-            // gROUP4DataSetPendingOrders
-            // 
-            this.gROUP4DataSetPendingOrders.DataSetName = "GROUP4DataSetPendingOrders";
-            this.gROUP4DataSetPendingOrders.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPageRequest
             // 
@@ -1042,9 +740,345 @@
             this.label6.TabIndex = 7;
             this.label6.Text = "Quantity to Order:";
             // 
+            // tabPagePending
+            // 
+            this.tabPagePending.Controls.Add(this.groupBoxOrderDetailsP);
+            this.tabPagePending.Controls.Add(this.fillByToolStrip);
+            this.tabPagePending.Controls.Add(this.label2);
+            this.tabPagePending.Controls.Add(this.groupBoxPendingOrders);
+            this.tabPagePending.Location = new System.Drawing.Point(4, 25);
+            this.tabPagePending.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPagePending.Name = "tabPagePending";
+            this.tabPagePending.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPagePending.Size = new System.Drawing.Size(1115, 568);
+            this.tabPagePending.TabIndex = 1;
+            this.tabPagePending.Text = "Pending Orders";
+            this.tabPagePending.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxOrderDetailsP
+            // 
+            this.groupBoxOrderDetailsP.Controls.Add(this.label25);
+            this.groupBoxOrderDetailsP.Controls.Add(this.dataGridPO_PartsinOrder);
+            this.groupBoxOrderDetailsP.Controls.Add(this.btnRejectOrder);
+            this.groupBoxOrderDetailsP.Controls.Add(this.label24);
+            this.groupBoxOrderDetailsP.Controls.Add(this.label23);
+            this.groupBoxOrderDetailsP.Controls.Add(this.label22);
+            this.groupBoxOrderDetailsP.Controls.Add(this.label21);
+            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_Terms);
+            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_TotalPrice);
+            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_ShippingHandling);
+            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_SalesTax);
+            this.groupBoxOrderDetailsP.Controls.Add(this.label20);
+            this.groupBoxOrderDetailsP.Controls.Add(this.label19);
+            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_SubTotal);
+            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_ShipTime);
+            this.groupBoxOrderDetailsP.Controls.Add(this.label18);
+            this.groupBoxOrderDetailsP.Controls.Add(this.label17);
+            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_PODate);
+            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_Username);
+            this.groupBoxOrderDetailsP.Controls.Add(this.label16);
+            this.groupBoxOrderDetailsP.Controls.Add(this.tbPO_OrderID);
+            this.groupBoxOrderDetailsP.Controls.Add(this.btnApproveOrder);
+            this.groupBoxOrderDetailsP.Location = new System.Drawing.Point(461, 54);
+            this.groupBoxOrderDetailsP.Name = "groupBoxOrderDetailsP";
+            this.groupBoxOrderDetailsP.Size = new System.Drawing.Size(647, 504);
+            this.groupBoxOrderDetailsP.TabIndex = 12;
+            this.groupBoxOrderDetailsP.TabStop = false;
+            this.groupBoxOrderDetailsP.Text = "Order Details";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(426, 19);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(123, 20);
+            this.label25.TabIndex = 42;
+            this.label25.Text = "Parts in Order";
+            // 
+            // dataGridPO_PartsinOrder
+            // 
+            this.dataGridPO_PartsinOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPO_PartsinOrder.Location = new System.Drawing.Point(324, 42);
+            this.dataGridPO_PartsinOrder.Name = "dataGridPO_PartsinOrder";
+            this.dataGridPO_PartsinOrder.Size = new System.Drawing.Size(317, 445);
+            this.dataGridPO_PartsinOrder.TabIndex = 41;
+            // 
+            // btnRejectOrder
+            // 
+            this.btnRejectOrder.Location = new System.Drawing.Point(163, 440);
+            this.btnRejectOrder.Name = "btnRejectOrder";
+            this.btnRejectOrder.Size = new System.Drawing.Size(137, 47);
+            this.btnRejectOrder.TabIndex = 40;
+            this.btnRejectOrder.Text = "Reject Order";
+            this.btnRejectOrder.UseVisualStyleBackColor = true;
+            this.btnRejectOrder.Click += new System.EventHandler(this.btnRejectOrder_Click);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(78, 305);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(85, 16);
+            this.label24.TabIndex = 39;
+            this.label24.Text = "Total Price:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 267);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(158, 16);
+            this.label23.TabIndex = 38;
+            this.label23.Text = "Shipping and Handling:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(85, 228);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(78, 16);
+            this.label22.TabIndex = 37;
+            this.label22.Text = "Sales Tax:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(85, 190);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(78, 16);
+            this.label21.TabIndex = 36;
+            this.label21.Text = "Sub Total:";
+            // 
+            // tbPO_Terms
+            // 
+            this.tbPO_Terms.Location = new System.Drawing.Point(72, 340);
+            this.tbPO_Terms.Multiline = true;
+            this.tbPO_Terms.Name = "tbPO_Terms";
+            this.tbPO_Terms.ReadOnly = true;
+            this.tbPO_Terms.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbPO_Terms.Size = new System.Drawing.Size(228, 91);
+            this.tbPO_Terms.TabIndex = 35;
+            // 
+            // tbPO_TotalPrice
+            // 
+            this.tbPO_TotalPrice.Location = new System.Drawing.Point(169, 302);
+            this.tbPO_TotalPrice.Name = "tbPO_TotalPrice";
+            this.tbPO_TotalPrice.ReadOnly = true;
+            this.tbPO_TotalPrice.Size = new System.Drawing.Size(131, 23);
+            this.tbPO_TotalPrice.TabIndex = 34;
+            // 
+            // tbPO_ShippingHandling
+            // 
+            this.tbPO_ShippingHandling.Location = new System.Drawing.Point(169, 264);
+            this.tbPO_ShippingHandling.Name = "tbPO_ShippingHandling";
+            this.tbPO_ShippingHandling.ReadOnly = true;
+            this.tbPO_ShippingHandling.Size = new System.Drawing.Size(131, 23);
+            this.tbPO_ShippingHandling.TabIndex = 33;
+            // 
+            // tbPO_SalesTax
+            // 
+            this.tbPO_SalesTax.Location = new System.Drawing.Point(169, 225);
+            this.tbPO_SalesTax.Name = "tbPO_SalesTax";
+            this.tbPO_SalesTax.ReadOnly = true;
+            this.tbPO_SalesTax.Size = new System.Drawing.Size(131, 23);
+            this.tbPO_SalesTax.TabIndex = 32;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(12, 343);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(54, 16);
+            this.label20.TabIndex = 31;
+            this.label20.Text = "Terms:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(58, 152);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(105, 16);
+            this.label19.TabIndex = 30;
+            this.label19.Text = "Shipping Time:";
+            // 
+            // tbPO_SubTotal
+            // 
+            this.tbPO_SubTotal.Location = new System.Drawing.Point(169, 187);
+            this.tbPO_SubTotal.Name = "tbPO_SubTotal";
+            this.tbPO_SubTotal.ReadOnly = true;
+            this.tbPO_SubTotal.Size = new System.Drawing.Size(131, 23);
+            this.tbPO_SubTotal.TabIndex = 29;
+            // 
+            // tbPO_ShipTime
+            // 
+            this.tbPO_ShipTime.Location = new System.Drawing.Point(169, 149);
+            this.tbPO_ShipTime.Name = "tbPO_ShipTime";
+            this.tbPO_ShipTime.ReadOnly = true;
+            this.tbPO_ShipTime.Size = new System.Drawing.Size(131, 23);
+            this.tbPO_ShipTime.TabIndex = 27;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(12, 114);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(151, 16);
+            this.label18.TabIndex = 26;
+            this.label18.Text = "Purchase Order Date:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(27, 75);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(136, 16);
+            this.label17.TabIndex = 25;
+            this.label17.Text = "Employee Ordering:";
+            // 
+            // tbPO_PODate
+            // 
+            this.tbPO_PODate.Location = new System.Drawing.Point(169, 111);
+            this.tbPO_PODate.Name = "tbPO_PODate";
+            this.tbPO_PODate.ReadOnly = true;
+            this.tbPO_PODate.Size = new System.Drawing.Size(131, 23);
+            this.tbPO_PODate.TabIndex = 24;
+            // 
+            // tbPO_Username
+            // 
+            this.tbPO_Username.Location = new System.Drawing.Point(169, 72);
+            this.tbPO_Username.Name = "tbPO_Username";
+            this.tbPO_Username.ReadOnly = true;
+            this.tbPO_Username.Size = new System.Drawing.Size(131, 23);
+            this.tbPO_Username.TabIndex = 23;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(94, 37);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(69, 16);
+            this.label16.TabIndex = 22;
+            this.label16.Text = "Order ID:";
+            // 
+            // tbPO_OrderID
+            // 
+            this.tbPO_OrderID.Location = new System.Drawing.Point(169, 34);
+            this.tbPO_OrderID.Name = "tbPO_OrderID";
+            this.tbPO_OrderID.ReadOnly = true;
+            this.tbPO_OrderID.Size = new System.Drawing.Size(131, 23);
+            this.tbPO_OrderID.TabIndex = 21;
+            // 
+            // btnApproveOrder
+            // 
+            this.btnApproveOrder.Location = new System.Drawing.Point(15, 440);
+            this.btnApproveOrder.Name = "btnApproveOrder";
+            this.btnApproveOrder.Size = new System.Drawing.Size(137, 47);
+            this.btnApproveOrder.TabIndex = 0;
+            this.btnApproveOrder.Text = "Approve Order";
+            this.btnApproveOrder.UseVisualStyleBackColor = true;
+            this.btnApproveOrder.Click += new System.EventHandler(this.btnApproveOrder_Click);
+            // 
+            // fillByToolStrip
+            // 
+            this.fillByToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillByToolStripButton});
+            this.fillByToolStrip.Location = new System.Drawing.Point(1013, 88);
+            this.fillByToolStrip.Name = "fillByToolStrip";
+            this.fillByToolStrip.Size = new System.Drawing.Size(51, 25);
+            this.fillByToolStrip.TabIndex = 11;
+            this.fillByToolStrip.Text = "fillByToolStrip";
+            // 
+            // fillByToolStripButton
+            // 
+            this.fillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillByToolStripButton.Name = "fillByToolStripButton";
+            this.fillByToolStripButton.Size = new System.Drawing.Size(39, 22);
+            this.fillByToolStripButton.Text = "FillBy";
+            this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(21, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(299, 24);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Approve Pending Orders Form";
+            // 
+            // groupBoxPendingOrders
+            // 
+            this.groupBoxPendingOrders.Controls.Add(this.dataGridPO_PendingOrders);
+            this.groupBoxPendingOrders.Location = new System.Drawing.Point(7, 54);
+            this.groupBoxPendingOrders.Name = "groupBoxPendingOrders";
+            this.groupBoxPendingOrders.Size = new System.Drawing.Size(448, 507);
+            this.groupBoxPendingOrders.TabIndex = 0;
+            this.groupBoxPendingOrders.TabStop = false;
+            this.groupBoxPendingOrders.Text = "Pending Orders";
+            // 
+            // dataGridPO_PendingOrders
+            // 
+            this.dataGridPO_PendingOrders.AutoGenerateColumns = false;
+            this.dataGridPO_PendingOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPO_PendingOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orderIDDataGridViewTextBoxColumn,
+            this.poDateDataGridViewTextBoxColumn,
+            this.totalPriceDataGridViewTextBoxColumn,
+            this.approvedDataGridViewCheckBoxColumn});
+            this.dataGridPO_PendingOrders.DataSource = this.ordersBindingSource;
+            this.dataGridPO_PendingOrders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridPO_PendingOrders.Location = new System.Drawing.Point(3, 19);
+            this.dataGridPO_PendingOrders.MultiSelect = false;
+            this.dataGridPO_PendingOrders.Name = "dataGridPO_PendingOrders";
+            this.dataGridPO_PendingOrders.ReadOnly = true;
+            this.dataGridPO_PendingOrders.Size = new System.Drawing.Size(442, 485);
+            this.dataGridPO_PendingOrders.TabIndex = 0;
+            this.dataGridPO_PendingOrders.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridPO_PendingOrders_CellMouseClick);
+            // 
+            // orderIDDataGridViewTextBoxColumn
+            // 
+            this.orderIDDataGridViewTextBoxColumn.DataPropertyName = "orderID";
+            this.orderIDDataGridViewTextBoxColumn.HeaderText = "orderID";
+            this.orderIDDataGridViewTextBoxColumn.Name = "orderIDDataGridViewTextBoxColumn";
+            this.orderIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // poDateDataGridViewTextBoxColumn
+            // 
+            this.poDateDataGridViewTextBoxColumn.DataPropertyName = "poDate";
+            this.poDateDataGridViewTextBoxColumn.HeaderText = "poDate";
+            this.poDateDataGridViewTextBoxColumn.Name = "poDateDataGridViewTextBoxColumn";
+            this.poDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalPriceDataGridViewTextBoxColumn
+            // 
+            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "totalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "totalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
+            this.totalPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // approvedDataGridViewCheckBoxColumn
+            // 
+            this.approvedDataGridViewCheckBoxColumn.DataPropertyName = "approved";
+            this.approvedDataGridViewCheckBoxColumn.HeaderText = "approved";
+            this.approvedDataGridViewCheckBoxColumn.Name = "approvedDataGridViewCheckBoxColumn";
+            this.approvedDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // ordersBindingSource
+            // 
+            this.ordersBindingSource.DataMember = "Orders";
+            this.ordersBindingSource.DataSource = this.gROUP4DataSetPendingOrders;
+            // 
+            // gROUP4DataSetPendingOrders
+            // 
+            this.gROUP4DataSetPendingOrders.DataSetName = "GROUP4DataSetPendingOrders";
+            this.gROUP4DataSetPendingOrders.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tabPageHistory
             // 
-            this.tabPageHistory.Controls.Add(this.groupBoxOrderDetailsH);
+            this.tabPageHistory.Controls.Add(this.gbOH_orderDetails);
+            this.tabPageHistory.Controls.Add(this.fillByToolStrip1);
             this.tabPageHistory.Controls.Add(this.groupBoxOrderHistory);
             this.tabPageHistory.Location = new System.Drawing.Point(4, 25);
             this.tabPageHistory.Margin = new System.Windows.Forms.Padding(4);
@@ -1055,28 +1089,253 @@
             this.tabPageHistory.Text = "Order History";
             this.tabPageHistory.UseVisualStyleBackColor = true;
             // 
+            // gbOH_orderDetails
+            // 
+            this.gbOH_orderDetails.Controls.Add(this.label26);
+            this.gbOH_orderDetails.Controls.Add(this.dataGridOH_PartsInOrder);
+            this.gbOH_orderDetails.Controls.Add(this.label27);
+            this.gbOH_orderDetails.Controls.Add(this.label28);
+            this.gbOH_orderDetails.Controls.Add(this.label29);
+            this.gbOH_orderDetails.Controls.Add(this.label30);
+            this.gbOH_orderDetails.Controls.Add(this.tbOH_terms);
+            this.gbOH_orderDetails.Controls.Add(this.tbOH_totalPrice);
+            this.gbOH_orderDetails.Controls.Add(this.tbOH_shippingHandling);
+            this.gbOH_orderDetails.Controls.Add(this.tbOH_salesTax);
+            this.gbOH_orderDetails.Controls.Add(this.label31);
+            this.gbOH_orderDetails.Controls.Add(this.label32);
+            this.gbOH_orderDetails.Controls.Add(this.tbOH_subtotal);
+            this.gbOH_orderDetails.Controls.Add(this.tbOH_shippingTime);
+            this.gbOH_orderDetails.Controls.Add(this.label33);
+            this.gbOH_orderDetails.Controls.Add(this.label34);
+            this.gbOH_orderDetails.Controls.Add(this.tbOH_POdate);
+            this.gbOH_orderDetails.Controls.Add(this.tbOH_username);
+            this.gbOH_orderDetails.Controls.Add(this.label35);
+            this.gbOH_orderDetails.Controls.Add(this.tbOH_orderID);
+            this.gbOH_orderDetails.Location = new System.Drawing.Point(462, 7);
+            this.gbOH_orderDetails.Name = "gbOH_orderDetails";
+            this.gbOH_orderDetails.Size = new System.Drawing.Size(647, 551);
+            this.gbOH_orderDetails.TabIndex = 13;
+            this.gbOH_orderDetails.TabStop = false;
+            this.gbOH_orderDetails.Text = "Order Details";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(426, 19);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(123, 20);
+            this.label26.TabIndex = 42;
+            this.label26.Text = "Parts in Order";
+            // 
+            // dataGridOH_PartsInOrder
+            // 
+            this.dataGridOH_PartsInOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridOH_PartsInOrder.Location = new System.Drawing.Point(324, 42);
+            this.dataGridOH_PartsInOrder.Name = "dataGridOH_PartsInOrder";
+            this.dataGridOH_PartsInOrder.Size = new System.Drawing.Size(317, 503);
+            this.dataGridOH_PartsInOrder.TabIndex = 41;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(78, 305);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(85, 16);
+            this.label27.TabIndex = 39;
+            this.label27.Text = "Total Price:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(6, 267);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(158, 16);
+            this.label28.TabIndex = 38;
+            this.label28.Text = "Shipping and Handling:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(85, 228);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(78, 16);
+            this.label29.TabIndex = 37;
+            this.label29.Text = "Sales Tax:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(85, 190);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(78, 16);
+            this.label30.TabIndex = 36;
+            this.label30.Text = "Sub Total:";
+            // 
+            // tbOH_terms
+            // 
+            this.tbOH_terms.Location = new System.Drawing.Point(72, 340);
+            this.tbOH_terms.Multiline = true;
+            this.tbOH_terms.Name = "tbOH_terms";
+            this.tbOH_terms.ReadOnly = true;
+            this.tbOH_terms.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbOH_terms.Size = new System.Drawing.Size(228, 91);
+            this.tbOH_terms.TabIndex = 35;
+            // 
+            // tbOH_totalPrice
+            // 
+            this.tbOH_totalPrice.Location = new System.Drawing.Point(169, 302);
+            this.tbOH_totalPrice.Name = "tbOH_totalPrice";
+            this.tbOH_totalPrice.ReadOnly = true;
+            this.tbOH_totalPrice.Size = new System.Drawing.Size(131, 23);
+            this.tbOH_totalPrice.TabIndex = 34;
+            // 
+            // tbOH_shippingHandling
+            // 
+            this.tbOH_shippingHandling.Location = new System.Drawing.Point(169, 264);
+            this.tbOH_shippingHandling.Name = "tbOH_shippingHandling";
+            this.tbOH_shippingHandling.ReadOnly = true;
+            this.tbOH_shippingHandling.Size = new System.Drawing.Size(131, 23);
+            this.tbOH_shippingHandling.TabIndex = 33;
+            // 
+            // tbOH_salesTax
+            // 
+            this.tbOH_salesTax.Location = new System.Drawing.Point(169, 225);
+            this.tbOH_salesTax.Name = "tbOH_salesTax";
+            this.tbOH_salesTax.ReadOnly = true;
+            this.tbOH_salesTax.Size = new System.Drawing.Size(131, 23);
+            this.tbOH_salesTax.TabIndex = 32;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(12, 343);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(54, 16);
+            this.label31.TabIndex = 31;
+            this.label31.Text = "Terms:";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(58, 152);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(105, 16);
+            this.label32.TabIndex = 30;
+            this.label32.Text = "Shipping Time:";
+            // 
+            // tbOH_subtotal
+            // 
+            this.tbOH_subtotal.Location = new System.Drawing.Point(169, 187);
+            this.tbOH_subtotal.Name = "tbOH_subtotal";
+            this.tbOH_subtotal.ReadOnly = true;
+            this.tbOH_subtotal.Size = new System.Drawing.Size(131, 23);
+            this.tbOH_subtotal.TabIndex = 29;
+            // 
+            // tbOH_shippingTime
+            // 
+            this.tbOH_shippingTime.Location = new System.Drawing.Point(169, 149);
+            this.tbOH_shippingTime.Name = "tbOH_shippingTime";
+            this.tbOH_shippingTime.ReadOnly = true;
+            this.tbOH_shippingTime.Size = new System.Drawing.Size(131, 23);
+            this.tbOH_shippingTime.TabIndex = 27;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(12, 114);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(151, 16);
+            this.label33.TabIndex = 26;
+            this.label33.Text = "Purchase Order Date:";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(27, 75);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(136, 16);
+            this.label34.TabIndex = 25;
+            this.label34.Text = "Employee Ordering:";
+            // 
+            // tbOH_POdate
+            // 
+            this.tbOH_POdate.Location = new System.Drawing.Point(169, 111);
+            this.tbOH_POdate.Name = "tbOH_POdate";
+            this.tbOH_POdate.ReadOnly = true;
+            this.tbOH_POdate.Size = new System.Drawing.Size(131, 23);
+            this.tbOH_POdate.TabIndex = 24;
+            // 
+            // tbOH_username
+            // 
+            this.tbOH_username.Location = new System.Drawing.Point(169, 72);
+            this.tbOH_username.Name = "tbOH_username";
+            this.tbOH_username.ReadOnly = true;
+            this.tbOH_username.Size = new System.Drawing.Size(131, 23);
+            this.tbOH_username.TabIndex = 23;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(94, 37);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(69, 16);
+            this.label35.TabIndex = 22;
+            this.label35.Text = "Order ID:";
+            // 
+            // tbOH_orderID
+            // 
+            this.tbOH_orderID.Location = new System.Drawing.Point(169, 34);
+            this.tbOH_orderID.Name = "tbOH_orderID";
+            this.tbOH_orderID.ReadOnly = true;
+            this.tbOH_orderID.Size = new System.Drawing.Size(131, 23);
+            this.tbOH_orderID.TabIndex = 21;
+            // 
+            // fillByToolStrip1
+            // 
+            this.fillByToolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.fillByToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillByToolStripButton1});
+            this.fillByToolStrip1.Location = new System.Drawing.Point(1014, 42);
+            this.fillByToolStrip1.Name = "fillByToolStrip1";
+            this.fillByToolStrip1.Size = new System.Drawing.Size(51, 25);
+            this.fillByToolStrip1.TabIndex = 11;
+            this.fillByToolStrip1.Text = "fillByToolStrip1";
+            // 
+            // fillByToolStripButton1
+            // 
+            this.fillByToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillByToolStripButton1.Name = "fillByToolStripButton1";
+            this.fillByToolStripButton1.Size = new System.Drawing.Size(39, 22);
+            this.fillByToolStripButton1.Text = "FillBy";
+            this.fillByToolStripButton1.Click += new System.EventHandler(this.fillByToolStripButton1_Click);
+            // 
             // groupBoxOrderHistory
             // 
-            this.groupBoxOrderHistory.Controls.Add(this.dataGridView4);
+            this.groupBoxOrderHistory.Controls.Add(this.dataGridOH_orderHistory);
             this.groupBoxOrderHistory.Location = new System.Drawing.Point(7, 7);
             this.groupBoxOrderHistory.Name = "groupBoxOrderHistory";
-            this.groupBoxOrderHistory.Size = new System.Drawing.Size(465, 554);
+            this.groupBoxOrderHistory.Size = new System.Drawing.Size(449, 554);
             this.groupBoxOrderHistory.TabIndex = 2;
             this.groupBoxOrderHistory.TabStop = false;
             this.groupBoxOrderHistory.Text = "Order History";
             // 
-            // dataGridView4
+            // dataGridOH_orderHistory
             // 
-            this.dataGridView4.AutoGenerateColumns = false;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.orderIDDataGridViewTextBoxColumn1});
-            this.dataGridView4.DataSource = this.ordersBindingSource;
-            this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView4.Location = new System.Drawing.Point(3, 19);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(459, 532);
-            this.dataGridView4.TabIndex = 0;
+            this.dataGridOH_orderHistory.AutoGenerateColumns = false;
+            this.dataGridOH_orderHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridOH_orderHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orderIDDataGridViewTextBoxColumn1,
+            this.poDate,
+            this.totalPrice,
+            this.approved});
+            this.dataGridOH_orderHistory.DataSource = this.ordersBindingSource1;
+            this.dataGridOH_orderHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridOH_orderHistory.Location = new System.Drawing.Point(3, 19);
+            this.dataGridOH_orderHistory.Name = "dataGridOH_orderHistory";
+            this.dataGridOH_orderHistory.Size = new System.Drawing.Size(443, 532);
+            this.dataGridOH_orderHistory.TabIndex = 0;
+            this.dataGridOH_orderHistory.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridOH_orderHistory_CellMouseClick);
             // 
             // orderIDDataGridViewTextBoxColumn1
             // 
@@ -1084,6 +1343,34 @@
             this.orderIDDataGridViewTextBoxColumn1.HeaderText = "orderID";
             this.orderIDDataGridViewTextBoxColumn1.Name = "orderIDDataGridViewTextBoxColumn1";
             this.orderIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // poDate
+            // 
+            this.poDate.DataPropertyName = "poDate";
+            this.poDate.HeaderText = "poDate";
+            this.poDate.Name = "poDate";
+            // 
+            // totalPrice
+            // 
+            this.totalPrice.DataPropertyName = "totalPrice";
+            this.totalPrice.HeaderText = "totalPrice";
+            this.totalPrice.Name = "totalPrice";
+            // 
+            // approved
+            // 
+            this.approved.DataPropertyName = "approved";
+            this.approved.HeaderText = "approved";
+            this.approved.Name = "approved";
+            // 
+            // ordersBindingSource1
+            // 
+            this.ordersBindingSource1.DataMember = "Orders";
+            this.ordersBindingSource1.DataSource = this.gROUP4DataSetOrderHistory;
+            // 
+            // gROUP4DataSetOrderHistory
+            // 
+            this.gROUP4DataSetOrderHistory.DataSetName = "GROUP4DataSetOrderHistory";
+            this.gROUP4DataSetOrderHistory.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // DataGridView
             // 
@@ -1239,14 +1526,9 @@
             // 
             this.ordersTableAdapter.ClearBeforeFill = true;
             // 
-            // groupBoxOrderDetailsH
+            // ordersTableAdapter1
             // 
-            this.groupBoxOrderDetailsH.Location = new System.Drawing.Point(478, 70);
-            this.groupBoxOrderDetailsH.Name = "groupBoxOrderDetailsH";
-            this.groupBoxOrderDetailsH.Size = new System.Drawing.Size(630, 488);
-            this.groupBoxOrderDetailsH.TabIndex = 12;
-            this.groupBoxOrderDetailsH.TabStop = false;
-            this.groupBoxOrderDetailsH.Text = "Order Details";
+            this.ordersTableAdapter1.ClearBeforeFill = true;
             // 
             // MainMenu
             // 
@@ -1269,6 +1551,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPartsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetParts)).EndInit();
+            this.tabPageRequest.ResumeLayout(false);
+            this.groupBoxRemove.ResumeLayout(false);
+            this.groupBoxRemove.PerformLayout();
+            this.groupBoxOrderSummary.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridParts)).EndInit();
+            this.groupBoxOrderInfo.ResumeLayout(false);
+            this.groupBoxOrderInfo.PerformLayout();
+            this.groupBoxPartInfo.ResumeLayout(false);
+            this.groupBoxPartInfo.PerformLayout();
             this.tabPagePending.ResumeLayout(false);
             this.tabPagePending.PerformLayout();
             this.groupBoxOrderDetailsP.ResumeLayout(false);
@@ -1280,18 +1571,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPO_PendingOrders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPendingOrders)).EndInit();
-            this.tabPageRequest.ResumeLayout(false);
-            this.groupBoxRemove.ResumeLayout(false);
-            this.groupBoxRemove.PerformLayout();
-            this.groupBoxOrderSummary.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridParts)).EndInit();
-            this.groupBoxOrderInfo.ResumeLayout(false);
-            this.groupBoxOrderInfo.PerformLayout();
-            this.groupBoxPartInfo.ResumeLayout(false);
-            this.groupBoxPartInfo.PerformLayout();
             this.tabPageHistory.ResumeLayout(false);
+            this.tabPageHistory.PerformLayout();
+            this.gbOH_orderDetails.ResumeLayout(false);
+            this.gbOH_orderDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridOH_PartsInOrder)).EndInit();
+            this.fillByToolStrip1.ResumeLayout(false);
+            this.fillByToolStrip1.PerformLayout();
             this.groupBoxOrderHistory.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridOH_orderHistory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderHistory)).EndInit();
             this.DataGridView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorsBindingSource)).EndInit();
@@ -1392,7 +1682,7 @@
         private System.Windows.Forms.GroupBox groupBoxPendingOrders;
         private System.Windows.Forms.DataGridView dataGridPO_PendingOrders;
         private System.Windows.Forms.GroupBox groupBoxOrderHistory;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView dataGridOH_orderHistory;
         private GROUP4DataSetPendingOrders gROUP4DataSetPendingOrders;
         private System.Windows.Forms.BindingSource ordersBindingSource;
         private GROUP4DataSetPendingOrdersTableAdapters.OrdersTableAdapter ordersTableAdapter;
@@ -1425,7 +1715,35 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox tbPO_SubTotal;
         private System.Windows.Forms.TextBox tbPO_ShipTime;
+        private GROUP4DataSetOrderHistory gROUP4DataSetOrderHistory;
+        private System.Windows.Forms.BindingSource ordersBindingSource1;
+        private GROUP4DataSetOrderHistoryTableAdapters.OrdersTableAdapter ordersTableAdapter1;
+        private System.Windows.Forms.ToolStrip fillByToolStrip1;
+        private System.Windows.Forms.ToolStripButton fillByToolStripButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.GroupBox groupBoxOrderDetailsH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn poDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPrice;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn approved;
+        private System.Windows.Forms.GroupBox gbOH_orderDetails;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.DataGridView dataGridOH_PartsInOrder;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox tbOH_terms;
+        private System.Windows.Forms.TextBox tbOH_totalPrice;
+        private System.Windows.Forms.TextBox tbOH_shippingHandling;
+        private System.Windows.Forms.TextBox tbOH_salesTax;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox tbOH_subtotal;
+        private System.Windows.Forms.TextBox tbOH_shippingTime;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox tbOH_POdate;
+        private System.Windows.Forms.TextBox tbOH_username;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox tbOH_orderID;
     }
 }

@@ -50,6 +50,7 @@ namespace WWOC_Desktop_App
             cart = new List<OrderLineItem>();
             userID = currentUserID;
             CreateDatabaseColumn(cnn);
+            CreateDatabaseColumn(cnn);
         }
 
         public Order(int orderID, SqlConnection cnn, int userID)
@@ -107,7 +108,6 @@ namespace WWOC_Desktop_App
 
            if(totalPrice != 0)
             {
-                orderID = getMaxID;
                 SqlCommand create = new SqlCommand("INSERT INTO Orders (userID, totalPrice) VALUES ('" + userID + "', '0')", cnn);
                 create.ExecuteNonQuery();
             }
@@ -178,7 +178,7 @@ namespace WWOC_Desktop_App
         private void GetCartForOrder(SqlConnection cnn)
         {
             cart = new List<OrderLineItem>();
-            SqlCommand getItems = new SqlCommand("SELECT * FROM Order_Line_Item WHERE orderID=" + orderID, cnn);
+            SqlCommand getItems = new SqlCommand("SELECT * FROM Order_Line_Item WHERE Order_Line_Item.orderID=" + orderID, cnn);
             SqlDataReader reader = getItems.ExecuteReader();
             while (reader.Read())
             {
@@ -205,10 +205,10 @@ namespace WWOC_Desktop_App
          */
         public void RemoveOrderDB(SqlConnection cnn)
         {
-            SqlCommand remove = new SqlCommand("DELETE FROM Orders WHERE orderID=" + orderID, cnn);
-            remove.ExecuteNonQuery();
-            SqlCommand remove2 = new SqlCommand("DELETE FROM Order_Line_Item WHERE orderID =" + orderID, cnn);
+            SqlCommand remove = new SqlCommand("DELETE FROM Orders WHERE Orders.orderID=" + orderID, cnn);
+            SqlCommand remove2 = new SqlCommand("DELETE FROM Order_Line_Item WHERE Order_Line_Item.orderID =" + orderID, cnn);
             remove2.ExecuteNonQuery();
+            remove.ExecuteNonQuery();
         }
 
         /* Description: approves this order in the DB. updates local variable to match
@@ -218,7 +218,7 @@ namespace WWOC_Desktop_App
         public void ApproveOrderDB(SqlConnection cnn)
         {
             approved = true;
-            SqlCommand approve = new SqlCommand("UPDATE Orders SET approved='true' WHERE orderID=" + orderID, cnn);
+            SqlCommand approve = new SqlCommand("UPDATE Orders SET approved='true' WHERE Orders.orderID=" + orderID, cnn);
             approve.ExecuteNonQuery();
         }
     }
