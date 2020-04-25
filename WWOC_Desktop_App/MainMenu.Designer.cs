@@ -120,9 +120,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPageHistory = new System.Windows.Forms.TabPage();
-            this.groupBoxOrderDetailsH = new System.Windows.Forms.GroupBox();
             this.groupBoxOrderHistory = new System.Windows.Forms.GroupBox();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.orderIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataGridView = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.vendorIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -146,6 +146,7 @@
             this.partsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.partsTableAdapter1 = new WWOC_Desktop_App.GROUP4DataSetOrderLineItemTableAdapters.PartsTableAdapter();
             this.ordersTableAdapter = new WWOC_Desktop_App.GROUP4DataSetPendingOrdersTableAdapters.OrdersTableAdapter();
+            this.groupBoxOrderDetailsH = new System.Windows.Forms.GroupBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageParts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -1052,15 +1053,6 @@
             this.tabPageHistory.Text = "Order History";
             this.tabPageHistory.UseVisualStyleBackColor = true;
             // 
-            // groupBoxOrderDetailsH
-            // 
-            this.groupBoxOrderDetailsH.Location = new System.Drawing.Point(478, 7);
-            this.groupBoxOrderDetailsH.Name = "groupBoxOrderDetailsH";
-            this.groupBoxOrderDetailsH.Size = new System.Drawing.Size(630, 554);
-            this.groupBoxOrderDetailsH.TabIndex = 3;
-            this.groupBoxOrderDetailsH.TabStop = false;
-            this.groupBoxOrderDetailsH.Text = "Order Details";
-            // 
             // groupBoxOrderHistory
             // 
             this.groupBoxOrderHistory.Controls.Add(this.dataGridView4);
@@ -1073,12 +1065,23 @@
             // 
             // dataGridView4
             // 
+            this.dataGridView4.AutoGenerateColumns = false;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orderIDDataGridViewTextBoxColumn1});
+            this.dataGridView4.DataSource = this.ordersBindingSource;
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(3, 19);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.Size = new System.Drawing.Size(459, 532);
             this.dataGridView4.TabIndex = 0;
+            // 
+            // orderIDDataGridViewTextBoxColumn1
+            // 
+            this.orderIDDataGridViewTextBoxColumn1.DataPropertyName = "orderID";
+            this.orderIDDataGridViewTextBoxColumn1.HeaderText = "orderID";
+            this.orderIDDataGridViewTextBoxColumn1.Name = "orderIDDataGridViewTextBoxColumn1";
+            this.orderIDDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // DataGridView
             // 
@@ -1234,6 +1237,15 @@
             // 
             this.ordersTableAdapter.ClearBeforeFill = true;
             // 
+            // groupBoxOrderDetailsH
+            // 
+            this.groupBoxOrderDetailsH.Location = new System.Drawing.Point(478, 70);
+            this.groupBoxOrderDetailsH.Name = "groupBoxOrderDetailsH";
+            this.groupBoxOrderDetailsH.Size = new System.Drawing.Size(630, 488);
+            this.groupBoxOrderDetailsH.TabIndex = 12;
+            this.groupBoxOrderDetailsH.TabStop = false;
+            this.groupBoxOrderDetailsH.Text = "Order Details";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1377,7 +1389,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBoxPendingOrders;
         private System.Windows.Forms.DataGridView dataGridPO_PendingOrders;
-        private System.Windows.Forms.GroupBox groupBoxOrderDetailsH;
         private System.Windows.Forms.GroupBox groupBoxOrderHistory;
         private System.Windows.Forms.DataGridView dataGridView4;
         private GROUP4DataSetPendingOrders gROUP4DataSetPendingOrders;
@@ -1412,5 +1423,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox tbPO_SubTotal;
         private System.Windows.Forms.TextBox tbPO_ShipTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.GroupBox groupBoxOrderDetailsH;
     }
 }

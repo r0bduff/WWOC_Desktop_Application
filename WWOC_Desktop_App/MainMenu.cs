@@ -261,7 +261,6 @@ namespace WWOC_Desktop_App
             cBoxRemove.Items.Clear();
 
             dataGridParts.Rows.Clear();
-            dataGridParts.Columns.Clear();
 
             tbTotalPrice.Text = "";
             tbTerms.Text = "";
@@ -332,5 +331,6 @@ namespace WWOC_Desktop_App
                 
             }
         }
+
     }
 }

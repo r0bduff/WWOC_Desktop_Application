@@ -108,6 +108,7 @@ namespace WWOC_Desktop_App
 
            if(totalPrice != 0)
             {
+                orderID = getMaxID;
                 SqlCommand create = new SqlCommand("INSERT INTO Orders (userID, totalPrice) VALUES ('" + userID + "', '0')", cnn);
                 create.ExecuteNonQuery();
             }
