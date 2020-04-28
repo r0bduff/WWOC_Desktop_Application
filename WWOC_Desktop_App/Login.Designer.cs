@@ -1,5 +1,4 @@
-﻿
-namespace WWOC_Desktop_App
+﻿namespace WWOC_Desktop_App
 {
     partial class Login
     {
@@ -47,7 +46,6 @@ namespace WWOC_Desktop_App
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(193, 23);
             this.tbUsername.TabIndex = 0;
-            this.tbUsername.TextChanged += new System.EventHandler(this.tbUsername_TextChanged);
             // 
             // tbPassword
             // 
@@ -88,7 +86,11 @@ namespace WWOC_Desktop_App
             this.pictureBox1.TabStop = false;
             // 
             // btnLogin
-            //
+            // 
+            this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLogin.ForeColor = System.Drawing.Color.Black;
+            this.btnLogin.Location = new System.Drawing.Point(417, 144);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(147, 47);
             this.btnLogin.TabIndex = 5;
