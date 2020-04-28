@@ -21,6 +21,8 @@ namespace WWOC_Desktop_App
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'gROUP4DataSet.Security' table. You can move, or remove it, as needed.
+            this.securityTableAdapter.Fill(this.gROUP4DataSet.Security);
             // TODO: This line of code loads data into the 'gROUP4DataSet2.Vendors' table. You can move, or remove it, as needed.
             this.vendorsTableAdapter1.Fill(this.gROUP4DataSet2.Vendors);
             // TODO: This line of code loads data into the 'gROUP4DataSet.Location' table. You can move, or remove it, as needed.
@@ -156,12 +158,11 @@ namespace WWOC_Desktop_App
                     cnn.Close();
                 }
 
-                string add = "INSERT INTO Parts (partID, itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipmentTime, locationID) VALUES (@partID, @itemDesc, @Cost, @vendor, @quanit, @reorderPoint, @exptdLife, @shipmentTime, @location)";
+                string add = "INSERT INTO Parts (itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipmentTime, locationID) VALUES (@itemDesc, @Cost, @vendor, @quanit, @reorderPoint, @exptdLife, @shipmentTime, @location)";
                 using (SqlCommand cmd = new SqlCommand(add, cnn))
                 {
 
                     //find out new part id
-                    cmd.Parameters.AddWithValue("@partID", "65432");
                     cmd.Parameters.AddWithValue("@itemDesc", itemDesc.Text);
                     cmd.Parameters.AddWithValue("@Cost", Cost.Text);
                     cmd.Parameters.AddWithValue("@vendor", vendorNumber);
@@ -205,6 +206,116 @@ namespace WWOC_Desktop_App
         private void exptdLife_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
+            {
+
+                string addvendor = "INSERT INTO Vendors (vendorName, vendoremail) VALUES (@vendor, @email)";
+                using (SqlCommand cmd = new SqlCommand(addvendor, cnn))
+                {
+
+                    //find out new part id
+                    cmd.Parameters.AddWithValue("@vendor", vendorName.Text);
+                    cmd.Parameters.AddWithValue("@email", email.Text);
+
+                    cnn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    //test
+                }
+
+            }
+        }
+
+        private void addUser_Click(object sender, EventArgs e)
+        {
+            
+            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
+            {
+                //string addPart = "INSERT INTO Parts VALUES (" + partID + ", " + itemDesc + ", " + Cost + ", " + vendor + ", " + quanit + ", " + reorderPoint + ", " + expectLife + ", " + shipmentTime + ", " + locationID + ")";
+
+                //edit code to get job title access level
+                /*string vID = "SELECT vendorID FROM Vendors WHERE vendorName = (@name)";
+                using (SqlCommand comm = new SqlCommand(vID, cnn))
+                {
+                    comm.Parameters.AddWithValue("@name", vendorNameComboBox.SelectedValue.ToString());
+
+                    cnn.Open();
+                    vendorNumber = (int)comm.ExecuteScalar();
+                    cnn.Close();
+                }*/
+
+                string addUser = "INSERT INTO Users (username, password, name, accesslevel, lockedOut) VALUES (@username, @pass, @name, @access, @lockedOut)";
+                if(password.Text == confirmPassword.Text)
+                {
+                    using (SqlCommand cmd = new SqlCommand(addUser, cnn))
+                    {
+
+                        //find out new part id
+                        cmd.Parameters.AddWithValue("@username", NameUser.Text);
+                        cmd.Parameters.AddWithValue("@pass", username.Text);
+                        cmd.Parameters.AddWithValue("@name", password.Text);
+                        cmd.Parameters.AddWithValue("@access", 1);
+                        cmd.Parameters.AddWithValue("@lockedOut", 0);
+
+
+                        //test
+                        try
+                        {
+                            cnn.Open();
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("User Added!");
+                        }
+                        catch (Exception eff)
+                        {
+                            MessageBox.Show("User was unable to be added.");
+                        }
+
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Passwords do not match");
+                }
+
+
+
+            }
+        }
+
+        private void addLocation_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
+            {
+
+                string addloc = "INSERT INTO Location (name, type, Street, City, State, ZIP) VALUES (@name, @type, @st, @city, @state, @zip)";
+                using (SqlCommand cmd = new SqlCommand(addloc, cnn))
+                {
+
+                    //find out new part id
+                    cmd.Parameters.AddWithValue("@name", locationName.Text);
+                    cmd.Parameters.AddWithValue("@type", typeLoc.Text);
+                    cmd.Parameters.AddWithValue("@st", Street.Text);
+                    cmd.Parameters.AddWithValue("@city", city.Text);
+                    cmd.Parameters.AddWithValue("@state", state.Text);
+                    cmd.Parameters.AddWithValue("@zip", zip.Text);
+                        
+                    cnn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    //test
+                }
+
+            }
         }
     }
 }

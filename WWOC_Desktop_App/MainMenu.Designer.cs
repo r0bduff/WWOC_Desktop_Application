@@ -51,34 +51,26 @@
             this.tabPageRequest = new System.Windows.Forms.TabPage();
             this.tabPageHistory = new System.Windows.Forms.TabPage();
             this.DataGridView = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.vendorIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vendorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vendorEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vendorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gROUP4DataSet = new WWOC_Desktop_App.GROUP4DataSet();
-            this.DGVMainMenu = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.texteBox21 = new System.Windows.Forms.TextBox();
+            this.addVendor = new System.Windows.Forms.Button();
+            this.email = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.vendorName = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.IDvendor = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.vendorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gROUP4DataSet = new WWOC_Desktop_App.GROUP4DataSet();
+            this.DGVMainMenu = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.type = new System.Windows.Forms.TextBox();
+            this.addLocation = new System.Windows.Forms.Button();
+            this.Street = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.address = new System.Windows.Forms.TextBox();
+            this.typeLoc = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.locationName = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.locationID = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.accessLevel = new System.Windows.Forms.TextBox();
+            this.addUser = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.NameUser = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -86,10 +78,13 @@
             this.label17 = new System.Windows.Forms.Label();
             this.username = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.userID = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.locationIDComboBox = new System.Windows.Forms.ComboBox();
+            this.locationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vendorNameComboBox = new System.Windows.Forms.ComboBox();
+            this.vendorsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.gROUP4DataSet2 = new WWOC_Desktop_App.GROUP4DataSet2();
+            this.addPart = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.shipmentTime = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -107,13 +102,22 @@
             this.partsTableAdapter = new WWOC_Desktop_App.GROUP4DataSetPartsTableAdapters.PartsTableAdapter();
             this.vendorsTableAdapter = new WWOC_Desktop_App.GROUP4DataSetTableAdapters.VendorsTableAdapter();
             this.tableAdapterManager = new WWOC_Desktop_App.GROUP4DataSetTableAdapters.TableAdapterManager();
-            this.vendorNameComboBox = new System.Windows.Forms.ComboBox();
-            this.locationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.locationTableAdapter = new WWOC_Desktop_App.GROUP4DataSetTableAdapters.LocationTableAdapter();
-            this.gROUP4DataSet2 = new WWOC_Desktop_App.GROUP4DataSet2();
-            this.vendorsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.vendorsTableAdapter1 = new WWOC_Desktop_App.GROUP4DataSet2TableAdapters.VendorsTableAdapter();
-            this.locationIDComboBox = new System.Windows.Forms.ComboBox();
+            this.vendorIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vendorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vendorEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.confirmPassword = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.securityBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.securityTableAdapter = new WWOC_Desktop_App.GROUP4DataSetTableAdapters.SecurityTableAdapter();
+            this.jobTitleComboBox = new System.Windows.Forms.ComboBox();
+            this.zip = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.state = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.city = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabControlMain.SuspendLayout();
             this.tabPageParts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -121,17 +125,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPartsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetParts)).BeginInit();
             this.DataGridView.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSet)).BeginInit();
             this.DGVMainMenu.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.locationBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.securityBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -308,6 +313,7 @@
             // 
             // DataGridView
             // 
+            this.DataGridView.Controls.Add(this.groupBox4);
             this.DataGridView.Controls.Add(this.dataGridView2);
             this.DataGridView.Location = new System.Drawing.Point(4, 22);
             this.DataGridView.Name = "DataGridView";
@@ -316,6 +322,65 @@
             this.DataGridView.TabIndex = 4;
             this.DataGridView.Text = "Vendors";
             this.DataGridView.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.addVendor);
+            this.groupBox4.Controls.Add(this.email);
+            this.groupBox4.Controls.Add(this.label22);
+            this.groupBox4.Controls.Add(this.vendorName);
+            this.groupBox4.Controls.Add(this.label23);
+            this.groupBox4.Location = new System.Drawing.Point(467, 6);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(293, 448);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Add Vendor";
+            // 
+            // addVendor
+            // 
+            this.addVendor.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.addVendor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addVendor.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.addVendor.Location = new System.Drawing.Point(84, 400);
+            this.addVendor.Name = "addVendor";
+            this.addVendor.Size = new System.Drawing.Size(113, 42);
+            this.addVendor.TabIndex = 19;
+            this.addVendor.Text = "Add Vendor";
+            this.addVendor.UseVisualStyleBackColor = false;
+            this.addVendor.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // email
+            // 
+            this.email.Location = new System.Drawing.Point(6, 75);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(255, 20);
+            this.email.TabIndex = 5;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(3, 59);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(36, 13);
+            this.label22.TabIndex = 4;
+            this.label22.Text = "E-Mail";
+            // 
+            // vendorName
+            // 
+            this.vendorName.Location = new System.Drawing.Point(6, 33);
+            this.vendorName.Name = "vendorName";
+            this.vendorName.Size = new System.Drawing.Size(255, 20);
+            this.vendorName.TabIndex = 3;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(3, 17);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(72, 13);
+            this.label23.TabIndex = 2;
+            this.label23.Text = "Vendor Name";
             // 
             // dataGridView2
             // 
@@ -330,26 +395,9 @@
             this.dataGridView2.DataSource = this.vendorsBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(3, 3);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1237, 477);
+            this.dataGridView2.Size = new System.Drawing.Size(458, 477);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // vendorIDDataGridViewTextBoxColumn1
-            // 
-            this.vendorIDDataGridViewTextBoxColumn1.DataPropertyName = "vendorID";
-            this.vendorIDDataGridViewTextBoxColumn1.HeaderText = "vendorID";
-            this.vendorIDDataGridViewTextBoxColumn1.Name = "vendorIDDataGridViewTextBoxColumn1";
-            // 
-            // vendorNameDataGridViewTextBoxColumn
-            // 
-            this.vendorNameDataGridViewTextBoxColumn.DataPropertyName = "vendorName";
-            this.vendorNameDataGridViewTextBoxColumn.HeaderText = "vendorName";
-            this.vendorNameDataGridViewTextBoxColumn.Name = "vendorNameDataGridViewTextBoxColumn";
-            // 
-            // vendorEmailDataGridViewTextBoxColumn
-            // 
-            this.vendorEmailDataGridViewTextBoxColumn.DataPropertyName = "vendorEmail";
-            this.vendorEmailDataGridViewTextBoxColumn.HeaderText = "vendorEmail";
-            this.vendorEmailDataGridViewTextBoxColumn.Name = "vendorEmailDataGridViewTextBoxColumn";
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // vendorsBindingSource
             // 
@@ -364,7 +412,6 @@
             // DGVMainMenu
             // 
             this.DGVMainMenu.AutoScroll = true;
-            this.DGVMainMenu.Controls.Add(this.groupBox4);
             this.DGVMainMenu.Controls.Add(this.groupBox3);
             this.DGVMainMenu.Controls.Add(this.groupBox2);
             this.DGVMainMenu.Controls.Add(this.groupBox1);
@@ -376,93 +423,21 @@
             this.DGVMainMenu.Text = "Manage";
             this.DGVMainMenu.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.button6);
-            this.groupBox4.Controls.Add(this.texteBox21);
-            this.groupBox4.Controls.Add(this.label22);
-            this.groupBox4.Controls.Add(this.vendorName);
-            this.groupBox4.Controls.Add(this.label23);
-            this.groupBox4.Controls.Add(this.IDvendor);
-            this.groupBox4.Controls.Add(this.label24);
-            this.groupBox4.Location = new System.Drawing.Point(903, 6);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(293, 448);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Add Vendor";
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button6.Location = new System.Drawing.Point(84, 400);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(113, 42);
-            this.button6.TabIndex = 19;
-            this.button6.Text = "Add Vendor";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // texteBox21
-            // 
-            this.texteBox21.Location = new System.Drawing.Point(10, 120);
-            this.texteBox21.Name = "texteBox21";
-            this.texteBox21.Size = new System.Drawing.Size(255, 20);
-            this.texteBox21.TabIndex = 5;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(7, 104);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(36, 13);
-            this.label22.TabIndex = 4;
-            this.label22.Text = "E-Mail";
-            // 
-            // vendorName
-            // 
-            this.vendorName.Location = new System.Drawing.Point(10, 78);
-            this.vendorName.Name = "vendorName";
-            this.vendorName.Size = new System.Drawing.Size(255, 20);
-            this.vendorName.TabIndex = 3;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(7, 62);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(72, 13);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "Vendor Name";
-            // 
-            // IDvendor
-            // 
-            this.IDvendor.Location = new System.Drawing.Point(10, 36);
-            this.IDvendor.Name = "IDvendor";
-            this.IDvendor.Size = new System.Drawing.Size(255, 20);
-            this.IDvendor.TabIndex = 1;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(7, 20);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(18, 13);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "ID";
-            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button5);
-            this.groupBox3.Controls.Add(this.type);
+            this.groupBox3.Controls.Add(this.zip);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.state);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.city);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.addLocation);
+            this.groupBox3.Controls.Add(this.Street);
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.address);
+            this.groupBox3.Controls.Add(this.typeLoc);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.locationName);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.locationID);
-            this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Location = new System.Drawing.Point(604, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(293, 448);
@@ -470,53 +445,54 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Add Location";
             // 
-            // button5
+            // addLocation
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button5.Location = new System.Drawing.Point(84, 400);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(113, 42);
-            this.button5.TabIndex = 19;
-            this.button5.Text = "Add Location";
-            this.button5.UseVisualStyleBackColor = false;
+            this.addLocation.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.addLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addLocation.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.addLocation.Location = new System.Drawing.Point(84, 400);
+            this.addLocation.Name = "addLocation";
+            this.addLocation.Size = new System.Drawing.Size(113, 42);
+            this.addLocation.TabIndex = 19;
+            this.addLocation.Text = "Add Location";
+            this.addLocation.UseVisualStyleBackColor = false;
+            this.addLocation.Click += new System.EventHandler(this.addLocation_Click);
             // 
-            // type
+            // Street
             // 
-            this.type.Location = new System.Drawing.Point(10, 163);
-            this.type.Name = "type";
-            this.type.Size = new System.Drawing.Size(255, 20);
-            this.type.TabIndex = 7;
+            this.Street.Location = new System.Drawing.Point(10, 116);
+            this.Street.Name = "Street";
+            this.Street.Size = new System.Drawing.Size(255, 20);
+            this.Street.TabIndex = 7;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 147);
+            this.label12.Location = new System.Drawing.Point(7, 101);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(31, 13);
+            this.label12.Size = new System.Drawing.Size(35, 13);
             this.label12.TabIndex = 6;
-            this.label12.Text = "Type";
+            this.label12.Text = "Street";
             // 
-            // address
+            // typeLoc
             // 
-            this.address.Location = new System.Drawing.Point(10, 120);
-            this.address.Name = "address";
-            this.address.Size = new System.Drawing.Size(255, 20);
-            this.address.TabIndex = 5;
+            this.typeLoc.Location = new System.Drawing.Point(10, 78);
+            this.typeLoc.Name = "typeLoc";
+            this.typeLoc.Size = new System.Drawing.Size(255, 20);
+            this.typeLoc.TabIndex = 5;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 104);
+            this.label13.Location = new System.Drawing.Point(7, 58);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(45, 13);
+            this.label13.Size = new System.Drawing.Size(31, 13);
             this.label13.TabIndex = 4;
-            this.label13.Text = "Address";
+            this.label13.Text = "Type";
             // 
             // locationName
             // 
-            this.locationName.Location = new System.Drawing.Point(10, 78);
+            this.locationName.Location = new System.Drawing.Point(10, 32);
             this.locationName.Name = "locationName";
             this.locationName.Size = new System.Drawing.Size(255, 20);
             this.locationName.TabIndex = 3;
@@ -524,32 +500,18 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 62);
+            this.label14.Location = new System.Drawing.Point(7, 16);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(35, 13);
             this.label14.TabIndex = 2;
             this.label14.Text = "Name";
             // 
-            // locationID
-            // 
-            this.locationID.Location = new System.Drawing.Point(10, 36);
-            this.locationID.Name = "locationID";
-            this.locationID.Size = new System.Drawing.Size(255, 20);
-            this.locationID.TabIndex = 1;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(7, 20);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(18, 13);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "ID";
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.accessLevel);
+            this.groupBox2.Controls.Add(this.jobTitleComboBox);
+            this.groupBox2.Controls.Add(this.confirmPassword);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.addUser);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.NameUser);
             this.groupBox2.Controls.Add(this.label16);
@@ -557,48 +519,40 @@
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.username);
             this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.userID);
-            this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Location = new System.Drawing.Point(305, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(293, 448);
+            this.groupBox2.Size = new System.Drawing.Size(293, 462);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Add User";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // button4
+            // addUser
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Location = new System.Drawing.Point(84, 400);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 42);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "Add User";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // accessLevel
-            // 
-            this.accessLevel.Location = new System.Drawing.Point(10, 206);
-            this.accessLevel.Name = "accessLevel";
-            this.accessLevel.Size = new System.Drawing.Size(255, 20);
-            this.accessLevel.TabIndex = 9;
+            this.addUser.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.addUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUser.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.addUser.Location = new System.Drawing.Point(84, 400);
+            this.addUser.Name = "addUser";
+            this.addUser.Size = new System.Drawing.Size(113, 42);
+            this.addUser.TabIndex = 19;
+            this.addUser.Text = "Add User";
+            this.addUser.UseVisualStyleBackColor = false;
+            this.addUser.Click += new System.EventHandler(this.addUser_Click);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(7, 190);
+            this.label15.Location = new System.Drawing.Point(6, 187);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(71, 13);
+            this.label15.Size = new System.Drawing.Size(47, 13);
             this.label15.TabIndex = 8;
-            this.label15.Text = "Access Level";
+            this.label15.Text = "Job Title";
             this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // NameUser
             // 
-            this.NameUser.Location = new System.Drawing.Point(10, 163);
+            this.NameUser.Location = new System.Drawing.Point(6, 32);
             this.NameUser.Name = "NameUser";
             this.NameUser.Size = new System.Drawing.Size(255, 20);
             this.NameUser.TabIndex = 7;
@@ -606,7 +560,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(7, 147);
+            this.label16.Location = new System.Drawing.Point(3, 16);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(35, 13);
             this.label16.TabIndex = 6;
@@ -614,15 +568,16 @@
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(10, 120);
+            this.password.Location = new System.Drawing.Point(6, 117);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(255, 20);
             this.password.TabIndex = 5;
+            this.password.UseSystemPasswordChar = true;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(7, 104);
+            this.label17.Location = new System.Drawing.Point(3, 101);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(53, 13);
             this.label17.TabIndex = 4;
@@ -631,7 +586,7 @@
             // 
             // username
             // 
-            this.username.Location = new System.Drawing.Point(10, 78);
+            this.username.Location = new System.Drawing.Point(6, 74);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(255, 20);
             this.username.TabIndex = 3;
@@ -639,33 +594,17 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(7, 62);
+            this.label18.Location = new System.Drawing.Point(3, 58);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(60, 13);
             this.label18.TabIndex = 2;
             this.label18.Text = "User Name";
             // 
-            // userID
-            // 
-            this.userID.Location = new System.Drawing.Point(10, 36);
-            this.userID.Name = "userID";
-            this.userID.Size = new System.Drawing.Size(255, 20);
-            this.userID.TabIndex = 1;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(7, 20);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(18, 13);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "ID";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.locationIDComboBox);
             this.groupBox1.Controls.Add(this.vendorNameComboBox);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.addPart);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.shipmentTime);
             this.groupBox1.Controls.Add(this.label9);
@@ -687,18 +626,53 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Part";
             // 
-            // button2
+            // locationIDComboBox
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(91, 400);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 42);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Add Part";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.locationIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.locationBindingSource, "locationID", true));
+            this.locationIDComboBox.FormattingEnabled = true;
+            this.locationIDComboBox.Location = new System.Drawing.Point(3, 328);
+            this.locationIDComboBox.Name = "locationIDComboBox";
+            this.locationIDComboBox.Size = new System.Drawing.Size(261, 21);
+            this.locationIDComboBox.TabIndex = 20;
+            // 
+            // locationBindingSource
+            // 
+            this.locationBindingSource.DataMember = "Location";
+            this.locationBindingSource.DataSource = this.gROUP4DataSet;
+            // 
+            // vendorNameComboBox
+            // 
+            this.vendorNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vendorsBindingSource, "vendorName", true));
+            this.vendorNameComboBox.DataSource = this.vendorsBindingSource1;
+            this.vendorNameComboBox.FormattingEnabled = true;
+            this.vendorNameComboBox.Location = new System.Drawing.Point(3, 116);
+            this.vendorNameComboBox.Name = "vendorNameComboBox";
+            this.vendorNameComboBox.Size = new System.Drawing.Size(255, 21);
+            this.vendorNameComboBox.TabIndex = 19;
+            this.vendorNameComboBox.SelectedIndexChanged += new System.EventHandler(this.vendorNameComboBox_SelectedIndexChanged);
+            // 
+            // vendorsBindingSource1
+            // 
+            this.vendorsBindingSource1.DataMember = "Vendors";
+            this.vendorsBindingSource1.DataSource = this.gROUP4DataSet2;
+            // 
+            // gROUP4DataSet2
+            // 
+            this.gROUP4DataSet2.DataSetName = "GROUP4DataSet2";
+            this.gROUP4DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // addPart
+            // 
+            this.addPart.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.addPart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addPart.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.addPart.Location = new System.Drawing.Point(91, 400);
+            this.addPart.Name = "addPart";
+            this.addPart.Size = new System.Drawing.Size(113, 42);
+            this.addPart.TabIndex = 18;
+            this.addPart.Text = "Add Part";
+            this.addPart.UseVisualStyleBackColor = false;
+            this.addPart.Click += new System.EventHandler(this.button2_Click);
             // 
             // label10
             // 
@@ -834,51 +808,124 @@
             this.tableAdapterManager.LocationTableAdapter = this.locationTableAdapter;
             this.tableAdapterManager.OrdersTableAdapter = null;
             this.tableAdapterManager.PartsTableAdapter = null;
+            this.tableAdapterManager.SecurityTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = WWOC_Desktop_App.GROUP4DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UsersTableAdapter = null;
             this.tableAdapterManager.VendorsTableAdapter = this.vendorsTableAdapter;
-            // 
-            // vendorNameComboBox
-            // 
-            this.vendorNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vendorsBindingSource, "vendorName", true));
-            this.vendorNameComboBox.DataSource = this.vendorsBindingSource1;
-            this.vendorNameComboBox.FormattingEnabled = true;
-            this.vendorNameComboBox.Location = new System.Drawing.Point(6, 117);
-            this.vendorNameComboBox.Name = "vendorNameComboBox";
-            this.vendorNameComboBox.Size = new System.Drawing.Size(255, 21);
-            this.vendorNameComboBox.TabIndex = 19;
-            this.vendorNameComboBox.SelectedIndexChanged += new System.EventHandler(this.vendorNameComboBox_SelectedIndexChanged);
-            // 
-            // locationBindingSource
-            // 
-            this.locationBindingSource.DataMember = "Location";
-            this.locationBindingSource.DataSource = this.gROUP4DataSet;
             // 
             // locationTableAdapter
             // 
             this.locationTableAdapter.ClearBeforeFill = true;
             // 
-            // gROUP4DataSet2
-            // 
-            this.gROUP4DataSet2.DataSetName = "GROUP4DataSet2";
-            this.gROUP4DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vendorsBindingSource1
-            // 
-            this.vendorsBindingSource1.DataMember = "Vendors";
-            this.vendorsBindingSource1.DataSource = this.gROUP4DataSet2;
-            // 
             // vendorsTableAdapter1
             // 
             this.vendorsTableAdapter1.ClearBeforeFill = true;
             // 
-            // locationIDComboBox
+            // vendorIDDataGridViewTextBoxColumn1
             // 
-            this.locationIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.locationBindingSource, "locationID", true));
-            this.locationIDComboBox.FormattingEnabled = true;
-            this.locationIDComboBox.Location = new System.Drawing.Point(0, 328);
-            this.locationIDComboBox.Name = "locationIDComboBox";
-            this.locationIDComboBox.Size = new System.Drawing.Size(261, 21);
-            this.locationIDComboBox.TabIndex = 20;
+            this.vendorIDDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.vendorIDDataGridViewTextBoxColumn1.DataPropertyName = "vendorID";
+            this.vendorIDDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.vendorIDDataGridViewTextBoxColumn1.Name = "vendorIDDataGridViewTextBoxColumn1";
+            this.vendorIDDataGridViewTextBoxColumn1.Width = 43;
+            // 
+            // vendorNameDataGridViewTextBoxColumn
+            // 
+            this.vendorNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.vendorNameDataGridViewTextBoxColumn.DataPropertyName = "vendorName";
+            this.vendorNameDataGridViewTextBoxColumn.HeaderText = "Company";
+            this.vendorNameDataGridViewTextBoxColumn.Name = "vendorNameDataGridViewTextBoxColumn";
+            this.vendorNameDataGridViewTextBoxColumn.Width = 76;
+            // 
+            // vendorEmailDataGridViewTextBoxColumn
+            // 
+            this.vendorEmailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.vendorEmailDataGridViewTextBoxColumn.DataPropertyName = "vendorEmail";
+            this.vendorEmailDataGridViewTextBoxColumn.HeaderText = "E-Mail";
+            this.vendorEmailDataGridViewTextBoxColumn.Name = "vendorEmailDataGridViewTextBoxColumn";
+            // 
+            // confirmPassword
+            // 
+            this.confirmPassword.Location = new System.Drawing.Point(6, 160);
+            this.confirmPassword.Name = "confirmPassword";
+            this.confirmPassword.Size = new System.Drawing.Size(255, 20);
+            this.confirmPassword.TabIndex = 21;
+            this.confirmPassword.UseSystemPasswordChar = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 144);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Confirm Password";
+            // 
+            // securityBindingSource
+            // 
+            this.securityBindingSource.DataMember = "Security";
+            this.securityBindingSource.DataSource = this.gROUP4DataSet;
+            // 
+            // securityTableAdapter
+            // 
+            this.securityTableAdapter.ClearBeforeFill = true;
+            // 
+            // jobTitleComboBox
+            // 
+            this.jobTitleComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.securityBindingSource, "jobTitle", true));
+            this.jobTitleComboBox.FormattingEnabled = true;
+            this.jobTitleComboBox.Location = new System.Drawing.Point(6, 203);
+            this.jobTitleComboBox.Name = "jobTitleComboBox";
+            this.jobTitleComboBox.Size = new System.Drawing.Size(255, 21);
+            this.jobTitleComboBox.TabIndex = 22;
+            // 
+            // zip
+            // 
+            this.zip.Location = new System.Drawing.Point(10, 244);
+            this.zip.Name = "zip";
+            this.zip.Size = new System.Drawing.Size(255, 20);
+            this.zip.TabIndex = 25;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 230);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(24, 13);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "ZIP";
+            // 
+            // state
+            // 
+            this.state.Location = new System.Drawing.Point(10, 206);
+            this.state.Name = "state";
+            this.state.Size = new System.Drawing.Size(255, 20);
+            this.state.TabIndex = 23;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 186);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "State";
+            // 
+            // city
+            // 
+            this.city.Location = new System.Drawing.Point(10, 160);
+            this.city.Name = "city";
+            this.city.Size = new System.Drawing.Size(255, 20);
+            this.city.TabIndex = 21;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 144);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(24, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "City";
             // 
             // MainMenu
             // 
@@ -899,12 +946,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPartsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetParts)).EndInit();
             this.DataGridView.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSet)).EndInit();
             this.DGVMainMenu.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -912,8 +959,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.locationBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.securityBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -958,7 +1006,6 @@
         private System.Windows.Forms.TextBox exptdLife;
         private System.Windows.Forms.Label expectedLife;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox accessLevel;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox NameUser;
         private System.Windows.Forms.Label label16;
@@ -966,38 +1013,23 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox userID;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox shipmentTime;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox type;
+        private System.Windows.Forms.Button addLocation;
+        private System.Windows.Forms.TextBox Street;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox address;
+        private System.Windows.Forms.TextBox typeLoc;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox locationName;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox locationID;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox texteBox21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox vendorName;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox IDvendor;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button addUser;
+        private System.Windows.Forms.Button addPart;
         private System.Windows.Forms.DataGridView dataGridView2;
         private GROUP4DataSet gROUP4DataSet;
         private System.Windows.Forms.BindingSource vendorsBindingSource;
         private GROUP4DataSetTableAdapters.VendorsTableAdapter vendorsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendorIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendorNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendorEmailDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox vendorNameComboBox;
         private GROUP4DataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private GROUP4DataSetTableAdapters.LocationTableAdapter locationTableAdapter;
@@ -1006,5 +1038,25 @@
         private System.Windows.Forms.BindingSource vendorsBindingSource1;
         private GROUP4DataSet2TableAdapters.VendorsTableAdapter vendorsTableAdapter1;
         private System.Windows.Forms.ComboBox locationIDComboBox;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button addVendor;
+        private System.Windows.Forms.TextBox email;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox vendorName;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendorIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendorNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendorEmailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox confirmPassword;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.BindingSource securityBindingSource;
+        private GROUP4DataSetTableAdapters.SecurityTableAdapter securityTableAdapter;
+        private System.Windows.Forms.ComboBox jobTitleComboBox;
+        private System.Windows.Forms.TextBox zip;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox state;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox city;
+        private System.Windows.Forms.Label label7;
     }
 }
