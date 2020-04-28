@@ -632,7 +632,7 @@
             this.locationIDComboBox.FormattingEnabled = true;
             this.locationIDComboBox.Location = new System.Drawing.Point(3, 328);
             this.locationIDComboBox.Name = "locationIDComboBox";
-            this.locationIDComboBox.Size = new System.Drawing.Size(261, 21);
+            this.locationIDComboBox.Size = new System.Drawing.Size(255, 21);
             this.locationIDComboBox.TabIndex = 20;
             // 
             // locationBindingSource
