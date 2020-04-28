@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* Class: Login.cs
+ * @Authors Rob Duff
+ * 
+ * Description: Handles logic of confirming a user to login into the application
+ * 
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +21,7 @@ namespace WWOC_Desktop_App
     //to use panels or tab control for multiple form selection. 
     public partial class Login : Form
     {
-        
+
         public Login()
         {
             InitializeComponent();
@@ -40,7 +46,7 @@ namespace WWOC_Desktop_App
                             //login successful
                             user user = getUser(userId, cnn);
                             pushCounter(user.username, 0, cnn);
-                            Form mainmenu = new MainMenu();
+                            Form mainmenu = new MainMenu(userId);
                             mainmenu.Show();
                         }
                         else
@@ -71,9 +77,10 @@ namespace WWOC_Desktop_App
 
                 cnn.Close();
             }//end using
+            this.Hide();
         }//end button click
 
-        /* Method checks to see if the user is locked out of their account, will update lockedout if found that user is locked out.
+        /* Description: Method checks to see if the user is locked out of their account, will update lockedout if found that user is locked out.
          * Req: string username - username of the user
          *      int counter - counter of attempts user has made
          *      SqlConnection cnn - SqlConnection to the database with user information
@@ -111,7 +118,7 @@ namespace WWOC_Desktop_App
             return false;
         }
 
-        /* Method checks to see if the username exists in the database
+        /* Description: Method checks to see if the username exists in the database
          * Req: string username - username of the user
          *      SqlConnection cnn - SqlConnection to the database with user information
          * Returns: Boolean true if the account exists
@@ -138,7 +145,7 @@ namespace WWOC_Desktop_App
             return false;
         }
 
-        /* Method checks to see if the password matches the username
+        /* Description: Method checks to see if the password matches the username
         * Req: string username - username given by the user
         *      string password - password given by the user
         *      SqlConnection cnn - SqlConnection to the database with user information
@@ -170,7 +177,7 @@ namespace WWOC_Desktop_App
             return false;
         }
 
-        /* Method that populates a new user object when given a userId
+        /* Description: Method that populates a new user object when given a userId
          * Req: int userId - userId matching a user in the database
          * Returns: user object containg information from the database matching the given userId
          */
@@ -201,7 +208,7 @@ namespace WWOC_Desktop_App
         }
 
 
-        /* Method that pulls the counter for a username
+        /* Description: Method that pulls the counter for a username
          * Req: string username - username given by the user
          *      SqlConnection cnn - SqlConnection to the database with user information
          * Returns: int containing the current value of the counter
@@ -225,7 +232,7 @@ namespace WWOC_Desktop_App
         }
 
 
-        /* Methos that updates the counter for a given username.
+        /* Description: Method that updates the counter for a given username.
          * Req: string username - username given by the user
          *      int counter - current value of the counter
          *      SqlConnection cnn - SqlConnection to the database with user information
@@ -245,9 +252,10 @@ namespace WWOC_Desktop_App
             }
         }
 
-        private void tbUsername_TextChanged(object sender, EventArgs e)
+        private void btnSkip_Click(object sender, EventArgs e)
         {
-
+            Form mainmenu = new MainMenu(1);
+            mainmenu.Show();
         }
     }//end login class
 }
