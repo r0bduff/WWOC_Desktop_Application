@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* Class: Users.cs
+ * @Authors Rob Duff
+ * 
+ * Description: Object class holding information for the current user logged into the application
+ * 
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
