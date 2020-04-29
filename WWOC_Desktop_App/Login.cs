@@ -34,6 +34,7 @@ namespace WWOC_Desktop_App
                 cnn.Open();
                 string username = tbUsername.Text;
                 string password = tbPassword.Text;
+                int accessLevel = 0;
 
                 if(isUsername(username, cnn) == true)
                 {
@@ -44,9 +45,10 @@ namespace WWOC_Desktop_App
                         if(isPassword(username, password, cnn, out userId) == true)
                         {
                             //login successful
-                            user user = getUser(userId, cnn);
+                            User user = getUser(userId, cnn);
                             pushCounter(user.username, 0, cnn);
-                            Form mainmenu = new MainMenu(userId);
+                            accessLevel = getAccessLevel(userId, cnn);
+                            Form mainmenu = new MainMenu(userId, accessLevel);
                             mainmenu.Show();
                         }
                         else
@@ -181,15 +183,15 @@ namespace WWOC_Desktop_App
          * Req: int userId - userId matching a user in the database
          * Returns: user object containg information from the database matching the given userId
          */
-        private static user getUser(int userId, SqlConnection cnn)
+        private static User getUser(int userId, SqlConnection cnn)
         {
-            user user = new user();
+            User user = new User();
             try
             {
                 SqlCommand commUser = new SqlCommand("EXEC PullUser @UserId =" + userId + ";", cnn);
                 SqlDataReader reader = commUser.ExecuteReader(); reader.Read();
 
-                user.UserID = userId;
+                user.userID = userId;
                 user.username = reader["username"].ToString();
                 user.password = reader["password"].ToString();
                 user.name = reader["name"].ToString();
@@ -254,8 +256,20 @@ namespace WWOC_Desktop_App
 
         private void btnSkip_Click(object sender, EventArgs e)
         {
-            Form mainmenu = new MainMenu(1);
+            Form mainmenu = new MainMenu(1,1);
             mainmenu.Show();
+        }
+
+        /* Description: Retrieves the users accesslevel from the DB
+         * Req: int userID, SqlConnection cnn
+         * Returns int userID
+         */
+        private int getAccessLevel(int userID, SqlConnection cnn)
+        {
+            SqlCommand getAL = new SqlCommand("SELECT accessLevel FROM Users WHERE userID=" + userID + ";", cnn);
+            SqlDataReader reader = getAL.ExecuteReader(); reader.Read();
+            int accessLevel = Convert.ToInt32(reader["accessLevel"]);
+            return accessLevel;
         }
     }//end login class
 }

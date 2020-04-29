@@ -1,5 +1,5 @@
 ﻿/* Class: MainMenu.cs
- * @Authors Rob Duff, 
+ * @Authors Rob Duff, Luis Jimenez, Miranda Gleason
  * 
  * Description: Handles logic behind all tabs within the main menu form
  * 
@@ -20,13 +20,15 @@ namespace WWOC_Desktop_App
     public partial class MainMenu : Form
     {
         public int currentUserID;//bad code ignore pls
+        private int accessLevel;
         private Order order;//maybe worse also ignore
         private OrderLineItem item;//probably even worse chiltion just keep scrolling
 
-        public MainMenu(int currentUser)
+        public MainMenu(int currentUser, int accessLevel)
         {
             InitializeComponent();
             currentUserID = currentUser;
+            this.accessLevel = accessLevel;
         }
 
         /* Description: 
@@ -35,6 +37,10 @@ namespace WWOC_Desktop_App
          */
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'gROUP4DataSetLocation.Location' table. You can move, or remove it, as needed.
+            this.locationTableAdapter.Fill(this.gROUP4DataSetLocation.Location);
+            // TODO: This line of code loads data into the 'gROUP4DataSetUsers.Users' table. You can move, or remove it, as needed.
+            this.usersTableAdapter.Fill(this.gROUP4DataSetUsers.Users);
             // TODO: This line of code loads data into the 'gROUP4DataSetOrderHistory.Orders' table. You can move, or remove it, as needed.
             this.ordersTableAdapter1.Fill(this.gROUP4DataSetOrderHistory.Orders);
             this.ordersTableAdapter1.FillBy(this.gROUP4DataSetOrderHistory.Orders);
@@ -172,10 +178,10 @@ namespace WWOC_Desktop_App
                     tbVendor.Text = "";
                     tbQtyOrder.Text = "";
 
-                    tbSubTotal.Text = order.subtotal.ToString();
-                    tbSalesTax.Text = order.salesTax.ToString();
-                    tbShippingHandling.Text = order.shippingHandling.ToString();
-                    tbTotalPrice.Text = order.totalPrice.ToString();
+                    tbSubTotal.Text = order.subtotal.ToString("C2");
+                    tbSalesTax.Text = order.salesTax.ToString("C2");
+                    tbShippingHandling.Text = order.shippingHandling.ToString("C2");
+                    tbTotalPrice.Text = order.totalPrice.ToString("C2");
                     tbPODate.Text = DateTime.Now.ToString();
 
                 }//end else
@@ -323,14 +329,15 @@ namespace WWOC_Desktop_App
                 }
 
                 tbPO_OrderID.Text = order.orderID.ToString();
-                tbPO_Username.Text = order.userID.ToString();//change to a username
+                User findUser = new User(order.userID);
+                tbPO_Username.Text = findUser.username;
                 tbPO_PODate.Text = order.poDate.ToString();
                 tbPO_ShipTime.Text = order.shippingTime.ToString();
                 tbPO_Terms.Text = order.terms.ToString();
-                tbPO_SubTotal.Text = order.subtotal.ToString();
-                tbPO_SalesTax.Text = order.salesTax.ToString();
-                tbPO_ShippingHandling.Text = order.shippingHandling.ToString();
-                tbPO_TotalPrice.Text = order.totalPrice.ToString();
+                tbPO_SubTotal.Text = order.subtotal.ToString("C2");
+                tbPO_SalesTax.Text = order.salesTax.ToString("C2");
+                tbPO_ShippingHandling.Text = order.shippingHandling.ToString("C2");
+                tbPO_TotalPrice.Text = order.totalPrice.ToString("C2");
 
                 dataGridPO_PartsinOrder.Rows.Clear();
                 OrderLineItem[] arrCart = order.cart.ToArray();
@@ -451,14 +458,15 @@ namespace WWOC_Desktop_App
                 }
 
                 tbOH_orderID.Text = order.orderID.ToString();
-                tbOH_username.Text = order.userID.ToString();//change to a username
+                User findUser = new User(order.orderID);
+                tbOH_username.Text = findUser.username;
                 tbOH_POdate.Text = order.poDate.ToString();
                 tbOH_shippingTime.Text = order.shippingTime.ToString();
                 tbOH_terms.Text = order.terms.ToString();
-                tbOH_subtotal.Text = order.subtotal.ToString();
-                tbOH_salesTax.Text = order.salesTax.ToString();
-                tbOH_shippingHandling.Text = order.shippingHandling.ToString();
-                tbOH_totalPrice.Text = order.totalPrice.ToString();
+                tbOH_subtotal.Text = order.subtotal.ToString("C2");
+                tbOH_salesTax.Text = order.salesTax.ToString("C2");
+                tbOH_shippingHandling.Text = order.shippingHandling.ToString("C2");
+                tbOH_totalPrice.Text = order.totalPrice.ToString("C2");
 
                 dataGridOH_PartsInOrder.Rows.Clear();
                 OrderLineItem[] arrCart = order.cart.ToArray();
@@ -470,7 +478,100 @@ namespace WWOC_Desktop_App
             }
         }
 
-       
+      /* PAGE: Manage
+      * Description: adds a user to the DB when button is clicked
+      * Req: nothing
+      * Returns: updates the DB
+      */
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            //find the job title id
+            int jobTitle = 0;
+            if(cbJobTitle.Text == "Auditor")
+            {
+                jobTitle = 1;
+            }
+            else if(cbJobTitle.Text == "Field Supervisor")
+            {
+                jobTitle = 2;
+            }
+            else if(cbJobTitle.Text == "Drilling Engineer")
+            {
+                jobTitle = 3;
+            }
+
+            //add the new user to the db
+            if (tbAddPassword.Text == tbAddConfPassword.Text)
+            {
+                User newUser = new User(tbAddName.Text, tbAddUsername.Text, tbAddPassword.Text, jobTitle);
+                this.usersTableAdapter.Fill(this.gROUP4DataSetUsers.Users);
+            }
+            else
+            {
+                MessageBox.Show("Passwords do not match");
+            }
+
+            //clear the text boxes
+            tbAddName.Text = "";
+            tbAddUsername.Text = "";
+            tbAddPassword.Text = "";
+            cbJobTitle.Text = "";
+        }
+
+     /* PAGE: Manage
+      * Description: adds a location to the DB if button is clicked
+      * Req: nothing
+      * Returns: updates the DB
+      */
+        private void btnAddLocation_Click(object sender, EventArgs e)
+        {
+            Location loc = new Location(tbAddLocName.Text, tbAddStreet.Text, tbAddCity.Text, tbAddState.Text, tbAddZip.Text, cbLocType.Text);
+            this.locationTableAdapter.Fill(this.gROUP4DataSetLocation.Location);
+
+            tbAddLocName.Text = "";
+            tbAddStreet.Text = "";
+            tbAddCity.Text = "";
+            tbAddState.Text = "";
+            tbAddZip.Text = "";
+            cbLocType.Text = "";
+        }
+
+     /* PAGE: vendors
+      * Description: Adds a vendor to the DB when button is clicked
+      * Req: nothing
+      * Returns: updates the DB
+      */
+        private void btnAddVendor_Click(object sender, EventArgs e)
+        {
+            Vendor newVendor = new Vendor(tbVendorName.Text, tbVendorEmail.Text);
+            this.vendorsTableAdapter.Fill(this.gROUP4DataSet.Vendors);
+
+            tbVendorName.Text = "";
+            tbVendorEmail.Text = "";
+        }
+
+     /* PAGE: Inventory
+      * Description: Adds a part to the DB when button is clicked
+      * Req: nothing
+      * Returns: updates the DB
+      */
+        private void btnAddPart_Click(object sender, EventArgs e)
+        {
+            Vendor findVendor = new Vendor(tbAddPartVendor.Text);
+            Location findLoc = new Location(cbPartLocSelect.Text);
+
+            Part newPart = new Part(tbAddItemDesc.Text, Convert.ToDouble(tbAddItemCost.Text), findVendor.vendorID, Convert.ToInt32(tbAddQTY.Text), Convert.ToInt32(tbAddReorderPoint.Text), Convert.ToInt32(tbAddExptLife.Text), tbAddShipTime.Text, findLoc.locationID);
+            this.partsTableAdapter.Fill(this.gROUP4DataSetParts.Parts);
+
+            tbAddItemCost.Text = "";
+            tbAddPartVendor.Text = "";
+            tbAddQTY.Text = "";
+            tbAddReorderPoint.Text = "";
+            tbAddExptLife.Text = "";
+            tbAddShipTime.Text = "";
+            cbPartLocSelect.Text = "";
+        }
+
 
     }
 }

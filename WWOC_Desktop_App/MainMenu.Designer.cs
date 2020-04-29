@@ -31,15 +31,32 @@
             this.components = new System.ComponentModel.Container();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageParts = new System.Windows.Forms.TabPage();
+            this.groupBoxAddPart = new System.Windows.Forms.GroupBox();
+            this.btnAddPart = new System.Windows.Forms.Button();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.cbPartLocSelect = new System.Windows.Forms.ComboBox();
+            this.tbAddPartVendor = new System.Windows.Forms.ComboBox();
+            this.tbAddShipTime = new System.Windows.Forms.TextBox();
+            this.tbAddExptLife = new System.Windows.Forms.TextBox();
+            this.tbAddReorderPoint = new System.Windows.Forms.TextBox();
+            this.tbAddQTY = new System.Windows.Forms.TextBox();
+            this.tbAddItemCost = new System.Windows.Forms.TextBox();
+            this.tbAddItemDesc = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.partIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costUSDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vendorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reorderPointDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.exptdLifeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shipmentTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reorderPoint = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gROUP4DataSetPartsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -152,6 +169,12 @@
             this.ordersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gROUP4DataSetOrderHistory = new WWOC_Desktop_App.GROUP4DataSetOrderHistory();
             this.DataGridView = new System.Windows.Forms.TabPage();
+            this.groupBoxAddVendor = new System.Windows.Forms.GroupBox();
+            this.btnAddVendor = new System.Windows.Forms.Button();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.tbVendorEmail = new System.Windows.Forms.TextBox();
+            this.tbVendorName = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.vendorIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vendorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -159,6 +182,50 @@
             this.vendorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gROUP4DataSet = new WWOC_Desktop_App.GROUP4DataSet();
             this.DGVMainMenu = new System.Windows.Forms.TabPage();
+            this.groupBoxViewLocation = new System.Windows.Forms.GroupBox();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.locationIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.streetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zIPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gROUP4DataSetLocation = new WWOC_Desktop_App.GROUP4DataSetLocation();
+            this.groupBoxViewUsers = new System.Windows.Forms.GroupBox();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gROUP4DataSetUsers = new WWOC_Desktop_App.GROUP4DataSetUsers();
+            this.groupBoxAddLocation = new System.Windows.Forms.GroupBox();
+            this.btnAddLocation = new System.Windows.Forms.Button();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.cbLocType = new System.Windows.Forms.ComboBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.tbAddZip = new System.Windows.Forms.TextBox();
+            this.tbAddState = new System.Windows.Forms.TextBox();
+            this.tbAddCity = new System.Windows.Forms.TextBox();
+            this.tbAddStreet = new System.Windows.Forms.TextBox();
+            this.tbAddLocName = new System.Windows.Forms.TextBox();
+            this.groupBoxAddUser = new System.Windows.Forms.GroupBox();
+            this.btnAddUser = new System.Windows.Forms.Button();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.cbJobTitle = new System.Windows.Forms.ComboBox();
+            this.tbAddConfPassword = new System.Windows.Forms.TextBox();
+            this.tbAddPassword = new System.Windows.Forms.TextBox();
+            this.tbAddUsername = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.tbAddName = new System.Windows.Forms.TextBox();
             this.orderLineItemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gROUP4DataSetOrderLineItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gROUP4DataSetOrderLineItem = new WWOC_Desktop_App.GROUP4DataSetOrderLineItem();
@@ -175,8 +242,11 @@
             this.partsTableAdapter1 = new WWOC_Desktop_App.GROUP4DataSetOrderLineItemTableAdapters.PartsTableAdapter();
             this.ordersTableAdapter = new WWOC_Desktop_App.GROUP4DataSetPendingOrdersTableAdapters.OrdersTableAdapter();
             this.ordersTableAdapter1 = new WWOC_Desktop_App.GROUP4DataSetOrderHistoryTableAdapters.OrdersTableAdapter();
+            this.usersTableAdapter = new WWOC_Desktop_App.GROUP4DataSetUsersTableAdapters.UsersTableAdapter();
+            this.locationTableAdapter = new WWOC_Desktop_App.GROUP4DataSetLocationTableAdapters.LocationTableAdapter();
             this.tabControlMain.SuspendLayout();
             this.tabPageParts.SuspendLayout();
+            this.groupBoxAddPart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPartsBindingSource)).BeginInit();
@@ -204,9 +274,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderHistory)).BeginInit();
             this.DataGridView.SuspendLayout();
+            this.groupBoxAddVendor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSet)).BeginInit();
+            this.DGVMainMenu.SuspendLayout();
+            this.groupBoxViewLocation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.locationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetLocation)).BeginInit();
+            this.groupBoxViewUsers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetUsers)).BeginInit();
+            this.groupBoxAddLocation.SuspendLayout();
+            this.groupBoxAddUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderLineItemBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderLineItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderLineItem)).BeginInit();
@@ -234,6 +316,7 @@
             // 
             // tabPageParts
             // 
+            this.tabPageParts.Controls.Add(this.groupBoxAddPart);
             this.tabPageParts.Controls.Add(this.dataGridView1);
             this.tabPageParts.Location = new System.Drawing.Point(4, 25);
             this.tabPageParts.Margin = new System.Windows.Forms.Padding(4);
@@ -244,8 +327,185 @@
             this.tabPageParts.Text = "Inventory";
             this.tabPageParts.UseVisualStyleBackColor = true;
             // 
+            // groupBoxAddPart
+            // 
+            this.groupBoxAddPart.Controls.Add(this.btnAddPart);
+            this.groupBoxAddPart.Controls.Add(this.label54);
+            this.groupBoxAddPart.Controls.Add(this.label53);
+            this.groupBoxAddPart.Controls.Add(this.label52);
+            this.groupBoxAddPart.Controls.Add(this.label51);
+            this.groupBoxAddPart.Controls.Add(this.label50);
+            this.groupBoxAddPart.Controls.Add(this.label49);
+            this.groupBoxAddPart.Controls.Add(this.label48);
+            this.groupBoxAddPart.Controls.Add(this.label47);
+            this.groupBoxAddPart.Controls.Add(this.cbPartLocSelect);
+            this.groupBoxAddPart.Controls.Add(this.tbAddPartVendor);
+            this.groupBoxAddPart.Controls.Add(this.tbAddShipTime);
+            this.groupBoxAddPart.Controls.Add(this.tbAddExptLife);
+            this.groupBoxAddPart.Controls.Add(this.tbAddReorderPoint);
+            this.groupBoxAddPart.Controls.Add(this.tbAddQTY);
+            this.groupBoxAddPart.Controls.Add(this.tbAddItemCost);
+            this.groupBoxAddPart.Controls.Add(this.tbAddItemDesc);
+            this.groupBoxAddPart.Location = new System.Drawing.Point(863, 7);
+            this.groupBoxAddPart.Name = "groupBoxAddPart";
+            this.groupBoxAddPart.Size = new System.Drawing.Size(245, 557);
+            this.groupBoxAddPart.TabIndex = 1;
+            this.groupBoxAddPart.TabStop = false;
+            this.groupBoxAddPart.Text = "Add Part";
+            // 
+            // btnAddPart
+            // 
+            this.btnAddPart.Location = new System.Drawing.Point(7, 397);
+            this.btnAddPart.Name = "btnAddPart";
+            this.btnAddPart.Size = new System.Drawing.Size(229, 36);
+            this.btnAddPart.TabIndex = 16;
+            this.btnAddPart.Text = "Add Part";
+            this.btnAddPart.UseVisualStyleBackColor = true;
+            this.btnAddPart.Click += new System.EventHandler(this.btnAddPart_Click);
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(4, 338);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(70, 16);
+            this.label54.TabIndex = 15;
+            this.label54.Text = "Location:";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(4, 293);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(111, 16);
+            this.label53.TabIndex = 14;
+            this.label53.Text = "Shipment Time:";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(4, 248);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(103, 16);
+            this.label52.TabIndex = 13;
+            this.label52.Text = "Expected Life:";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(3, 203);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(102, 16);
+            this.label51.TabIndex = 12;
+            this.label51.Text = "Reorder Point:";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(3, 156);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(71, 16);
+            this.label50.TabIndex = 11;
+            this.label50.Text = "Quantity:";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(3, 110);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(60, 16);
+            this.label49.TabIndex = 10;
+            this.label49.Text = "Vendor:";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(3, 65);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(88, 16);
+            this.label48.TabIndex = 9;
+            this.label48.Text = "Cost (USD):";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(2, 20);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(122, 16);
+            this.label47.TabIndex = 8;
+            this.label47.Text = "Item Description:";
+            // 
+            // cbPartLocSelect
+            // 
+            this.cbPartLocSelect.CausesValidation = false;
+            this.cbPartLocSelect.DataSource = this.locationBindingSource;
+            this.cbPartLocSelect.DisplayMember = "name";
+            this.cbPartLocSelect.FormattingEnabled = true;
+            this.cbPartLocSelect.Location = new System.Drawing.Point(6, 357);
+            this.cbPartLocSelect.Name = "cbPartLocSelect";
+            this.cbPartLocSelect.Size = new System.Drawing.Size(230, 24);
+            this.cbPartLocSelect.TabIndex = 7;
+            this.cbPartLocSelect.ValueMember = "name";
+            // 
+            // tbAddPartVendor
+            // 
+            this.tbAddPartVendor.CausesValidation = false;
+            this.tbAddPartVendor.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.vendorsBindingSource, "vendorID", true));
+            this.tbAddPartVendor.DataSource = this.vendorsBindingSource;
+            this.tbAddPartVendor.DisplayMember = "vendorName";
+            this.tbAddPartVendor.FormattingEnabled = true;
+            this.tbAddPartVendor.Location = new System.Drawing.Point(7, 129);
+            this.tbAddPartVendor.Name = "tbAddPartVendor";
+            this.tbAddPartVendor.Size = new System.Drawing.Size(230, 24);
+            this.tbAddPartVendor.TabIndex = 6;
+            this.tbAddPartVendor.ValueMember = "vendorName";
+            // 
+            // tbAddShipTime
+            // 
+            this.tbAddShipTime.Location = new System.Drawing.Point(6, 312);
+            this.tbAddShipTime.Name = "tbAddShipTime";
+            this.tbAddShipTime.Size = new System.Drawing.Size(230, 23);
+            this.tbAddShipTime.TabIndex = 5;
+            // 
+            // tbAddExptLife
+            // 
+            this.tbAddExptLife.Location = new System.Drawing.Point(6, 267);
+            this.tbAddExptLife.Name = "tbAddExptLife";
+            this.tbAddExptLife.Size = new System.Drawing.Size(230, 23);
+            this.tbAddExptLife.TabIndex = 4;
+            // 
+            // tbAddReorderPoint
+            // 
+            this.tbAddReorderPoint.Location = new System.Drawing.Point(6, 222);
+            this.tbAddReorderPoint.Name = "tbAddReorderPoint";
+            this.tbAddReorderPoint.Size = new System.Drawing.Size(231, 23);
+            this.tbAddReorderPoint.TabIndex = 3;
+            // 
+            // tbAddQTY
+            // 
+            this.tbAddQTY.Location = new System.Drawing.Point(6, 175);
+            this.tbAddQTY.Name = "tbAddQTY";
+            this.tbAddQTY.Size = new System.Drawing.Size(231, 23);
+            this.tbAddQTY.TabIndex = 2;
+            // 
+            // tbAddItemCost
+            // 
+            this.tbAddItemCost.Location = new System.Drawing.Point(6, 84);
+            this.tbAddItemCost.Name = "tbAddItemCost";
+            this.tbAddItemCost.Size = new System.Drawing.Size(231, 23);
+            this.tbAddItemCost.TabIndex = 1;
+            // 
+            // tbAddItemDesc
+            // 
+            this.tbAddItemDesc.Location = new System.Drawing.Point(6, 39);
+            this.tbAddItemDesc.Name = "tbAddItemDesc";
+            this.tbAddItemDesc.Size = new System.Drawing.Size(231, 23);
+            this.tbAddItemDesc.TabIndex = 0;
+            // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -254,70 +514,87 @@
             this.costUSDDataGridViewTextBoxColumn,
             this.vendorIDDataGridViewTextBoxColumn,
             this.qtyDataGridViewTextBoxColumn,
-            this.reorderPointDataGridViewTextBoxColumn,
             this.exptdLifeDataGridViewTextBoxColumn,
-            this.shipmentTimeDataGridViewTextBoxColumn,
+            this.reorderPoint,
             this.locationIDDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.partsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(4, 4);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1103, 463);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(852, 560);
             this.dataGridView1.TabIndex = 0;
             // 
             // partIDDataGridViewTextBoxColumn
             // 
+            this.partIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.partIDDataGridViewTextBoxColumn.DataPropertyName = "partID";
-            this.partIDDataGridViewTextBoxColumn.HeaderText = "partID";
+            this.partIDDataGridViewTextBoxColumn.HeaderText = "Part ID";
             this.partIDDataGridViewTextBoxColumn.Name = "partIDDataGridViewTextBoxColumn";
+            this.partIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.partIDDataGridViewTextBoxColumn.Width = 60;
             // 
             // itemDescDataGridViewTextBoxColumn
             // 
             this.itemDescDataGridViewTextBoxColumn.DataPropertyName = "itemDesc";
-            this.itemDescDataGridViewTextBoxColumn.HeaderText = "itemDesc";
+            this.itemDescDataGridViewTextBoxColumn.HeaderText = "Item Description";
             this.itemDescDataGridViewTextBoxColumn.Name = "itemDescDataGridViewTextBoxColumn";
+            this.itemDescDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemDescDataGridViewTextBoxColumn.Width = 175;
             // 
             // costUSDDataGridViewTextBoxColumn
             // 
+            this.costUSDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.costUSDDataGridViewTextBoxColumn.DataPropertyName = "costUSD";
-            this.costUSDDataGridViewTextBoxColumn.HeaderText = "costUSD";
+            this.costUSDDataGridViewTextBoxColumn.HeaderText = "Cost";
             this.costUSDDataGridViewTextBoxColumn.Name = "costUSDDataGridViewTextBoxColumn";
+            this.costUSDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.costUSDDataGridViewTextBoxColumn.Width = 63;
             // 
             // vendorIDDataGridViewTextBoxColumn
             // 
+            this.vendorIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.vendorIDDataGridViewTextBoxColumn.DataPropertyName = "vendorID";
-            this.vendorIDDataGridViewTextBoxColumn.HeaderText = "vendorID";
+            this.vendorIDDataGridViewTextBoxColumn.HeaderText = "Vendor ID";
             this.vendorIDDataGridViewTextBoxColumn.Name = "vendorIDDataGridViewTextBoxColumn";
+            this.vendorIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.vendorIDDataGridViewTextBoxColumn.Width = 90;
             // 
             // qtyDataGridViewTextBoxColumn
             // 
+            this.qtyDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.qtyDataGridViewTextBoxColumn.DataPropertyName = "qty";
-            this.qtyDataGridViewTextBoxColumn.HeaderText = "qty";
+            this.qtyDataGridViewTextBoxColumn.HeaderText = "Quantity";
             this.qtyDataGridViewTextBoxColumn.Name = "qtyDataGridViewTextBoxColumn";
-            // 
-            // reorderPointDataGridViewTextBoxColumn
-            // 
-            this.reorderPointDataGridViewTextBoxColumn.DataPropertyName = "reorderPoint";
-            this.reorderPointDataGridViewTextBoxColumn.HeaderText = "reorderPoint";
-            this.reorderPointDataGridViewTextBoxColumn.Name = "reorderPointDataGridViewTextBoxColumn";
+            this.qtyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.qtyDataGridViewTextBoxColumn.Width = 90;
             // 
             // exptdLifeDataGridViewTextBoxColumn
             // 
+            this.exptdLifeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.exptdLifeDataGridViewTextBoxColumn.DataPropertyName = "exptdLife";
-            this.exptdLifeDataGridViewTextBoxColumn.HeaderText = "exptdLife";
+            this.exptdLifeDataGridViewTextBoxColumn.HeaderText = "Expected Life";
             this.exptdLifeDataGridViewTextBoxColumn.Name = "exptdLifeDataGridViewTextBoxColumn";
+            this.exptdLifeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.exptdLifeDataGridViewTextBoxColumn.Width = 112;
             // 
-            // shipmentTimeDataGridViewTextBoxColumn
+            // reorderPoint
             // 
-            this.shipmentTimeDataGridViewTextBoxColumn.DataPropertyName = "shipmentTime";
-            this.shipmentTimeDataGridViewTextBoxColumn.HeaderText = "shipmentTime";
-            this.shipmentTimeDataGridViewTextBoxColumn.Name = "shipmentTimeDataGridViewTextBoxColumn";
+            this.reorderPoint.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.reorderPoint.DataPropertyName = "reorderPoint";
+            this.reorderPoint.HeaderText = "Reorder Point";
+            this.reorderPoint.Name = "reorderPoint";
+            this.reorderPoint.ReadOnly = true;
+            this.reorderPoint.Width = 111;
             // 
             // locationIDDataGridViewTextBoxColumn
             // 
+            this.locationIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.locationIDDataGridViewTextBoxColumn.DataPropertyName = "locationID";
-            this.locationIDDataGridViewTextBoxColumn.HeaderText = "locationID";
+            this.locationIDDataGridViewTextBoxColumn.HeaderText = "Location ID";
             this.locationIDDataGridViewTextBoxColumn.Name = "locationIDDataGridViewTextBoxColumn";
+            this.locationIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.locationIDDataGridViewTextBoxColumn.Width = 99;
             // 
             // partsBindingSource
             // 
@@ -1040,28 +1317,28 @@
             // orderIDDataGridViewTextBoxColumn
             // 
             this.orderIDDataGridViewTextBoxColumn.DataPropertyName = "orderID";
-            this.orderIDDataGridViewTextBoxColumn.HeaderText = "orderID";
+            this.orderIDDataGridViewTextBoxColumn.HeaderText = "Order ID";
             this.orderIDDataGridViewTextBoxColumn.Name = "orderIDDataGridViewTextBoxColumn";
             this.orderIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // poDateDataGridViewTextBoxColumn
             // 
             this.poDateDataGridViewTextBoxColumn.DataPropertyName = "poDate";
-            this.poDateDataGridViewTextBoxColumn.HeaderText = "poDate";
+            this.poDateDataGridViewTextBoxColumn.HeaderText = "PO Date";
             this.poDateDataGridViewTextBoxColumn.Name = "poDateDataGridViewTextBoxColumn";
             this.poDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // totalPriceDataGridViewTextBoxColumn
             // 
             this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "totalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "totalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "Total Price";
             this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
             this.totalPriceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // approvedDataGridViewCheckBoxColumn
             // 
             this.approvedDataGridViewCheckBoxColumn.DataPropertyName = "approved";
-            this.approvedDataGridViewCheckBoxColumn.HeaderText = "approved";
+            this.approvedDataGridViewCheckBoxColumn.HeaderText = "Approved";
             this.approvedDataGridViewCheckBoxColumn.Name = "approvedDataGridViewCheckBoxColumn";
             this.approvedDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
@@ -1340,26 +1617,26 @@
             // orderIDDataGridViewTextBoxColumn1
             // 
             this.orderIDDataGridViewTextBoxColumn1.DataPropertyName = "orderID";
-            this.orderIDDataGridViewTextBoxColumn1.HeaderText = "orderID";
+            this.orderIDDataGridViewTextBoxColumn1.HeaderText = "Order ID";
             this.orderIDDataGridViewTextBoxColumn1.Name = "orderIDDataGridViewTextBoxColumn1";
             this.orderIDDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // poDate
             // 
             this.poDate.DataPropertyName = "poDate";
-            this.poDate.HeaderText = "poDate";
+            this.poDate.HeaderText = "PO Date";
             this.poDate.Name = "poDate";
             // 
             // totalPrice
             // 
             this.totalPrice.DataPropertyName = "totalPrice";
-            this.totalPrice.HeaderText = "totalPrice";
+            this.totalPrice.HeaderText = "Total Price";
             this.totalPrice.Name = "totalPrice";
             // 
             // approved
             // 
             this.approved.DataPropertyName = "approved";
-            this.approved.HeaderText = "approved";
+            this.approved.HeaderText = "Approved";
             this.approved.Name = "approved";
             // 
             // ordersBindingSource1
@@ -1374,6 +1651,7 @@
             // 
             // DataGridView
             // 
+            this.DataGridView.Controls.Add(this.groupBoxAddVendor);
             this.DataGridView.Controls.Add(this.dataGridView2);
             this.DataGridView.Location = new System.Drawing.Point(4, 25);
             this.DataGridView.Margin = new System.Windows.Forms.Padding(4);
@@ -1383,6 +1661,62 @@
             this.DataGridView.TabIndex = 4;
             this.DataGridView.Text = "Vendors";
             this.DataGridView.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxAddVendor
+            // 
+            this.groupBoxAddVendor.Controls.Add(this.btnAddVendor);
+            this.groupBoxAddVendor.Controls.Add(this.label55);
+            this.groupBoxAddVendor.Controls.Add(this.label56);
+            this.groupBoxAddVendor.Controls.Add(this.tbVendorEmail);
+            this.groupBoxAddVendor.Controls.Add(this.tbVendorName);
+            this.groupBoxAddVendor.Location = new System.Drawing.Point(762, 8);
+            this.groupBoxAddVendor.Name = "groupBoxAddVendor";
+            this.groupBoxAddVendor.Size = new System.Drawing.Size(325, 225);
+            this.groupBoxAddVendor.TabIndex = 1;
+            this.groupBoxAddVendor.TabStop = false;
+            this.groupBoxAddVendor.Text = "Add Vendor";
+            // 
+            // btnAddVendor
+            // 
+            this.btnAddVendor.Location = new System.Drawing.Point(78, 132);
+            this.btnAddVendor.Name = "btnAddVendor";
+            this.btnAddVendor.Size = new System.Drawing.Size(188, 35);
+            this.btnAddVendor.TabIndex = 14;
+            this.btnAddVendor.Text = "Add Vendor";
+            this.btnAddVendor.UseVisualStyleBackColor = true;
+            this.btnAddVendor.Click += new System.EventHandler(this.btnAddVendor_Click);
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(148, 69);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(48, 16);
+            this.label55.TabIndex = 13;
+            this.label55.Text = "E-Mail";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(122, 24);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(95, 16);
+            this.label56.TabIndex = 12;
+            this.label56.Text = "Vendor Name";
+            // 
+            // tbVendorEmail
+            // 
+            this.tbVendorEmail.Location = new System.Drawing.Point(53, 88);
+            this.tbVendorEmail.Name = "tbVendorEmail";
+            this.tbVendorEmail.Size = new System.Drawing.Size(231, 23);
+            this.tbVendorEmail.TabIndex = 11;
+            // 
+            // tbVendorName
+            // 
+            this.tbVendorName.Location = new System.Drawing.Point(53, 43);
+            this.tbVendorName.Name = "tbVendorName";
+            this.tbVendorName.Size = new System.Drawing.Size(231, 23);
+            this.tbVendorName.TabIndex = 10;
             // 
             // dataGridView2
             // 
@@ -1395,26 +1729,28 @@
             this.dataGridView2.DataSource = this.vendorsBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(8, 8);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(709, 538);
+            this.dataGridView2.Size = new System.Drawing.Size(720, 553);
             this.dataGridView2.TabIndex = 0;
             // 
             // vendorIDDataGridViewTextBoxColumn1
             // 
             this.vendorIDDataGridViewTextBoxColumn1.DataPropertyName = "vendorID";
-            this.vendorIDDataGridViewTextBoxColumn1.HeaderText = "vendorID";
+            this.vendorIDDataGridViewTextBoxColumn1.HeaderText = "Vendor ID";
             this.vendorIDDataGridViewTextBoxColumn1.Name = "vendorIDDataGridViewTextBoxColumn1";
             // 
             // vendorNameDataGridViewTextBoxColumn
             // 
             this.vendorNameDataGridViewTextBoxColumn.DataPropertyName = "vendorName";
-            this.vendorNameDataGridViewTextBoxColumn.HeaderText = "vendorName";
+            this.vendorNameDataGridViewTextBoxColumn.HeaderText = "Vendor Name";
             this.vendorNameDataGridViewTextBoxColumn.Name = "vendorNameDataGridViewTextBoxColumn";
+            this.vendorNameDataGridViewTextBoxColumn.Width = 200;
             // 
             // vendorEmailDataGridViewTextBoxColumn
             // 
             this.vendorEmailDataGridViewTextBoxColumn.DataPropertyName = "vendorEmail";
-            this.vendorEmailDataGridViewTextBoxColumn.HeaderText = "vendorEmail";
+            this.vendorEmailDataGridViewTextBoxColumn.HeaderText = "Email";
             this.vendorEmailDataGridViewTextBoxColumn.Name = "vendorEmailDataGridViewTextBoxColumn";
+            this.vendorEmailDataGridViewTextBoxColumn.Width = 150;
             // 
             // vendorsBindingSource
             // 
@@ -1428,6 +1764,10 @@
             // 
             // DGVMainMenu
             // 
+            this.DGVMainMenu.Controls.Add(this.groupBoxViewLocation);
+            this.DGVMainMenu.Controls.Add(this.groupBoxViewUsers);
+            this.DGVMainMenu.Controls.Add(this.groupBoxAddLocation);
+            this.DGVMainMenu.Controls.Add(this.groupBoxAddUser);
             this.DGVMainMenu.Location = new System.Drawing.Point(4, 25);
             this.DGVMainMenu.Margin = new System.Windows.Forms.Padding(4);
             this.DGVMainMenu.Name = "DGVMainMenu";
@@ -1436,6 +1776,395 @@
             this.DGVMainMenu.TabIndex = 5;
             this.DGVMainMenu.Text = "Manage";
             this.DGVMainMenu.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxViewLocation
+            // 
+            this.groupBoxViewLocation.Controls.Add(this.dataGridView3);
+            this.groupBoxViewLocation.Location = new System.Drawing.Point(737, 11);
+            this.groupBoxViewLocation.Name = "groupBoxViewLocation";
+            this.groupBoxViewLocation.Size = new System.Drawing.Size(371, 550);
+            this.groupBoxViewLocation.TabIndex = 5;
+            this.groupBoxViewLocation.TabStop = false;
+            this.groupBoxViewLocation.Text = "Locations";
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.locationIDDataGridViewTextBoxColumn1,
+            this.nameDataGridViewTextBoxColumn1,
+            this.streetDataGridViewTextBoxColumn,
+            this.cityDataGridViewTextBoxColumn,
+            this.stateDataGridViewTextBoxColumn,
+            this.zIPDataGridViewTextBoxColumn,
+            this.typeDataGridViewTextBoxColumn});
+            this.dataGridView3.DataSource = this.locationBindingSource;
+            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView3.Location = new System.Drawing.Point(3, 19);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(365, 528);
+            this.dataGridView3.TabIndex = 4;
+            // 
+            // locationIDDataGridViewTextBoxColumn1
+            // 
+            this.locationIDDataGridViewTextBoxColumn1.DataPropertyName = "locationID";
+            this.locationIDDataGridViewTextBoxColumn1.HeaderText = "Location ID";
+            this.locationIDDataGridViewTextBoxColumn1.Name = "locationIDDataGridViewTextBoxColumn1";
+            this.locationIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            // 
+            // streetDataGridViewTextBoxColumn
+            // 
+            this.streetDataGridViewTextBoxColumn.DataPropertyName = "Street";
+            this.streetDataGridViewTextBoxColumn.HeaderText = "Street";
+            this.streetDataGridViewTextBoxColumn.Name = "streetDataGridViewTextBoxColumn";
+            // 
+            // cityDataGridViewTextBoxColumn
+            // 
+            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
+            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
+            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
+            // 
+            // stateDataGridViewTextBoxColumn
+            // 
+            this.stateDataGridViewTextBoxColumn.DataPropertyName = "State";
+            this.stateDataGridViewTextBoxColumn.HeaderText = "State";
+            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
+            // 
+            // zIPDataGridViewTextBoxColumn
+            // 
+            this.zIPDataGridViewTextBoxColumn.DataPropertyName = "ZIP";
+            this.zIPDataGridViewTextBoxColumn.HeaderText = "ZIP";
+            this.zIPDataGridViewTextBoxColumn.Name = "zIPDataGridViewTextBoxColumn";
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Location Type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            // 
+            // locationBindingSource
+            // 
+            this.locationBindingSource.DataMember = "Location";
+            this.locationBindingSource.DataSource = this.gROUP4DataSetLocation;
+            // 
+            // gROUP4DataSetLocation
+            // 
+            this.gROUP4DataSetLocation.DataSetName = "GROUP4DataSetLocation";
+            this.gROUP4DataSetLocation.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // groupBoxViewUsers
+            // 
+            this.groupBoxViewUsers.Controls.Add(this.dataGridView4);
+            this.groupBoxViewUsers.Location = new System.Drawing.Point(7, 7);
+            this.groupBoxViewUsers.Name = "groupBoxViewUsers";
+            this.groupBoxViewUsers.Size = new System.Drawing.Size(362, 550);
+            this.groupBoxViewUsers.TabIndex = 4;
+            this.groupBoxViewUsers.TabStop = false;
+            this.groupBoxViewUsers.Text = "Users";
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.AutoGenerateColumns = false;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.userIDDataGridViewTextBoxColumn,
+            this.usernameDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn});
+            this.dataGridView4.DataSource = this.usersBindingSource;
+            this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView4.Location = new System.Drawing.Point(3, 19);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(356, 528);
+            this.dataGridView4.TabIndex = 4;
+            // 
+            // userIDDataGridViewTextBoxColumn
+            // 
+            this.userIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "userID";
+            this.userIDDataGridViewTextBoxColumn.HeaderText = "User ID";
+            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
+            this.userIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.userIDDataGridViewTextBoxColumn.Width = 81;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            this.usernameDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // usersBindingSource
+            // 
+            this.usersBindingSource.DataMember = "Users";
+            this.usersBindingSource.DataSource = this.gROUP4DataSetUsers;
+            // 
+            // gROUP4DataSetUsers
+            // 
+            this.gROUP4DataSetUsers.DataSetName = "GROUP4DataSetUsers";
+            this.gROUP4DataSetUsers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // groupBoxAddLocation
+            // 
+            this.groupBoxAddLocation.Controls.Add(this.btnAddLocation);
+            this.groupBoxAddLocation.Controls.Add(this.label46);
+            this.groupBoxAddLocation.Controls.Add(this.label45);
+            this.groupBoxAddLocation.Controls.Add(this.label44);
+            this.groupBoxAddLocation.Controls.Add(this.label43);
+            this.groupBoxAddLocation.Controls.Add(this.cbLocType);
+            this.groupBoxAddLocation.Controls.Add(this.label42);
+            this.groupBoxAddLocation.Controls.Add(this.label41);
+            this.groupBoxAddLocation.Controls.Add(this.tbAddZip);
+            this.groupBoxAddLocation.Controls.Add(this.tbAddState);
+            this.groupBoxAddLocation.Controls.Add(this.tbAddCity);
+            this.groupBoxAddLocation.Controls.Add(this.tbAddStreet);
+            this.groupBoxAddLocation.Controls.Add(this.tbAddLocName);
+            this.groupBoxAddLocation.Location = new System.Drawing.Point(375, 270);
+            this.groupBoxAddLocation.Name = "groupBoxAddLocation";
+            this.groupBoxAddLocation.Size = new System.Drawing.Size(356, 288);
+            this.groupBoxAddLocation.TabIndex = 1;
+            this.groupBoxAddLocation.TabStop = false;
+            this.groupBoxAddLocation.Text = "Add Location";
+            // 
+            // btnAddLocation
+            // 
+            this.btnAddLocation.Location = new System.Drawing.Point(143, 250);
+            this.btnAddLocation.Name = "btnAddLocation";
+            this.btnAddLocation.Size = new System.Drawing.Size(179, 29);
+            this.btnAddLocation.TabIndex = 11;
+            this.btnAddLocation.Text = "Add Location";
+            this.btnAddLocation.UseVisualStyleBackColor = true;
+            this.btnAddLocation.Click += new System.EventHandler(this.btnAddLocation_Click);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(101, 219);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(36, 16);
+            this.label46.TabIndex = 16;
+            this.label46.Text = "ZIP:";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(86, 180);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(51, 16);
+            this.label45.TabIndex = 15;
+            this.label45.Text = "State:";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(97, 141);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(40, 16);
+            this.label44.TabIndex = 14;
+            this.label44.Text = "City:";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(81, 102);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(56, 16);
+            this.label43.TabIndex = 13;
+            this.label43.Text = "Street:";
+            // 
+            // cbLocType
+            // 
+            this.cbLocType.FormattingEnabled = true;
+            this.cbLocType.Items.AddRange(new object[] {
+            "",
+            "Warehouse",
+            "Drilling Site"});
+            this.cbLocType.Location = new System.Drawing.Point(143, 60);
+            this.cbLocType.Name = "cbLocType";
+            this.cbLocType.Size = new System.Drawing.Size(179, 24);
+            this.cbLocType.TabIndex = 10;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(90, 63);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(47, 16);
+            this.label42.TabIndex = 12;
+            this.label42.Text = "Type:";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(87, 25);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(50, 16);
+            this.label41.TabIndex = 11;
+            this.label41.Text = "Name:";
+            // 
+            // tbAddZip
+            // 
+            this.tbAddZip.Location = new System.Drawing.Point(143, 216);
+            this.tbAddZip.Name = "tbAddZip";
+            this.tbAddZip.Size = new System.Drawing.Size(179, 23);
+            this.tbAddZip.TabIndex = 10;
+            // 
+            // tbAddState
+            // 
+            this.tbAddState.Location = new System.Drawing.Point(143, 177);
+            this.tbAddState.Name = "tbAddState";
+            this.tbAddState.Size = new System.Drawing.Size(179, 23);
+            this.tbAddState.TabIndex = 9;
+            // 
+            // tbAddCity
+            // 
+            this.tbAddCity.Location = new System.Drawing.Point(143, 138);
+            this.tbAddCity.Name = "tbAddCity";
+            this.tbAddCity.Size = new System.Drawing.Size(179, 23);
+            this.tbAddCity.TabIndex = 8;
+            // 
+            // tbAddStreet
+            // 
+            this.tbAddStreet.Location = new System.Drawing.Point(143, 99);
+            this.tbAddStreet.Name = "tbAddStreet";
+            this.tbAddStreet.Size = new System.Drawing.Size(179, 23);
+            this.tbAddStreet.TabIndex = 7;
+            // 
+            // tbAddLocName
+            // 
+            this.tbAddLocName.Location = new System.Drawing.Point(143, 22);
+            this.tbAddLocName.Name = "tbAddLocName";
+            this.tbAddLocName.Size = new System.Drawing.Size(179, 23);
+            this.tbAddLocName.TabIndex = 5;
+            // 
+            // groupBoxAddUser
+            // 
+            this.groupBoxAddUser.Controls.Add(this.btnAddUser);
+            this.groupBoxAddUser.Controls.Add(this.label40);
+            this.groupBoxAddUser.Controls.Add(this.label39);
+            this.groupBoxAddUser.Controls.Add(this.label38);
+            this.groupBoxAddUser.Controls.Add(this.label37);
+            this.groupBoxAddUser.Controls.Add(this.cbJobTitle);
+            this.groupBoxAddUser.Controls.Add(this.tbAddConfPassword);
+            this.groupBoxAddUser.Controls.Add(this.tbAddPassword);
+            this.groupBoxAddUser.Controls.Add(this.tbAddUsername);
+            this.groupBoxAddUser.Controls.Add(this.label36);
+            this.groupBoxAddUser.Controls.Add(this.tbAddName);
+            this.groupBoxAddUser.Location = new System.Drawing.Point(375, 8);
+            this.groupBoxAddUser.Name = "groupBoxAddUser";
+            this.groupBoxAddUser.Size = new System.Drawing.Size(356, 256);
+            this.groupBoxAddUser.TabIndex = 0;
+            this.groupBoxAddUser.TabStop = false;
+            this.groupBoxAddUser.Text = "Add User";
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.Location = new System.Drawing.Point(143, 213);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(179, 32);
+            this.btnAddUser.TabIndex = 10;
+            this.btnAddUser.Text = "Add User";
+            this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(67, 182);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(70, 16);
+            this.label40.TabIndex = 9;
+            this.label40.Text = "Job Title:";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(7, 142);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(130, 16);
+            this.label39.TabIndex = 8;
+            this.label39.Text = "Confirm Password:";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(61, 103);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(76, 16);
+            this.label38.TabIndex = 7;
+            this.label38.Text = "Password:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(59, 64);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(78, 16);
+            this.label37.TabIndex = 6;
+            this.label37.Text = "Username:";
+            // 
+            // cbJobTitle
+            // 
+            this.cbJobTitle.FormattingEnabled = true;
+            this.cbJobTitle.Items.AddRange(new object[] {
+            "",
+            "Auditor",
+            "Field Supervisor",
+            "Drilling Enginner"});
+            this.cbJobTitle.Location = new System.Drawing.Point(143, 179);
+            this.cbJobTitle.Name = "cbJobTitle";
+            this.cbJobTitle.Size = new System.Drawing.Size(179, 24);
+            this.cbJobTitle.TabIndex = 5;
+            // 
+            // tbAddConfPassword
+            // 
+            this.tbAddConfPassword.Location = new System.Drawing.Point(143, 139);
+            this.tbAddConfPassword.Name = "tbAddConfPassword";
+            this.tbAddConfPassword.Size = new System.Drawing.Size(179, 23);
+            this.tbAddConfPassword.TabIndex = 4;
+            // 
+            // tbAddPassword
+            // 
+            this.tbAddPassword.Location = new System.Drawing.Point(143, 100);
+            this.tbAddPassword.Name = "tbAddPassword";
+            this.tbAddPassword.Size = new System.Drawing.Size(179, 23);
+            this.tbAddPassword.TabIndex = 3;
+            // 
+            // tbAddUsername
+            // 
+            this.tbAddUsername.Location = new System.Drawing.Point(143, 61);
+            this.tbAddUsername.Name = "tbAddUsername";
+            this.tbAddUsername.Size = new System.Drawing.Size(179, 23);
+            this.tbAddUsername.TabIndex = 2;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(87, 26);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(50, 16);
+            this.label36.TabIndex = 1;
+            this.label36.Text = "Name:";
+            // 
+            // tbAddName
+            // 
+            this.tbAddName.Location = new System.Drawing.Point(143, 23);
+            this.tbAddName.Name = "tbAddName";
+            this.tbAddName.Size = new System.Drawing.Size(179, 23);
+            this.tbAddName.TabIndex = 0;
             // 
             // orderLineItemBindingSource1
             // 
@@ -1530,6 +2259,14 @@
             // 
             this.ordersTableAdapter1.ClearBeforeFill = true;
             // 
+            // usersTableAdapter
+            // 
+            this.usersTableAdapter.ClearBeforeFill = true;
+            // 
+            // locationTableAdapter
+            // 
+            this.locationTableAdapter.ClearBeforeFill = true;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1547,6 +2284,8 @@
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.tabControlMain.ResumeLayout(false);
             this.tabPageParts.ResumeLayout(false);
+            this.groupBoxAddPart.ResumeLayout(false);
+            this.groupBoxAddPart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPartsBindingSource)).EndInit();
@@ -1583,9 +2322,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderHistory)).EndInit();
             this.DataGridView.ResumeLayout(false);
+            this.groupBoxAddVendor.ResumeLayout(false);
+            this.groupBoxAddVendor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSet)).EndInit();
+            this.DGVMainMenu.ResumeLayout(false);
+            this.groupBoxViewLocation.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.locationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetLocation)).EndInit();
+            this.groupBoxViewUsers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetUsers)).EndInit();
+            this.groupBoxAddLocation.ResumeLayout(false);
+            this.groupBoxAddLocation.PerformLayout();
+            this.groupBoxAddUser.ResumeLayout(false);
+            this.groupBoxAddUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderLineItemBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderLineItemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderLineItem)).EndInit();
@@ -1611,15 +2365,6 @@
         private GROUP4DataSetParts gROUP4DataSetParts;
         private System.Windows.Forms.BindingSource partsBindingSource;
         private GROUP4DataSetPartsTableAdapters.PartsTableAdapter partsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn partIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemDescDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costUSDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendorIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reorderPointDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn exptdLifeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shipmentTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn locationIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage DGVMainMenu;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnLogOut;
@@ -1627,9 +2372,6 @@
         private GROUP4DataSet gROUP4DataSet;
         private System.Windows.Forms.BindingSource vendorsBindingSource;
         private GROUP4DataSetTableAdapters.VendorsTableAdapter vendorsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendorIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendorNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendorEmailDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox cBoxPartDescription;
         private System.Windows.Forms.GroupBox groupBoxPartInfo;
         private System.Windows.Forms.TextBox tbUnitPrice;
@@ -1686,10 +2428,6 @@
         private GROUP4DataSetPendingOrders gROUP4DataSetPendingOrders;
         private System.Windows.Forms.BindingSource ordersBindingSource;
         private GROUP4DataSetPendingOrdersTableAdapters.OrdersTableAdapter ordersTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn poDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn approvedDataGridViewCheckBoxColumn;
         private System.Windows.Forms.ToolStrip fillByToolStrip;
         private System.Windows.Forms.ToolStripButton fillByToolStripButton;
         private System.Windows.Forms.GroupBox groupBoxOrderDetailsP;
@@ -1720,10 +2458,6 @@
         private GROUP4DataSetOrderHistoryTableAdapters.OrdersTableAdapter ordersTableAdapter1;
         private System.Windows.Forms.ToolStrip fillByToolStrip1;
         private System.Windows.Forms.ToolStripButton fillByToolStripButton1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn poDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalPrice;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn approved;
         private System.Windows.Forms.GroupBox gbOH_orderDetails;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.DataGridView dataGridOH_PartsInOrder;
@@ -1745,5 +2479,94 @@
         private System.Windows.Forms.TextBox tbOH_username;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox tbOH_orderID;
+        private System.Windows.Forms.GroupBox groupBoxAddPart;
+        private System.Windows.Forms.GroupBox groupBoxAddVendor;
+        private System.Windows.Forms.GroupBox groupBoxViewLocation;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.GroupBox groupBoxViewUsers;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.GroupBox groupBoxAddLocation;
+        private System.Windows.Forms.Button btnAddLocation;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.ComboBox cbLocType;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.TextBox tbAddZip;
+        private System.Windows.Forms.TextBox tbAddState;
+        private System.Windows.Forms.TextBox tbAddCity;
+        private System.Windows.Forms.TextBox tbAddStreet;
+        private System.Windows.Forms.TextBox tbAddLocName;
+        private System.Windows.Forms.GroupBox groupBoxAddUser;
+        private System.Windows.Forms.Button btnAddUser;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.ComboBox cbJobTitle;
+        private System.Windows.Forms.TextBox tbAddConfPassword;
+        private System.Windows.Forms.TextBox tbAddPassword;
+        private System.Windows.Forms.TextBox tbAddUsername;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox tbAddName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn poDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn approvedDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn poDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPrice;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn approved;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendorIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendorNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendorEmailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnAddPart;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.ComboBox cbPartLocSelect;
+        private System.Windows.Forms.ComboBox tbAddPartVendor;
+        private System.Windows.Forms.TextBox tbAddShipTime;
+        private System.Windows.Forms.TextBox tbAddExptLife;
+        private System.Windows.Forms.TextBox tbAddReorderPoint;
+        private System.Windows.Forms.TextBox tbAddQTY;
+        private System.Windows.Forms.TextBox tbAddItemCost;
+        private System.Windows.Forms.TextBox tbAddItemDesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemDescDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costUSDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendorIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exptdLifeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reorderPoint;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnAddVendor;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.TextBox tbVendorEmail;
+        private System.Windows.Forms.TextBox tbVendorName;
+        private GROUP4DataSetUsers gROUP4DataSetUsers;
+        private System.Windows.Forms.BindingSource usersBindingSource;
+        private GROUP4DataSetUsersTableAdapters.UsersTableAdapter usersTableAdapter;
+        private GROUP4DataSetLocation gROUP4DataSetLocation;
+        private System.Windows.Forms.BindingSource locationBindingSource;
+        private GROUP4DataSetLocationTableAdapters.LocationTableAdapter locationTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn streetDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zIPDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
     }
 }
