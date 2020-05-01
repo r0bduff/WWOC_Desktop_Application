@@ -23,6 +23,7 @@ namespace WWOC_Desktop_App
         private int accessLevel;
         private Order order;//maybe worse also ignore
         private OrderLineItem item;//probably even worse chiltion just keep scrolling
+        private SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117");
 
         public MainMenu(int currentUser, int accessLevel)
         {
@@ -31,29 +32,31 @@ namespace WWOC_Desktop_App
             this.accessLevel = accessLevel;
         }
 
+
+
         /* Description: 
          * Req: 
          * Returns: 
          */
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'gROUP4DataSetLocation.Location' table. You can move, or remove it, as needed.
+            
+            //DATAGRID TABLE LOADING
+            //Location
             this.locationTableAdapter.Fill(this.gROUP4DataSetLocation.Location);
-            // TODO: This line of code loads data into the 'gROUP4DataSetUsers.Users' table. You can move, or remove it, as needed.
+            //Users
             this.usersTableAdapter.Fill(this.gROUP4DataSetUsers.Users);
-            // TODO: This line of code loads data into the 'gROUP4DataSetOrderHistory.Orders' table. You can move, or remove it, as needed.
-            this.ordersTableAdapter1.Fill(this.gROUP4DataSetOrderHistory.Orders);
-            this.ordersTableAdapter1.FillBy(this.gROUP4DataSetOrderHistory.Orders);
-            // TODO: This line of code loads data into the 'gROUP4DataSetPendingOrders.Orders' table. You can move, or remove it, as needed.
-            this.ordersTableAdapter.Fill(this.gROUP4DataSetPendingOrders.Orders);
+            //OrderConfirmation
+            this.ordersTableAdapter2.FillByApprovedReceived(this.gROUP4DataSetOrderConfirmation.Orders);
+            //OrderPending
             this.ordersTableAdapter.FillBy(this.gROUP4DataSetPendingOrders.Orders);
-            // TODO: This line of code loads data into the 'gROUP4DataSetOrderLineItem.Parts' table. You can move, or remove it, as needed.
+            //OrderRequest1
             this.partsTableAdapter1.Fill(this.gROUP4DataSetOrderLineItem.Parts);
-            // TODO: This line of code loads data into the 'gROUP4DataSetOrderLineItem.Order_Line_Item' table. You can move, or remove it, as needed.
+            //OrderRequest2
             this.order_Line_ItemTableAdapter.Fill(this.gROUP4DataSetOrderLineItem.Order_Line_Item);
-            // TODO: This line of code loads data into the 'gROUP4DataSet.Vendors' table. You can move, or remove it, as needed.
+            //Vendors
             this.vendorsTableAdapter.Fill(this.gROUP4DataSet.Vendors);
-            // TODO: This line of code loads data into the 'gROUP4DataSetParts.Parts' table. You can move, or remove it, as needed.
+            //Inventory
             this.partsTableAdapter.Fill(this.gROUP4DataSetParts.Parts);
 
             //prep datagridview on make order page
@@ -95,6 +98,8 @@ namespace WWOC_Desktop_App
             this.Hide();
         }
 
+        //---------------------------------------------------------------------------ORDER REQUEST TAB METHODS---------------------------------------------------------------------------
+
         /* PAGE: Order Request 
          * Description: When a part is selected from the drop down menu the information below
          *              is updated to describe the selected part.
@@ -105,20 +110,18 @@ namespace WWOC_Desktop_App
         {
             if (cBoxPartDescription.Text != "")
             {
-                using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
-                {
-                    cnn.Open();
-                    item = new OrderLineItem();
+                item = new OrderLineItem();
+                cnn.Open();
                     item.FillPartInfo(cBoxPartDescription.Text, cnn);
+                cnn.Close();
 
-                    //fill textboxes with text duh
-                    tbPartID.Text = item.partID.ToString();
-                    tbUnitPrice.Text = item.unitPrice.ToString();
-                    tbQtyStock.Text = item.qtyOH.ToString();
+                //fill textboxes with text duh
+                tbPartID.Text = item.partID.ToString();
+                tbUnitPrice.Text = item.unitPrice.ToString();
+                tbQtyStock.Text = item.qtyOH.ToString();
+                cnn.Open();
                     tbVendor.Text = item.ReturnVendorName(cnn);
-                    
-                    cnn.Close();
-                }
+                cnn.Close();
             }
         }
 
@@ -139,13 +142,11 @@ namespace WWOC_Desktop_App
             groupBoxRemove.Enabled = true;
             cBoxRemove.Items.Add("");
 
-            //create new order object
-            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
-            {
-                cnn.Open();
+            cnn.Open();
                 order = new Order(currentUserID, cnn);
-                cnn.Close();
-            }
+            cnn.Close();
+
+            btnCreateOrder.Enabled = false;
         }
 
         /* PAGE: Order request
@@ -155,38 +156,35 @@ namespace WWOC_Desktop_App
          */
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
+            if (tbQtyOrder.Text == "")
             {
-                if(tbQtyOrder.Text == "")
-                {
-                    MessageBox.Show("Please Enter a Quantity");
-                }
-                else
-                {
-                    cnn.Open();
-                    item.qty = Convert.ToInt32(tbQtyOrder.Text);
-                    item.orderID = order.orderID;
+                MessageBox.Show("Please Enter a Quantity");
+            }
+            else
+            {
+                item.qty = Convert.ToInt32(tbQtyOrder.Text);
+                item.orderID = order.orderID;
+                cnn.Open();
                     item.AddOrderLineItem(cnn);
-                    order.AddPartToOrder(item);
-                    AddItemToDataGrid();
-                    order.CalculateFinalCosts();
-
-                    cBoxPartDescription.Text = "";
-                    tbPartID.Text = "";
-                    tbUnitPrice.Text = "";
-                    tbQtyStock.Text = "";
-                    tbVendor.Text = "";
-                    tbQtyOrder.Text = "";
-
-                    tbSubTotal.Text = order.subtotal.ToString("C2");
-                    tbSalesTax.Text = order.salesTax.ToString("C2");
-                    tbShippingHandling.Text = order.shippingHandling.ToString("C2");
-                    tbTotalPrice.Text = order.totalPrice.ToString("C2");
-                    tbPODate.Text = DateTime.Now.ToString();
-
-                }//end else
                 cnn.Close();
-            }//end using
+                order.AddPartToOrder(item);
+                AddItemToDataGrid();
+                order.CalculateFinalCosts();
+
+                cBoxPartDescription.Text = "";
+                tbPartID.Text = "";
+                tbUnitPrice.Text = "";
+                tbQtyStock.Text = "";
+                tbVendor.Text = "";
+                tbQtyOrder.Text = "";
+
+                tbSubTotal.Text = order.subtotal.ToString("C2");
+                tbSalesTax.Text = order.salesTax.ToString("C2");
+                tbShippingHandling.Text = order.shippingHandling.ToString("C2");
+                tbTotalPrice.Text = order.totalPrice.ToString("C2");
+                tbPODate.Text = DateTime.Now.ToString();
+
+            }//end else
         }//end btnAddToOrderCLick
 
         /* PAGE: Order request
@@ -240,15 +238,11 @@ namespace WWOC_Desktop_App
          */
         private void btnRemoveItem_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
-            {
-                cnn.Open();
-                string itemDesc = cBoxRemove.Text;
-                int index;
-                order.RemovePartFromOrder(itemDesc, cnn, out index);
-                dataGridParts.Rows.RemoveAt(index);
-                cnn.Close();
-            }
+            string itemDesc = cBoxRemove.Text;
+            int index;
+            order.RemovePartFromOrder(itemDesc, out index);
+            cBoxRemove.Items.RemoveAt(index + 1);
+            dataGridParts.Rows.RemoveAt(index);
         }
 
         /* PAGE: Order request
@@ -258,20 +252,25 @@ namespace WWOC_Desktop_App
         */
         private void btnSubmitOrderRequest_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
-            {
-                cnn.Open();
-                order.poDate = DateTime.Now;
-                order.terms = tbTerms.Text;
+            order.poDate = DateTime.Now;
+            order.terms = tbTerms.Text;
+
+            //Check to see if the order should be auto approved or not
+            if (accessLevel == 2)
                 order.approved = checkBoxApprove.Checked;
+            else if (order.totalPrice > 25000)
+                order.approved = false;
+            else
+                order.approved = true;
+            cnn.Open();
                 order.UpdateDatabase(cnn);
-                cnn.Close();
-            }
+            cnn.Close();
 
             groupBoxOrderSummary.Enabled = false;
             groupBoxOrderInfo.Enabled = false;
             groupBoxPartInfo.Enabled = false;
             groupBoxRemove.Enabled = false;
+            btnCreateOrder.Enabled = true;
             cBoxRemove.Items.Clear();
 
             dataGridParts.Rows.Clear();
@@ -291,24 +290,8 @@ namespace WWOC_Desktop_App
             item = new OrderLineItem();
         }
 
-        /* PAGE: Approve Order
-         * Description: this stupid idiot is hidden behind a groupbox on the pending orders page
-         * Req: nothing
-         * Returns: this dude does a little query on the datagridPO_PendingOrders
-         */
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.ordersTableAdapter.FillBy(this.gROUP4DataSetPendingOrders.Orders);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
+        //---------------------------------------------------------------------------APPROVE ORDER TAB METHODS---------------------------------------------------------------------------
+        
         /* PAGE: Approve Order
          * Description: when a user clicks an item in the datagridview this then updates the page with some more details for them.
          * Req: event triggered on user mouse click
@@ -320,13 +303,10 @@ namespace WWOC_Desktop_App
             if (e.RowIndex >= 0)
             { 
                 DataGridViewRow row = dataGridPO_PendingOrders.Rows[e.RowIndex];
-                using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
-                {
-                    cnn.Open();
-                    int id = Convert.ToInt32(row.Cells[0].Value);
-                    order = new Order(id, cnn, currentUserID);
-                    cnn.Close();
-                }
+                int id = Convert.ToInt32(row.Cells[0].Value);
+                cnn.Open();
+                    order = new Order(id, currentUserID, cnn);
+                cnn.Close();
 
                 tbPO_OrderID.Text = order.orderID.ToString();
                 User findUser = new User(order.userID);
@@ -340,6 +320,7 @@ namespace WWOC_Desktop_App
                 tbPO_TotalPrice.Text = order.totalPrice.ToString("C2");
 
                 dataGridPO_PartsinOrder.Rows.Clear();
+
                 OrderLineItem[] arrCart = order.cart.ToArray();
                 for (int i = 0; i < arrCart.Length; i++)
                 {
@@ -356,12 +337,9 @@ namespace WWOC_Desktop_App
         */
         private void btnApproveOrder_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
-            {
-                cnn.Open();
+            cnn.Open();
                 order.ApproveOrderDB(cnn);
-                cnn.Close();
-            }
+            cnn.Close();
             MessageBox.Show("Order Approved");
 
             tbPO_OrderID.Text = "";
@@ -385,12 +363,9 @@ namespace WWOC_Desktop_App
        */
         private void btnRejectOrder_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
-            {
-                cnn.Open();
+            cnn.Open();
                 order.RemoveOrderDB(cnn);
-                cnn.Close();
-            }
+            cnn.Close();
 
             MessageBox.Show("Order Rejected and Removed");
 
@@ -416,30 +391,13 @@ namespace WWOC_Desktop_App
        */
         private void UpdateDataGridPO()
         {
-            this.ordersTableAdapter.Fill(this.gROUP4DataSetPendingOrders.Orders);
-            dataGridPO_PendingOrders.Refresh();
-            this.ordersTableAdapter.FillBy(this.gROUP4DataSetPendingOrders.Orders);
+           this.ordersTableAdapter.FillBy(this.gROUP4DataSetPendingOrders.Orders);
+           this.ordersTableAdapter2.FillByApprovedReceived(this.gROUP4DataSetOrderConfirmation.Orders);
         }
 
-        /* PAGE: Order History
-        * Description: queries out unapproved orders from orders table
-        * Req: nothing
-        * Returns: updates the order history datagridview
-        */
-        private void fillByToolStripButton1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.ordersTableAdapter1.FillBy(this.gROUP4DataSetOrderHistory.Orders);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
+        //---------------------------------------------------------------------------ORDER CONFIRMATION TAB METHODS---------------------------------------------------------------------------
 
-        }
-
-        /* PAGE: Order History
+        /* PAGE: Order Confirmation
        * Description: when a user clicks an item in the datagridview this then updates the page with some more details for them.
        * Req: click a cell
        * Returns: updates the order details datagridview
@@ -449,16 +407,13 @@ namespace WWOC_Desktop_App
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridOH_orderHistory.Rows[e.RowIndex];
-                using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
-                {
-                    cnn.Open();
-                    int id = Convert.ToInt32(row.Cells[0].Value);
-                    order = new Order(id, cnn, currentUserID);
-                    cnn.Close();
-                }
+                int id = Convert.ToInt32(row.Cells[0].Value);
+                cnn.Open();
+                    order = new Order(id, currentUserID, cnn);
+                cnn.Close();
 
                 tbOH_orderID.Text = order.orderID.ToString();
-                User findUser = new User(order.orderID);
+                User findUser = new User(order.userID);
                 tbOH_username.Text = findUser.username;
                 tbOH_POdate.Text = order.poDate.ToString();
                 tbOH_shippingTime.Text = order.shippingTime.ToString();
@@ -474,48 +429,90 @@ namespace WWOC_Desktop_App
                 {
                     dataGridOH_PartsInOrder.Rows.Add(arrCart[i].itemDesc, arrCart[i].partID, arrCart[i].qty, arrCart[i].unitPrice);
                 }
-
+                btnConfirmOrder.Enabled = true;
             }
         }
 
-      /* PAGE: Manage
-      * Description: adds a user to the DB when button is clicked
-      * Req: nothing
-      * Returns: updates the DB
-      */
-        private void btnAddUser_Click(object sender, EventArgs e)
+        private void btnConfirmOrder_Click(object sender, EventArgs e)
         {
-            //find the job title id
-            int jobTitle = 0;
-            if(cbJobTitle.Text == "Auditor")
+            cnn.Open();
+                order.ConfirmOrderReceived(cnn);
+                OrderLineItem[] arr = order.cart.ToArray();
+            cnn.Close();
+
+            for(int i = 0; i < arr.Length; i++)
             {
-                jobTitle = 1;
-            }
-            else if(cbJobTitle.Text == "Field Supervisor")
-            {
-                jobTitle = 2;
-            }
-            else if(cbJobTitle.Text == "Drilling Engineer")
-            {
-                jobTitle = 3;
+                Part cartPart = new Part(arr[i].partID);
+                cartPart.qtyOH += arr[i].qty;
+                cartPart.updateDB();
             }
 
+            tbOH_orderID.Text = "";
+            tbOH_username.Text = "";
+            tbOH_POdate.Text = "";
+            tbOH_shippingTime.Text = "";
+            tbOH_terms.Text = "";
+            tbOH_subtotal.Text = "";
+            tbOH_salesTax.Text = "";
+            tbOH_shippingHandling.Text = "";
+            tbOH_totalPrice.Text = "";
+
+            dataGridOH_PartsInOrder.Rows.Clear();
+
+            btnConfirmOrder.Enabled = false;
+
+            this.ordersTableAdapter2.FillByApprovedReceived(this.gROUP4DataSetOrderConfirmation.Orders);
+            this.partsTableAdapter.Fill(this.gROUP4DataSetParts.Parts);
+
+            MessageBox.Show("Inventory Updated");
+        }
+
+        //---------------------------------------------------------------------------MANAGE TAB METHODS---------------------------------------------------------------------------
+
+        /* PAGE: Manage
+        * Description: adds a user to the DB when button is clicked
+        * Req: nothing
+        * Returns: updates the DB
+        */
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
             //add the new user to the db
             if (tbAddPassword.Text == tbAddConfPassword.Text)
             {
-                User newUser = new User(tbAddName.Text, tbAddUsername.Text, tbAddPassword.Text, jobTitle);
-                this.usersTableAdapter.Fill(this.gROUP4DataSetUsers.Users);
+                if(tbAddName.Text == "" || tbAddUsername.Text == "" || tbAddPassword.Text == "" || cbJobTitle.Text == "")
+                {
+                    MessageBox.Show("Please fill out all of the required information");
+                }
+                else
+                {
+                    //find the job title id
+                    int jobTitle = 0;
+                    if (cbJobTitle.Text == "Auditor")
+                    {
+                        jobTitle = 1;
+                    }
+                    else if (cbJobTitle.Text == "Field Supervisor")
+                    {
+                        jobTitle = 2;
+                    }
+                    else if (cbJobTitle.Text == "Drilling Engineer")
+                    {
+                        jobTitle = 3;
+                    }
+
+                    User newUser = new User(tbAddName.Text, tbAddUsername.Text, tbAddPassword.Text, jobTitle);
+                    this.usersTableAdapter.Fill(this.gROUP4DataSetUsers.Users);
+                    //clear the text boxes
+                    tbAddName.Text = "";
+                    tbAddUsername.Text = "";
+                    tbAddPassword.Text = "";
+                    cbJobTitle.Text = "";
+                }            
             }
             else
             {
                 MessageBox.Show("Passwords do not match");
-            }
-
-            //clear the text boxes
-            tbAddName.Text = "";
-            tbAddUsername.Text = "";
-            tbAddPassword.Text = "";
-            cbJobTitle.Text = "";
+            } 
         }
 
      /* PAGE: Manage
@@ -525,53 +522,78 @@ namespace WWOC_Desktop_App
       */
         private void btnAddLocation_Click(object sender, EventArgs e)
         {
-            Location loc = new Location(tbAddLocName.Text, tbAddStreet.Text, tbAddCity.Text, tbAddState.Text, tbAddZip.Text, cbLocType.Text);
-            this.locationTableAdapter.Fill(this.gROUP4DataSetLocation.Location);
+            if (tbAddLocName.Text == "" || tbAddStreet.Text == "" || tbAddCity.Text == "" || tbAddState.Text == "" || tbAddZip.Text == "" || cbLocType.Text == "")
+            {
+                MessageBox.Show("Please fill in all the required information");
+            }
+            else
+            {
+                Location loc = new Location(tbAddLocName.Text, tbAddStreet.Text, tbAddCity.Text, tbAddState.Text, tbAddZip.Text, cbLocType.Text);
+                this.locationTableAdapter.Fill(this.gROUP4DataSetLocation.Location);
 
-            tbAddLocName.Text = "";
-            tbAddStreet.Text = "";
-            tbAddCity.Text = "";
-            tbAddState.Text = "";
-            tbAddZip.Text = "";
-            cbLocType.Text = "";
+                tbAddLocName.Text = "";
+                tbAddStreet.Text = "";
+                tbAddCity.Text = "";
+                tbAddState.Text = "";
+                tbAddZip.Text = "";
+                cbLocType.Text = "";
+            }       
         }
 
-     /* PAGE: vendors
-      * Description: Adds a vendor to the DB when button is clicked
-      * Req: nothing
-      * Returns: updates the DB
-      */
+        //---------------------------------------------------------------------------VENDORS TAB METHODS---------------------------------------------------------------------------
+
+        /* PAGE: vendors
+         * Description: Adds a vendor to the DB when button is clicked
+         * Req: nothing
+         * Returns: updates the DB
+         */
         private void btnAddVendor_Click(object sender, EventArgs e)
         {
-            Vendor newVendor = new Vendor(tbVendorName.Text, tbVendorEmail.Text);
-            this.vendorsTableAdapter.Fill(this.gROUP4DataSet.Vendors);
+            if(tbVendorName.Text == "" || tbVendorEmail.Text == "")
+            {
+                MessageBox.Show("Please fill in all the required information");
+            }
+            else
+            {
+                Vendor newVendor = new Vendor(tbVendorName.Text, tbVendorEmail.Text);
+                this.vendorsTableAdapter.Fill(this.gROUP4DataSet.Vendors);
 
-            tbVendorName.Text = "";
-            tbVendorEmail.Text = "";
+                tbVendorName.Text = "";
+                tbVendorEmail.Text = "";
+            }    
         }
 
-     /* PAGE: Inventory
-      * Description: Adds a part to the DB when button is clicked
-      * Req: nothing
-      * Returns: updates the DB
-      */
+        //---------------------------------------------------------------------------INVENTORY TAB METHODS---------------------------------------------------------------------------
+
+        /* PAGE: Inventory
+         * Description: Adds a part to the DB when button is clicked
+         * Req: nothing
+         * Returns: updates the DB
+         */
         private void btnAddPart_Click(object sender, EventArgs e)
         {
-            Vendor findVendor = new Vendor(tbAddPartVendor.Text);
-            Location findLoc = new Location(cbPartLocSelect.Text);
+            if (tbAddItemDesc.Text == "" || tbAddItemCost.Text == "" || tbAddPartVendor.Text == "" || tbAddQTY.Text == "" || tbAddReorderPoint.Text == "" || tbAddExptLife.Text == "" || tbAddShipTime.Text == "" || cbPartLocSelect.Text == "")
+            {
+                MessageBox.Show("Please fill in all the required information");
+            }
+            else
+            {
+                Vendor findVendor = new Vendor(tbAddPartVendor.Text);
+                Location findLoc = new Location(cbPartLocSelect.Text);
 
-            Part newPart = new Part(tbAddItemDesc.Text, Convert.ToDouble(tbAddItemCost.Text), findVendor.vendorID, Convert.ToInt32(tbAddQTY.Text), Convert.ToInt32(tbAddReorderPoint.Text), Convert.ToInt32(tbAddExptLife.Text), tbAddShipTime.Text, findLoc.locationID);
-            this.partsTableAdapter.Fill(this.gROUP4DataSetParts.Parts);
+                Part newPart = new Part(tbAddItemDesc.Text, Convert.ToDouble(tbAddItemCost.Text), findVendor.vendorID, Convert.ToInt32(tbAddQTY.Text), Convert.ToInt32(tbAddReorderPoint.Text), Convert.ToInt32(tbAddExptLife.Text), tbAddShipTime.Text, findLoc.locationID);
+                this.partsTableAdapter.Fill(this.gROUP4DataSetParts.Parts);
 
-            tbAddItemCost.Text = "";
-            tbAddPartVendor.Text = "";
-            tbAddQTY.Text = "";
-            tbAddReorderPoint.Text = "";
-            tbAddExptLife.Text = "";
-            tbAddShipTime.Text = "";
-            cbPartLocSelect.Text = "";
+                tbAddItemCost.Text = "";
+                tbAddPartVendor.Text = "";
+                tbAddQTY.Text = "";
+                tbAddReorderPoint.Text = "";
+                tbAddExptLife.Text = "";
+                tbAddShipTime.Text = "";
+                cbPartLocSelect.Text = "";
+            } 
         }
 
-
+       
     }
 }

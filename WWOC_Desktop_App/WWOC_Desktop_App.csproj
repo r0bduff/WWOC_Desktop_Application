@@ -47,10 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBConfig.cs" />
     <Compile Include="GROUP4DataSetLocation.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GROUP4DataSetLocation.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GROUP4DataSetOrderConfirmation.cs">
+      <DependentUpon>GROUP4DataSetOrderConfirmation.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GROUP4DataSetOrderConfirmation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GROUP4DataSetOrderConfirmation.xsd</DependentUpon>
     </Compile>
     <Compile Include="GROUP4DataSetOrderHistory.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -137,6 +146,17 @@
     </None>
     <None Include="GROUP4DataSetLocation.xss">
       <DependentUpon>GROUP4DataSetLocation.xsd</DependentUpon>
+    </None>
+    <None Include="GROUP4DataSetOrderConfirmation.xsc">
+      <DependentUpon>GROUP4DataSetOrderConfirmation.xsd</DependentUpon>
+    </None>
+    <None Include="GROUP4DataSetOrderConfirmation.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GROUP4DataSetOrderConfirmation.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GROUP4DataSetOrderConfirmation.xss">
+      <DependentUpon>GROUP4DataSetOrderConfirmation.xsd</DependentUpon>
     </None>
     <None Include="GROUP4DataSetOrderHistory.xsc">
       <DependentUpon>GROUP4DataSetOrderHistory.xsd</DependentUpon>

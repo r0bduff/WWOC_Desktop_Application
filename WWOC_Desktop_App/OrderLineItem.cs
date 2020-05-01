@@ -23,6 +23,7 @@ namespace WWOC_Desktop_App
         public int qtyOH { get; set; }
         public int vendorID { get; set; }
 
+
         /* Description: Finds the partid for a given part from the database
         * Req: string partDesc, SqlConnection cnn (open)
         * Returns: nothing, updates the class
@@ -76,7 +77,7 @@ namespace WWOC_Desktop_App
             SqlDataReader reader = getVendor.ExecuteReader(); reader.Read();
             string name = reader["vendorName"].ToString();
             reader.Close();
-            return name;
+            return name;        
         }
 
         /* Description: Adds an Item to the database. 

@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* Class: Location.cs
+ * @Authors Rob Duff, Luis Jimenez
+ * 
+ * Description: Object class holding information about a Part
+ * 
+ */
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -22,8 +28,26 @@ namespace WWOC_Desktop_App
 
         private SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117");
 
+        /* Description: do not use this, but if you want to its here
+         * Req: nothing
+         * Returns: nothing
+         */
         public Part() { }
 
+        /* Description: Constructor method for when using an existing part
+         * Req: int partID
+         * Returns: fills the object with matching info
+         */
+        public Part(int partID)
+        {
+            this.partID = partID;
+            getPartFromDB();
+        }
+
+        /* Description: Constructor method in the event that a new part is being made
+         * Req: string itemDesc, double costUSD, int vendorID, int qtyOH, int reorderPoint, int exptdLife, string shipmentTime, int locationID
+         * Returns: nothing
+         */
         public Part(string itemDesc, double costUSD, int vendorID, int qtyOH, int reorderPoint, int exptdLife, string shipmentTime, int locationID)
         {
             this.itemDesc = itemDesc;
@@ -37,6 +61,10 @@ namespace WWOC_Desktop_App
             addPartDB();
         }
 
+        /* Description: Adds a new part to the db
+         * Req: all paramaters to be filled in
+         * Returns: the assigned partID
+         */
         private void addPartDB()
         {
             cnn.Open();
@@ -56,6 +84,42 @@ namespace WWOC_Desktop_App
             locationID = Convert.ToInt32(reader["maxID"]); reader.Close();
             cnn.Close();
         }
+
+        /* Description: Retrieves the information about a part from the DB 
+         * Req: partID to be filled in
+         * Returns: everything
+         */
+        public void getPartFromDB()
+        {
+            cnn.Open();
+            SqlCommand getPart = new SqlCommand("SELECT * FROM Parts WHERE partID=" + partID, cnn);
+            SqlDataReader reader = getPart.ExecuteReader(); reader.Read();
+            itemDesc = reader["itemDesc"].ToString();
+            costUSD = Convert.ToDouble(reader["costUSD"]);
+            vendorID = Convert.ToInt32(reader["vendorID"]);
+            qtyOH = Convert.ToInt32(reader["qty"]);
+            reorderPoint = Convert.ToInt32(reader["reorderPoint"]);
+            exptdLife = Convert.ToInt32(reader["exptdLife"]);
+            shipmentTime = (reader["shipmentTime"]).ToString();
+            locationID = Convert.ToInt32(reader["locationID"]);
+            reader.Close();
+            cnn.Close();
+        }
+
+        /* Description: Updates the DB with whatever info is currently stored in the instance of the object
+         * Req: -
+         * Returns: updates db
+         */
+        public void updateDB()
+        {
+            cnn.Open();
+            SqlCommand updateDB = new SqlCommand("UPDATE Parts SET itemDesc='" + itemDesc + "', costUSD=" + costUSD +", vendorID=" + vendorID +", qty=" + qtyOH +", reorderPoint=" + reorderPoint +
+                                                                    ", exptdLife=" + exptdLife +", shipmentTime='" + shipmentTime +"', locationID=" + locationID +"WHERE partID=" + partID, cnn);
+            
+            updateDB.ExecuteNonQuery();
+            cnn.Close();
+        }
+
        
     }
 }
