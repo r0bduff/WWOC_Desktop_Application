@@ -26,14 +26,26 @@ namespace WWOC_Desktop_App
 
         private SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117");
 
+        /* Description: blank constructor class
+         * Req: -
+         * Returns: -
+         */
         public Location() { }
 
+        /* Description: not as blank constructor class for when trying to get an existing locations information
+         * Req: string name - name of the location
+         * Returns: fills the rest of the information
+         */
         public Location(string name)
         {
             this.name = name;
             fillLocInfo();
         }
 
+        /* Description: Constructor class for when making a new location to go to the db
+         * Req: string name, string street, string city, string state, string zip, string type
+         * Returns: updates the db, assigns a locationID
+         */
         public Location(string name, string street, string city, string state, string zip, string type)
         {
             this.name = name;
@@ -45,6 +57,10 @@ namespace WWOC_Desktop_App
             AddLocationToDB();
         }
 
+        /* Description: Given that the locations details have been assigned this updates the DB 
+        * Req: class values not null except locationID
+        * Returns: updates the db 
+        */
         private void AddLocationToDB()
         {
             cnn.Open();
@@ -63,6 +79,10 @@ namespace WWOC_Desktop_App
             cnn.Close();
         }
 
+        /* Description: given the location name retrieves the location id, should fill the rest of the stuff but i was lazy
+        * Req: class value name != null
+        * Returns: locationID
+        */
         private void fillLocInfo()
         {
             cnn.Open();

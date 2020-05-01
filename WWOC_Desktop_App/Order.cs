@@ -11,8 +11,10 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WWOC_Desktop_App
 {
@@ -32,6 +34,8 @@ namespace WWOC_Desktop_App
         public double totalPrice { get; set; }
         public List<OrderLineItem> cart { get; set; }
         public Boolean approved { get; set; }
+        public Boolean received { get; set; }
+
 
         /* Description: 
          * Req: 
@@ -53,7 +57,7 @@ namespace WWOC_Desktop_App
             CreateDatabaseColumn(cnn);
         }
 
-        public Order(int orderID, SqlConnection cnn, int userID)
+        public Order(int orderID, int userID, SqlConnection cnn)
         {
             GetFullOrder(orderID, cnn);
         }
@@ -71,7 +75,7 @@ namespace WWOC_Desktop_App
         * Req: string itemName, SqlConnection cnn, out int index
         * Returns: the index in an out statement. Used to update the index for somethin
         */
-        public void RemovePartFromOrder(string itemName, SqlConnection cnn, out int index)
+        public void RemovePartFromOrder(string itemName, out int index)
         {
             index = 0;
             OrderLineItem[] arrCart = cart.ToArray();
@@ -81,10 +85,6 @@ namespace WWOC_Desktop_App
                 {
                     cart.RemoveAt(i);
                     index = i;
-                }
-                else
-                {
-                    index = 0;
                 }
             }    
         }
@@ -98,25 +98,33 @@ namespace WWOC_Desktop_App
          */
         public void CreateDatabaseColumn(SqlConnection cnn)
         {
-            SqlCommand getHighestID = new SqlCommand("SELECT MAX(orderID) AS maxID FROM Orders", cnn);
-            SqlDataReader reader = getHighestID.ExecuteReader(); reader.Read();
-            int getMaxID = Convert.ToInt32(reader["maxID"]); reader.Close();
-
-            SqlCommand checkOrder = new SqlCommand("SELECT totalPrice FROM Orders WHERE orderID= '" + getMaxID + "'", cnn);
-            reader = checkOrder.ExecuteReader(); reader.Read();
-            double totalPrice = Convert.ToDouble(reader["totalPrice"]); reader.Close();
-
-           if(totalPrice != 0)
+            try
             {
-                SqlCommand create = new SqlCommand("INSERT INTO Orders (userID, totalPrice) VALUES ('" + userID + "', '0')", cnn);
-                create.ExecuteNonQuery();
+                SqlCommand getHighestID = new SqlCommand("SELECT MAX(orderID) AS maxID FROM Orders", cnn);
+                SqlDataReader reader = getHighestID.ExecuteReader(); reader.Read();
+                int getMaxID = Convert.ToInt32(reader["maxID"]); reader.Close();
+
+                SqlCommand checkOrder = new SqlCommand("SELECT totalPrice FROM Orders WHERE orderID= '" + getMaxID + "'", cnn);
+                reader = checkOrder.ExecuteReader(); reader.Read();
+                double totalPrice = Convert.ToDouble(reader["totalPrice"]); reader.Close();
+
+                if (totalPrice != 0)
+                {
+                    SqlCommand create = new SqlCommand("INSERT INTO Orders (userID, totalPrice, received) VALUES ('" + userID + "', '0', 'False')", cnn);
+                    create.ExecuteNonQuery();
+                }
+                else
+                {
+                    orderID = getMaxID;
+                    SqlCommand pullOrderItems = new SqlCommand("DELETE FROM Order_Line_Item WHERE orderID = " + orderID + ";", cnn);
+                    pullOrderItems.ExecuteNonQuery();
+                }
             }
-            else
+            catch(Exception ex)
             {
-                orderID = getMaxID;
-                SqlCommand pullOrderItems = new SqlCommand("DELETE FROM Order_Line_Item WHERE orderID = " + orderID + ";", cnn);
-                pullOrderItems.ExecuteNonQuery();
+                MessageBox.Show(ex.ToString());
             }
+            
         }
 
         /* Description: Calculates all the stuff in the final costs groupbox.
@@ -142,10 +150,18 @@ namespace WWOC_Desktop_App
          */
         public void UpdateDatabase(SqlConnection cnn)
         {
-            SqlCommand AddOrder = new SqlCommand("UPDATE Orders SET poDate ='" + poDate + "', terms ='" + terms +"', subtotal=" + subtotal +", salesTax=" + salesTax 
-                                                                    +", shippingHandling=" + shippingHandling + ", totalPrice=" + totalPrice + ", approved='" + approved + "' " +
-                                                                    "WHERE orderID =" + orderID + ";", cnn);
-            AddOrder.ExecuteNonQuery();
+            
+            try
+            {
+                SqlCommand AddOrder = new SqlCommand("UPDATE Orders SET poDate ='" + poDate + "', terms ='" + terms + "', subtotal=" + subtotal + ", salesTax=" + salesTax
+                                                               + ", shippingHandling=" + shippingHandling + ", totalPrice=" + totalPrice + ", approved='" + approved + "', received='" + received +"' " +
+                                                               "WHERE orderID =" + orderID + ";", cnn);
+                AddOrder.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         /* Description: gets the order details from a pervious order that has been stored at some point.
@@ -154,20 +170,28 @@ namespace WWOC_Desktop_App
          */
         public void GetFullOrder(int orderID, SqlConnection cnn)
         {
-            SqlCommand getitall = new SqlCommand("SELECT * FROM ORDERS WHERE orderID =" + orderID, cnn);
-            SqlDataReader reader = getitall.ExecuteReader(); reader.Read();
-            this.orderID = Convert.ToInt32(reader["orderID"]);
-            userID = Convert.ToInt32(reader["userID"]);
-            poDate = Convert.ToDateTime(reader["poDate"]);
-            shippingTime = reader["shippingTime"].ToString();
-            terms = reader["terms"].ToString();
-            subtotal = Convert.ToDouble(reader["subtotal"]);
-            salesTax = Convert.ToDouble(reader["salesTax"]);
-            shippingHandling = Convert.ToDouble(reader["shippingHandling"]);
-            totalPrice = Convert.ToDouble(reader["totalPrice"]);
-            approved = Convert.ToBoolean(reader["approved"]);
-            reader.Close();
-            GetCartForOrder(cnn);//fills the cart see desc for more info
+            try
+            {
+                SqlCommand getitall = new SqlCommand("SELECT * FROM ORDERS WHERE orderID =" + orderID, cnn);
+                SqlDataReader reader = getitall.ExecuteReader(); reader.Read();
+                this.orderID = Convert.ToInt32(reader["orderID"]);
+                userID = Convert.ToInt32(reader["userID"]);
+                poDate = Convert.ToDateTime(reader["poDate"]);
+                shippingTime = reader["shippingTime"].ToString();
+                terms = reader["terms"].ToString();
+                subtotal = Convert.ToDouble(reader["subtotal"]);
+                salesTax = Convert.ToDouble(reader["salesTax"]);
+                shippingHandling = Convert.ToDouble(reader["shippingHandling"]);
+                totalPrice = Convert.ToDouble(reader["totalPrice"]);
+                approved = Convert.ToBoolean(reader["approved"]);
+                received = Convert.ToBoolean(reader["received"]);
+                reader.Close();
+                GetCartForOrder(cnn);//fills the cart see desc for more info
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         /* Description: adds parts to the cart from a previous order that has been stored for approval.
@@ -177,26 +201,33 @@ namespace WWOC_Desktop_App
          */
         private void GetCartForOrder(SqlConnection cnn)
         {
-            cart = new List<OrderLineItem>();
-            SqlCommand getItems = new SqlCommand("SELECT * FROM Order_Line_Item WHERE Order_Line_Item.orderID=" + orderID, cnn);
-            SqlDataReader reader = getItems.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                OrderLineItem item = new OrderLineItem();
-                item.orderID = Convert.ToInt32(reader["orderID"]);
-                item.partID = Convert.ToInt32(reader["partID"]);
-                item.qty = Convert.ToInt32(reader["qty"]);
-                item.unitPrice = Convert.ToInt32(reader["unitPrice"]);
-                cart.Add(item);
-            }
-            reader.Close();
+                cart = new List<OrderLineItem>();
+                SqlCommand getItems = new SqlCommand("SELECT * FROM Order_Line_Item WHERE Order_Line_Item.orderID=" + orderID, cnn);
+                SqlDataReader reader = getItems.ExecuteReader();
+                while (reader.Read())
+                {
+                    OrderLineItem item = new OrderLineItem();
+                    item.orderID = Convert.ToInt32(reader["orderID"]);
+                    item.partID = Convert.ToInt32(reader["partID"]);
+                    item.qty = Convert.ToInt32(reader["qty"]);
+                    item.unitPrice = Convert.ToInt32(reader["unitPrice"]);
+                    cart.Add(item);
+                }
+                reader.Close();
 
-            OrderLineItem[] arrCart = cart.ToArray();
-            for (int i = 0; i < arrCart.Length; i++)
-            {
-                arrCart[i].FillPartInfo2(arrCart[i].partID, cnn);
+                OrderLineItem[] arrCart = cart.ToArray();
+                for (int i = 0; i < arrCart.Length; i++)
+                {
+                    arrCart[i].FillPartInfo2(arrCart[i].partID, cnn);
+                }
+                cart = arrCart.ToList<OrderLineItem>();
             }
-            cart = arrCart.ToList<OrderLineItem>();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         /* Description: Removes this order from the DB permenatnly. Also removes associated order_Line_items
@@ -205,10 +236,17 @@ namespace WWOC_Desktop_App
          */
         public void RemoveOrderDB(SqlConnection cnn)
         {
-            SqlCommand remove = new SqlCommand("DELETE FROM Orders WHERE Orders.orderID=" + orderID, cnn);
-            SqlCommand remove2 = new SqlCommand("DELETE FROM Order_Line_Item WHERE Order_Line_Item.orderID =" + orderID, cnn);
-            remove2.ExecuteNonQuery();
-            remove.ExecuteNonQuery();
+            try
+            {
+                SqlCommand remove = new SqlCommand("DELETE FROM Orders WHERE Orders.orderID=" + orderID, cnn);
+                SqlCommand remove2 = new SqlCommand("DELETE FROM Order_Line_Item WHERE Order_Line_Item.orderID =" + orderID, cnn);
+                remove2.ExecuteNonQuery();
+                remove.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         /* Description: approves this order in the DB. updates local variable to match
@@ -217,9 +255,30 @@ namespace WWOC_Desktop_App
          */
         public void ApproveOrderDB(SqlConnection cnn)
         {
-            approved = true;
-            SqlCommand approve = new SqlCommand("UPDATE Orders SET approved='true' WHERE Orders.orderID=" + orderID, cnn);
-            approve.ExecuteNonQuery();
+            try
+            {
+                approved = true;
+                SqlCommand approve = new SqlCommand("UPDATE Orders SET approved='true' WHERE Orders.orderID=" + orderID, cnn);
+                approve.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }         
+        }
+
+        public void ConfirmOrderReceived(SqlConnection cnn)
+        {
+            try
+            {
+                received = true;
+                SqlCommand receivedOrder = new SqlCommand("UPDATE Orders SET received='true' WHERE Orders.orderID=" + orderID, cnn);
+                receivedOrder.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
