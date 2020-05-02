@@ -75,6 +75,27 @@ namespace WWOC_Desktop_App
             dataGridOH_PartsInOrder.Columns.Add("partID", "Part ID");
             dataGridOH_PartsInOrder.Columns.Add("qty", "Quantity");
             dataGridOH_PartsInOrder.Columns.Add("unitPrice", "Price per Part");
+
+            //test on visibility for access level 1
+            if (accessLevel == 1)
+            {
+                //hides buttons for orders
+                btnConfirmOrder.Visible = false;
+                btnRejectOrder.Visible = false;
+                //hides for create orders
+                btnCreateOrder.Enabled = false;
+
+                //hides tab for manage
+                tabControlMain.TabPages.Remove(DGVMainMenu);
+            }else if(accessLevel == 3)
+            {
+                //hides buttons for orders
+                btnConfirmOrder.Visible = false;
+                btnRejectOrder.Visible = false;
+
+                //hides tab for manage
+                tabControlMain.TabPages.Remove(DGVMainMenu);
+            }
         }
 
         /* Description: When the metrics button is clicked the metrics form is opened
@@ -594,6 +615,9 @@ namespace WWOC_Desktop_App
             } 
         }
 
-       
+        private void groupBoxOrderSummary_Enter(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
