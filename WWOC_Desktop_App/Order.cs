@@ -25,12 +25,10 @@ namespace WWOC_Desktop_App
         public int userID { get; set; }
         public DateTime poDate { get; set; }
         public string shippingTime { get; set; }
-        public string reasonForOrder { get; set; }
         public string terms { get; set; }
         public double subtotal { get; set; }
         public double salesTax { get; set; }
         public double shippingHandling { get; set; }
-        public double otherCharges { get; set; }
         public double totalPrice { get; set; }
         public List<OrderLineItem> cart { get; set; }
         public Boolean approved { get; set; }
