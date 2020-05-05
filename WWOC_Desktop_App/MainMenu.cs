@@ -82,8 +82,11 @@ namespace WWOC_Desktop_App
             dataGridOH_PartsInOrder.Columns.Add("unitPrice", "Price per Part");
 
 
+
+
             cbPartName.Text = "";
             cbPartLocSelect.Text = "";  
+
 
             //test on visibility for access level 1
             if (accessLevel == 1)
@@ -96,8 +99,9 @@ namespace WWOC_Desktop_App
 
                 //hides tab for manage
                 tabControlMain.TabPages.Remove(DGVMainMenu);
-            }
-            else if (accessLevel == 3)
+
+            }else if (accessLevel == 3)
+
             {
                 //hides buttons for orders
                 btnConfirmOrder.Visible = false;
@@ -671,6 +675,9 @@ namespace WWOC_Desktop_App
             } 
         }
 
+
+       
+
         private void btnPartCheckOut_Click(object sender, EventArgs e)
         {
             part.checkOutPart(Convert.ToInt32(tbInvQtyTaken.Text));
@@ -693,5 +700,9 @@ namespace WWOC_Desktop_App
             }
         }
 
+        private void groupBoxOrderSummary_Enter(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

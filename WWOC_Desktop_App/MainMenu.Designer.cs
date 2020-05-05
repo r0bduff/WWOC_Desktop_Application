@@ -616,6 +616,7 @@
             this.groupBoxOrderSummary.TabIndex = 21;
             this.groupBoxOrderSummary.TabStop = false;
             this.groupBoxOrderSummary.Text = "Order Summary";
+            this.groupBoxOrderSummary.Enter += new System.EventHandler(this.groupBoxOrderSummary_Enter);
             // 
             // dataGridParts
             // 
@@ -1004,7 +1005,7 @@
             // dataGridPO_PartsinOrder
             // 
             this.dataGridPO_PartsinOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPO_PartsinOrder.Location = new System.Drawing.Point(324, 42);
+            this.dataGridPO_PartsinOrder.Location = new System.Drawing.Point(324, 62);
             this.dataGridPO_PartsinOrder.Name = "dataGridPO_PartsinOrder";
             this.dataGridPO_PartsinOrder.Size = new System.Drawing.Size(317, 445);
             this.dataGridPO_PartsinOrder.TabIndex = 41;
@@ -2425,7 +2426,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(1425, 628);
+            this.ClientSize = new System.Drawing.Size(1370, 628);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabControlMain);
