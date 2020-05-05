@@ -21,6 +21,7 @@ namespace WWOC_Desktop_App
     //to use panels or tab control for multiple form selection. 
     public partial class Login : Form
     {
+        private SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117");
 
         public Login()
         {
@@ -29,57 +30,51 @@ namespace WWOC_Desktop_App
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117"))
-            {
-                cnn.Open();
-                string username = tbUsername.Text;
-                string password = tbPassword.Text;
-                int accessLevel = 0;
+            string username = tbUsername.Text;
+            string password = tbPassword.Text;
+            int accessLevel = 0;
 
-                if(isUsername(username, cnn) == true)
+            if (isUsername(username) == true)
+            {
+                int counter = pullCounter(username);
+                if (isLocked(username, counter) == false)
                 {
-                    int counter = pullCounter(username, cnn);
-                    if (isLocked(username, counter, cnn) == false)
+                    int userId;
+                    if (isPassword(username, password, out userId) == true)
                     {
-                        int userId;
-                        if(isPassword(username, password, cnn, out userId) == true)
-                        {
-                            //login successful
-                            User user = getUser(userId, cnn);
-                            pushCounter(user.username, 0, cnn);
-                            accessLevel = getAccessLevel(userId, cnn);
-                            Form mainmenu = new MainMenu(userId, accessLevel);
-                            mainmenu.Show();
-                        }
-                        else
-                        {
-                            counter++;
-                            if(isLocked(username, counter, cnn) == true)
-                            {
-                                pushCounter(username, counter, cnn);
-                                MessageBox.Show("Account is locked please contact an admin");
-                            }
-                            else
-                            {
-                                pushCounter(username, counter, cnn);
-                                MessageBox.Show("Login Failed (password)");
-                            }
-                        }
+                        //login successful
+                        User user = new User(userId);
+                        pushCounter(user.username, 0);
+                        accessLevel = user.getAccessLevel();
+                        Form mainmenu = new MainMenu(userId, accessLevel);
+                        mainmenu.Show();
+                        this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show("Account is locked please contact an admin");
+                        counter++;
+                        if (isLocked(username, counter) == true)
+                        {
+                            pushCounter(username, counter);
+                            MessageBox.Show("Account is locked please contact an admin");
+                        }
+                        else
+                        {
+                            pushCounter(username, counter);
+                            MessageBox.Show("Login Failed (password)");
+                        }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Login Failed (no username)");
+                    MessageBox.Show("Account is locked please contact an admin");
                 }
-
-
-                cnn.Close();
-            }//end using
-            this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Login Failed (no username)");
+            }
+            
         }//end button click
 
         /* Description: Method checks to see if the user is locked out of their account, will update lockedout if found that user is locked out.
@@ -89,35 +84,31 @@ namespace WWOC_Desktop_App
          * Returns: Boolean true if the account is locked
          *          False if the account is not locked
          */
-        private static Boolean isLocked(string username, int counter, SqlConnection cnn)
+        private Boolean isLocked(string username, int counter)
         {
-            try
-            {
-                SqlCommand commLocked = new SqlCommand("EXEC isLocked @Username =" + username + ";", cnn);
-                SqlDataReader reader = commLocked.ExecuteReader(); reader.Read();
-                Boolean test = Convert.ToBoolean(reader["lockedOut"]); reader.Close();
-                reader.Close();
 
-                if(test == true)
+            cnn.Open();
+            SqlCommand commLocked = new SqlCommand("EXEC isLocked @Username =" + username + ";", cnn);
+            SqlDataReader reader = commLocked.ExecuteReader(); reader.Read();
+            Boolean test = Convert.ToBoolean(reader["lockedOut"]); reader.Close();
+            reader.Close();
+            cnn.Close();
+            if (test == true)
+            {
+                return true;
+            }
+            else
+            {
+                if (counter >= 3)
                 {
+                    cnn.Open();
+                    commLocked = new SqlCommand("EXEC lockUser @Username =" + username + ";", cnn);
+                    commLocked.ExecuteNonQuery();
+                    cnn.Close();
                     return true;
                 }
-                else
-                {
-                    if (counter >= 3)
-                    {
-                        commLocked = new SqlCommand("EXEC lockUser @Username =" + username + ";", cnn);
-                        commLocked.ExecuteNonQuery();
-                        return true;
-                    }
-                    return false;
-                }
+                return false;
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show("isLocked broke : " + ex);
-            }
-            return false;
         }
 
         /* Description: Method checks to see if the username exists in the database
@@ -126,24 +117,21 @@ namespace WWOC_Desktop_App
          * Returns: Boolean true if the account exists
          *          False if the account does not exist
          */
-        private static Boolean isUsername(string username, SqlConnection cnn)
+        private Boolean isUsername(string username)
         {
-            try
+            cnn.Open();
+            SqlCommand commUsername = new SqlCommand("EXEC isUsername @Username =" + username + ";", cnn);
+            SqlDataReader reader = commUsername.ExecuteReader(); reader.Read();
+
+            if (reader.HasRows == true)
             {
-                SqlCommand commUsername = new SqlCommand("EXEC isUsername @Username =" + username + ";", cnn);
-                SqlDataReader reader = commUsername.ExecuteReader(); reader.Read();
-                
-                if (reader.HasRows == true)
-                {
-                    reader.Close();
-                    return true;
-                }
                 reader.Close();
+                cnn.Close();
+                return true;
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show("isUsername broke : " + ex);
-            }
+            reader.Close();
+            cnn.Close();
+
             return false;
         }
 
@@ -157,79 +145,39 @@ namespace WWOC_Desktop_App
         *          userId = the matching userID
         *          userId = 0 if the password didnt match
         */
-        private static Boolean isPassword(string username, string password, SqlConnection cnn, out int userId)
+        private Boolean isPassword(string username, string password, out int userId)
         {
-            try
+            cnn.Open();
+            SqlCommand commPassword = new SqlCommand("EXEC checkUsername @Username =" + username + ", @Password =" + password + ";", cnn);
+            SqlDataReader reader = commPassword.ExecuteReader(); reader.Read();
+            if (reader.HasRows == true)
             {
-                SqlCommand commPassword = new SqlCommand("EXEC checkUsername @Username =" + username + ", @Password =" + password + ";", cnn);
-                SqlDataReader reader = commPassword.ExecuteReader(); reader.Read();
-                if (reader.HasRows == true)
-                {
-                    userId = Convert.ToInt32(reader["userId"]);
-                    reader.Close();
-                    return true;
-                }
+                userId = Convert.ToInt32(reader["userId"]);
                 reader.Close();
+                cnn.Close();
+                return true;
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show("isPassword broke : " + ex);
-            }
+            reader.Close();
+            cnn.Close();
             userId = 0;
             return false;
         }
-
-        /* Description: Method that populates a new user object when given a userId
-         * Req: int userId - userId matching a user in the database
-         * Returns: user object containg information from the database matching the given userId
-         */
-        private static User getUser(int userId, SqlConnection cnn)
-        {
-            User user = new User();
-            try
-            {
-                SqlCommand commUser = new SqlCommand("EXEC PullUser @UserId =" + userId + ";", cnn);
-                SqlDataReader reader = commUser.ExecuteReader(); reader.Read();
-
-                user.userID = userId;
-                user.username = reader["username"].ToString();
-                user.password = reader["password"].ToString();
-                user.name = reader["name"].ToString();
-                user.accessLevel = Convert.ToInt32(reader["accesslevel"]);
-                user.lockedOut = Convert.ToInt32(reader["lockedOut"]);
-                user.counter = 0;
-
-                reader.Close();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("getUser Broke : " + ex);
-            }
-
-            return user;
-        }
-
 
         /* Description: Method that pulls the counter for a username
          * Req: string username - username given by the user
          *      SqlConnection cnn - SqlConnection to the database with user information
          * Returns: int containing the current value of the counter
          */
-        private static int pullCounter(string username, SqlConnection cnn)
+        private int pullCounter(string username)
         {
             int counter = -1;
-            try
-            {
-                string pullCounter = "EXEC pullCounter @Username =" + username + ";";
-                SqlCommand commCounter = new SqlCommand(pullCounter, cnn);
-                SqlDataReader reader = commCounter.ExecuteReader(); reader.Read();
-                counter = Convert.ToInt32(reader["counter"]);
-                reader.Close();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("pullCounter Broke : " + ex);
-            }
+            cnn.Open();
+            string pullCounter = "EXEC pullCounter @Username =" + username + ";";
+            SqlCommand commCounter = new SqlCommand(pullCounter, cnn);
+            SqlDataReader reader = commCounter.ExecuteReader(); reader.Read();
+            counter = Convert.ToInt32(reader["counter"]);
+            reader.Close();
+            cnn.Close();
             return counter;
         }
 
@@ -240,18 +188,13 @@ namespace WWOC_Desktop_App
          *      SqlConnection cnn - SqlConnection to the database with user information
          * Returns: nothing
          */
-        private void pushCounter(string username, int counter, SqlConnection cnn)
+        private void pushCounter(string username, int counter)
         {
-            try
-            {
-                string pushCounter = "EXEC incrementCounter @Username =" + username + ", @Counter =" + counter + ";";
-                SqlCommand commCounter2 = new SqlCommand(pushCounter, cnn);
-                commCounter2.ExecuteNonQuery();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("incemenetCounter Broke : " + ex);
-            }
+            cnn.Open();
+            string pushCounter = "EXEC incrementCounter @Username =" + username + ", @Counter =" + counter + ";";
+            SqlCommand commCounter2 = new SqlCommand(pushCounter, cnn);
+            commCounter2.ExecuteNonQuery();
+            cnn.Close();
         }
 
         private void btnSkip_Click(object sender, EventArgs e)
@@ -260,16 +203,5 @@ namespace WWOC_Desktop_App
             mainmenu.Show();
         }
 
-        /* Description: Retrieves the users accesslevel from the DB
-         * Req: int userID, SqlConnection cnn
-         * Returns int userID
-         */
-        private int getAccessLevel(int userID, SqlConnection cnn)
-        {
-            SqlCommand getAL = new SqlCommand("SELECT accessLevel FROM Users WHERE userID=" + userID + ";", cnn);
-            SqlDataReader reader = getAL.ExecuteReader(); reader.Read();
-            int accessLevel = Convert.ToInt32(reader["accessLevel"]);
-            return accessLevel;
-        }
     }//end login class
 }

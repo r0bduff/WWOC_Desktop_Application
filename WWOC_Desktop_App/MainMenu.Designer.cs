@@ -33,11 +33,14 @@
             this.tabPageParts = new System.Windows.Forms.TabPage();
             this.groupBoxCheckOut = new System.Windows.Forms.GroupBox();
             this.btnPartCheckOut = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbInvQtyTaken = new System.Windows.Forms.TextBox();
             this.label59 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbInvQtyOH = new System.Windows.Forms.TextBox();
             this.label58 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbPartName = new System.Windows.Forms.ComboBox();
+            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gROUP4DataSetPartsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gROUP4DataSetParts = new WWOC_Desktop_App.GROUP4DataSetParts();
             this.label57 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.partIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,9 +51,6 @@
             this.exptdLifeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reorderPoint = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locationIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gROUP4DataSetPartsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gROUP4DataSetParts = new WWOC_Desktop_App.GROUP4DataSetParts();
             this.tabPageRequest = new System.Windows.Forms.TabPage();
             this.btnCreateOrder = new System.Windows.Forms.Button();
             this.groupBoxRemove = new System.Windows.Forms.GroupBox();
@@ -259,13 +259,14 @@
             this.ordersBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.ordersTableAdapter2 = new WWOC_Desktop_App.GROUP4DataSetOrderConfirmationTableAdapters.OrdersTableAdapter();
             this.gROUP4DataSetOrderConfirmationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.partsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControlMain.SuspendLayout();
             this.tabPageParts.SuspendLayout();
             this.groupBoxCheckOut.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPartsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetParts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPageRequest.SuspendLayout();
             this.groupBoxRemove.SuspendLayout();
             this.groupBoxOrderSummary.SuspendLayout();
@@ -317,6 +318,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderConfirmationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -350,11 +352,11 @@
             // groupBoxCheckOut
             // 
             this.groupBoxCheckOut.Controls.Add(this.btnPartCheckOut);
-            this.groupBoxCheckOut.Controls.Add(this.textBox2);
+            this.groupBoxCheckOut.Controls.Add(this.tbInvQtyTaken);
             this.groupBoxCheckOut.Controls.Add(this.label59);
-            this.groupBoxCheckOut.Controls.Add(this.textBox1);
+            this.groupBoxCheckOut.Controls.Add(this.tbInvQtyOH);
             this.groupBoxCheckOut.Controls.Add(this.label58);
-            this.groupBoxCheckOut.Controls.Add(this.comboBox1);
+            this.groupBoxCheckOut.Controls.Add(this.cbPartName);
             this.groupBoxCheckOut.Controls.Add(this.label57);
             this.groupBoxCheckOut.Location = new System.Drawing.Point(863, 7);
             this.groupBoxCheckOut.Name = "groupBoxCheckOut";
@@ -371,13 +373,14 @@
             this.btnPartCheckOut.TabIndex = 6;
             this.btnPartCheckOut.Text = "Check Out Part";
             this.btnPartCheckOut.UseVisualStyleBackColor = true;
+            this.btnPartCheckOut.Click += new System.EventHandler(this.btnPartCheckOut_Click);
             // 
-            // textBox2
+            // tbInvQtyTaken
             // 
-            this.textBox2.Location = new System.Drawing.Point(10, 136);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(229, 23);
-            this.textBox2.TabIndex = 5;
+            this.tbInvQtyTaken.Location = new System.Drawing.Point(10, 136);
+            this.tbInvQtyTaken.Name = "tbInvQtyTaken";
+            this.tbInvQtyTaken.Size = new System.Drawing.Size(229, 23);
+            this.tbInvQtyTaken.TabIndex = 5;
             // 
             // label59
             // 
@@ -388,12 +391,13 @@
             this.label59.TabIndex = 4;
             this.label59.Text = "Quantity Taken:";
             // 
-            // textBox1
+            // tbInvQtyOH
             // 
-            this.textBox1.Location = new System.Drawing.Point(10, 90);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 23);
-            this.textBox1.TabIndex = 3;
+            this.tbInvQtyOH.Location = new System.Drawing.Point(10, 90);
+            this.tbInvQtyOH.Name = "tbInvQtyOH";
+            this.tbInvQtyOH.ReadOnly = true;
+            this.tbInvQtyOH.Size = new System.Drawing.Size(229, 23);
+            this.tbInvQtyOH.TabIndex = 3;
             // 
             // label58
             // 
@@ -404,13 +408,33 @@
             this.label58.TabIndex = 2;
             this.label58.Text = "Quantity On Hand:";
             // 
-            // comboBox1
+            // cbPartName
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(10, 43);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(229, 24);
-            this.comboBox1.TabIndex = 1;
+            this.cbPartName.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.partsBindingSource, "itemDesc", true));
+            this.cbPartName.DataSource = this.partsBindingSource2;
+            this.cbPartName.DisplayMember = "itemDesc";
+            this.cbPartName.FormattingEnabled = true;
+            this.cbPartName.Location = new System.Drawing.Point(10, 43);
+            this.cbPartName.Name = "cbPartName";
+            this.cbPartName.Size = new System.Drawing.Size(229, 24);
+            this.cbPartName.TabIndex = 1;
+            this.cbPartName.ValueMember = "itemDesc";
+            this.cbPartName.SelectedIndexChanged += new System.EventHandler(this.cbPartName_SelectedIndexChanged);
+            // 
+            // partsBindingSource
+            // 
+            this.partsBindingSource.DataMember = "Parts";
+            this.partsBindingSource.DataSource = this.gROUP4DataSetPartsBindingSource;
+            // 
+            // gROUP4DataSetPartsBindingSource
+            // 
+            this.gROUP4DataSetPartsBindingSource.DataSource = this.gROUP4DataSetParts;
+            this.gROUP4DataSetPartsBindingSource.Position = 0;
+            // 
+            // gROUP4DataSetParts
+            // 
+            this.gROUP4DataSetParts.DataSetName = "GROUP4DataSetParts";
+            this.gROUP4DataSetParts.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label57
             // 
@@ -514,21 +538,6 @@
             this.locationIDDataGridViewTextBoxColumn.Name = "locationIDDataGridViewTextBoxColumn";
             this.locationIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.locationIDDataGridViewTextBoxColumn.Width = 99;
-            // 
-            // partsBindingSource
-            // 
-            this.partsBindingSource.DataMember = "Parts";
-            this.partsBindingSource.DataSource = this.gROUP4DataSetPartsBindingSource;
-            // 
-            // gROUP4DataSetPartsBindingSource
-            // 
-            this.gROUP4DataSetPartsBindingSource.DataSource = this.gROUP4DataSetParts;
-            this.gROUP4DataSetPartsBindingSource.Position = 0;
-            // 
-            // gROUP4DataSetParts
-            // 
-            this.gROUP4DataSetParts.DataSetName = "GROUP4DataSetParts";
-            this.gROUP4DataSetParts.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPageRequest
             // 
@@ -1750,6 +1759,7 @@
             this.btnAddPart.TabIndex = 16;
             this.btnAddPart.Text = "Add Part";
             this.btnAddPart.UseVisualStyleBackColor = true;
+            this.btnAddPart.Click += new System.EventHandler(this.btnAddPart_Click);
             // 
             // label54
             // 
@@ -2248,6 +2258,7 @@
             this.tbAddConfPassword.Name = "tbAddConfPassword";
             this.tbAddConfPassword.Size = new System.Drawing.Size(179, 23);
             this.tbAddConfPassword.TabIndex = 4;
+            this.tbAddConfPassword.UseSystemPasswordChar = true;
             // 
             // tbAddPassword
             // 
@@ -2255,6 +2266,7 @@
             this.tbAddPassword.Name = "tbAddPassword";
             this.tbAddPassword.Size = new System.Drawing.Size(179, 23);
             this.tbAddPassword.TabIndex = 3;
+            this.tbAddPassword.UseSystemPasswordChar = true;
             // 
             // tbAddUsername
             // 
@@ -2404,6 +2416,11 @@
             this.gROUP4DataSetOrderConfirmationBindingSource.DataSource = this.gROUP4DataSetOrderConfirmation;
             this.gROUP4DataSetOrderConfirmationBindingSource.Position = 0;
             // 
+            // partsBindingSource2
+            // 
+            this.partsBindingSource2.DataMember = "Parts";
+            this.partsBindingSource2.DataSource = this.gROUP4DataSetPartsBindingSource;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2423,10 +2440,10 @@
             this.tabPageParts.ResumeLayout(false);
             this.groupBoxCheckOut.ResumeLayout(false);
             this.groupBoxCheckOut.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPartsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetParts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPageRequest.ResumeLayout(false);
             this.groupBoxRemove.ResumeLayout(false);
             this.groupBoxRemove.PerformLayout();
@@ -2491,6 +2508,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderConfirmationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2700,11 +2718,11 @@
         private System.Windows.Forms.TextBox tbAddItemCost;
         private System.Windows.Forms.TextBox tbAddItemDesc;
         private System.Windows.Forms.GroupBox groupBoxCheckOut;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbPartName;
         private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbInvQtyTaken;
         private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbInvQtyOH;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.DataGridViewTextBoxColumn partIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemDescDataGridViewTextBoxColumn;
@@ -2726,5 +2744,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn receivedDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingSource ordersBindingSource3;
         private System.Windows.Forms.BindingSource gROUP4DataSetOrderConfirmationBindingSource;
+        private System.Windows.Forms.BindingSource partsBindingSource2;
     }
 }
