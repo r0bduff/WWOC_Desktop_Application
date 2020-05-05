@@ -27,6 +27,7 @@ namespace WWOC_Desktop_App
         private OrderLineItem item;
         private Part part;
         private SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117");
+        System.Threading.Thread t;
 
         public MainMenu(int currentUser, int accessLevel)
         {
@@ -106,6 +107,7 @@ namespace WWOC_Desktop_App
                 //hides tab for manage
                 tabControlMain.TabPages.Remove(DGVMainMenu);
             }
+
         }
 
         /* Description: When the metrics button is clicked the metrics form is opened
@@ -127,6 +129,27 @@ namespace WWOC_Desktop_App
             Form Login = new Login();
             Login.Show();
             this.Hide();
+        }
+
+        private void timerUpdate_Tick(object sender, EventArgs e)
+        {
+            //DATAGRID TABLE ReLoading
+            //Location
+            this.locationTableAdapter.Fill(this.gROUP4DataSetLocation.Location);
+            //Users
+            this.usersTableAdapter.Fill(this.gROUP4DataSetUsers.Users);
+            //OrderConfirmation
+            this.ordersTableAdapter2.FillByApprovedReceived(this.gROUP4DataSetOrderConfirmation.Orders);
+            //OrderPending
+            this.ordersTableAdapter.FillBy(this.gROUP4DataSetPendingOrders.Orders);
+            //OrderRequest1
+            this.partsTableAdapter1.Fill(this.gROUP4DataSetOrderLineItem.Parts);
+            //OrderRequest2
+            this.order_Line_ItemTableAdapter.Fill(this.gROUP4DataSetOrderLineItem.Order_Line_Item);
+            //Vendors
+            this.vendorsTableAdapter.Fill(this.gROUP4DataSet.Vendors);
+            //Inventory
+            this.partsTableAdapter.Fill(this.gROUP4DataSetParts.Parts);
         }
 
         /* Description: Removes month old orders from the database to not clog up the table
@@ -693,5 +716,6 @@ namespace WWOC_Desktop_App
             }
         }
 
+       
     }
 }
