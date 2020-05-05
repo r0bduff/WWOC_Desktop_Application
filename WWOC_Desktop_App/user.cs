@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Data.SqlClient;
-
+using System.CodeDom;
 
 namespace WWOC_Desktop_App
 {
@@ -35,7 +35,7 @@ namespace WWOC_Desktop_App
         public User(int userID)
         {
             this.userID = userID;
-            GetUsername();
+            getUser(userID);
         }
 
         public User(string name, string username, string password, int accessLevel)
@@ -80,15 +80,41 @@ namespace WWOC_Desktop_App
             cnn.Close();
         }
 
-        private void GetUsername()
+        /* Description: Method that populates a new user object when given a userId
+          * Req: int userId - userId matching a user in the database
+          * Returns: user object containg information from the database matching the given userId
+          */
+        private void getUser(int userId)
         {
             cnn.Open();
-            SqlCommand getUsername = new SqlCommand("SELECT username FROM Users WHERE userID=" + userID + ";", cnn);
-            SqlDataReader reader = getUsername.ExecuteReader(); reader.Read();
+            SqlCommand commUser = new SqlCommand("EXEC PullUser @UserId =" + userId + ";", cnn);
+            SqlDataReader reader = commUser.ExecuteReader(); reader.Read();
+
+            userID = userId;
             username = reader["username"].ToString();
+            password = reader["password"].ToString();
+            name = reader["name"].ToString();
+            accessLevel = Convert.ToInt32(reader["accesslevel"]);
+            lockedOut = Convert.ToInt32(reader["lockedOut"]);
+            counter = 0;
+
+            reader.Close();
             cnn.Close();
         }
 
+        /* Description: Retrieves the users accesslevel from the DB
+         * Req: int userID, SqlConnection cnn
+         * Returns int userID
+         */
+        public int getAccessLevel()
+        {
+            cnn.Open();
+            SqlCommand getAL = new SqlCommand("SELECT accessLevel FROM Users WHERE userID=" + userID + ";", cnn);
+            SqlDataReader reader = getAL.ExecuteReader(); reader.Read();
+            int accessLevel = Convert.ToInt32(reader["accessLevel"]);
+            cnn.Close();
+            return accessLevel; 
+        }
 
     }//end user
 }
