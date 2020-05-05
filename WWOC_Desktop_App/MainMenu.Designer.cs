@@ -41,6 +41,7 @@
             this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gROUP4DataSetPartsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gROUP4DataSetParts = new WWOC_Desktop_App.GROUP4DataSetParts();
+            this.partsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.label57 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.partIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -259,13 +260,13 @@
             this.ordersBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.ordersTableAdapter2 = new WWOC_Desktop_App.GROUP4DataSetOrderConfirmationTableAdapters.OrdersTableAdapter();
             this.gROUP4DataSetOrderConfirmationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.partsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControlMain.SuspendLayout();
             this.tabPageParts.SuspendLayout();
             this.groupBoxCheckOut.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPartsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetParts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPageRequest.SuspendLayout();
             this.groupBoxRemove.SuspendLayout();
@@ -318,7 +319,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderConfirmationBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -436,6 +436,11 @@
             this.gROUP4DataSetParts.DataSetName = "GROUP4DataSetParts";
             this.gROUP4DataSetParts.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // partsBindingSource2
+            // 
+            this.partsBindingSource2.DataMember = "Parts";
+            this.partsBindingSource2.DataSource = this.gROUP4DataSetPartsBindingSource;
+            // 
             // label57
             // 
             this.label57.AutoSize = true;
@@ -479,11 +484,11 @@
             // 
             // itemDescDataGridViewTextBoxColumn
             // 
+            this.itemDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.itemDescDataGridViewTextBoxColumn.DataPropertyName = "itemDesc";
             this.itemDescDataGridViewTextBoxColumn.HeaderText = "Item Description";
             this.itemDescDataGridViewTextBoxColumn.Name = "itemDescDataGridViewTextBoxColumn";
             this.itemDescDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemDescDataGridViewTextBoxColumn.Width = 175;
             // 
             // costUSDDataGridViewTextBoxColumn
             // 
@@ -1694,10 +1699,10 @@
             // 
             // vendorEmailDataGridViewTextBoxColumn
             // 
+            this.vendorEmailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.vendorEmailDataGridViewTextBoxColumn.DataPropertyName = "vendorEmail";
             this.vendorEmailDataGridViewTextBoxColumn.HeaderText = "Email";
             this.vendorEmailDataGridViewTextBoxColumn.Name = "vendorEmailDataGridViewTextBoxColumn";
-            this.vendorEmailDataGridViewTextBoxColumn.Width = 150;
             // 
             // vendorsBindingSource
             // 
@@ -2416,11 +2421,6 @@
             this.gROUP4DataSetOrderConfirmationBindingSource.DataSource = this.gROUP4DataSetOrderConfirmation;
             this.gROUP4DataSetOrderConfirmationBindingSource.Position = 0;
             // 
-            // partsBindingSource2
-            // 
-            this.partsBindingSource2.DataMember = "Parts";
-            this.partsBindingSource2.DataSource = this.gROUP4DataSetPartsBindingSource;
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2443,6 +2443,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetPartsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetParts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPageRequest.ResumeLayout(false);
             this.groupBoxRemove.ResumeLayout(false);
@@ -2508,7 +2509,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderConfirmationBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2675,9 +2675,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn poDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn approvedDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendorIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendorNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendorEmailDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnAddVendor;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label56;
@@ -2724,14 +2721,6 @@
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.TextBox tbInvQtyOH;
         private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.DataGridViewTextBoxColumn partIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemDescDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costUSDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vendorIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn exptdLifeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reorderPoint;
-        private System.Windows.Forms.DataGridViewTextBoxColumn locationIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnPartCheckOut;
         private System.Windows.Forms.Button btnConfirmOrder;
         private GROUP4DataSetOrderConfirmation gROUP4DataSetOrderConfirmation;
@@ -2745,5 +2734,16 @@
         private System.Windows.Forms.BindingSource ordersBindingSource3;
         private System.Windows.Forms.BindingSource gROUP4DataSetOrderConfirmationBindingSource;
         private System.Windows.Forms.BindingSource partsBindingSource2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendorIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendorNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendorEmailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemDescDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costUSDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendorIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exptdLifeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reorderPoint;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationIDDataGridViewTextBoxColumn;
     }
 }

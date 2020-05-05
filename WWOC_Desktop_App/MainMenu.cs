@@ -94,6 +94,8 @@ namespace WWOC_Desktop_App
                 //hides buttons for orders
                 btnConfirmOrder.Visible = false;
                 btnRejectOrder.Visible = false;
+                btnApproveOrder.Visible = false;
+
                 //hides for create orders
                 btnCreateOrder.Enabled = false;
 
@@ -104,8 +106,9 @@ namespace WWOC_Desktop_App
 
             {
                 //hides buttons for orders
-                btnConfirmOrder.Visible = false;
+                btnApproveOrder.Visible = false;
                 btnRejectOrder.Visible = false;
+                btnConfirmOrder.Visible = false;
 
                 //hides tab for manage
                 tabControlMain.TabPages.Remove(DGVMainMenu);
