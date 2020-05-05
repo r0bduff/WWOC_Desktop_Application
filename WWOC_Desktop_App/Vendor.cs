@@ -34,6 +34,12 @@ namespace WWOC_Desktop_App
 
         }
 
+        public Vendor(int id)
+        {
+            vendorID = id;
+            GetVendor();
+        }
+
         /* Description: Constructior class for instance when vendor is in the DB
          * Req: int ID
          * Returns: fills rest of the info
@@ -86,5 +92,17 @@ namespace WWOC_Desktop_App
             vendorID = Convert.ToInt32(reader["maxID"]); reader.Close();
             cnn.Close();
         }
+
+        private void GetVendor()
+        {
+            cnn.Open();
+            SqlCommand getInfo = new SqlCommand("SELECT * FROM Vendors WHERE vendorID =" + vendorID , cnn);
+            SqlDataReader reader = getInfo.ExecuteReader(); reader.Read();
+            vendorName = reader["vendorName"].ToString();
+            vendorEmail = reader["vendorEmail"].ToString();
+            reader.Close(); cnn.Close();
+        }
+
+       
     }
 }

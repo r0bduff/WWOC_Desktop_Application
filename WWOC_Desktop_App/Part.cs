@@ -44,6 +44,13 @@ namespace WWOC_Desktop_App
             getPartFromDB();
         }
 
+        public Part(string itemDesc)
+        {
+            this.itemDesc = itemDesc;
+            getPartId();
+            getPartFromDB();
+        }
+
         /* Description: Constructor method in the event that a new part is being made
          * Req: string itemDesc, double costUSD, int vendorID, int qtyOH, int reorderPoint, int exptdLife, string shipmentTime, int locationID
          * Returns: nothing
@@ -106,6 +113,19 @@ namespace WWOC_Desktop_App
             cnn.Close();
         }
 
+        /* Description: in the instance that only the itemDesc is given we can find the itemId
+         * Req: itemDesc
+         * Returns: itemId
+         */
+        private void getPartId()
+        {
+            cnn.Open();
+            SqlCommand getId = new SqlCommand("Select partID FROM Parts WHERE itemDesc='" + itemDesc + "'", cnn);
+            SqlDataReader reader = getId.ExecuteReader(); reader.Read();
+            partID = Convert.ToInt32(reader["partID"]); reader.Close();
+            cnn.Close();
+        }
+
         /* Description: Updates the DB with whatever info is currently stored in the instance of the object
          * Req: -
          * Returns: updates db
@@ -118,6 +138,78 @@ namespace WWOC_Desktop_App
             
             updateDB.ExecuteNonQuery();
             cnn.Close();
+        }
+
+        /* Description: removes the given amount of a part from the inventory
+         * Req: int qty(taken)
+         * Returns: updates the db
+         */
+        public void checkOutPart(int qty)
+        {
+            qtyOH -= qty;
+            updateDB();
+        }
+
+        /* Description: Checks and orders more of a part if the reorder point is reached
+         * Req: part class filled
+         * Returns: adds new order
+         */
+        public void autoOrder()
+        {
+            if(qtyOH <= reorderPoint)
+            {
+                cnn.Open();
+                {
+                    Order partOrder = new Order(14, cnn);
+                    OrderLineItem partNew = new OrderLineItem();
+                    {
+                        partNew.partID = partID;
+                        partNew.orderID = partOrder.orderID;
+                        partNew.qty = calculateReorderAmount();
+                        partNew.unitPrice = (float)Convert.ToDouble(costUSD);
+                        partNew.AddOrderLineItem(cnn);
+                    }
+                    partOrder.AddPartToOrder(partNew);
+                    partOrder.CalculateFinalCosts();
+                    partOrder.poDate = DateTime.Now;
+                    if(partOrder.totalPrice >= 25000)
+                    {
+                        partOrder.approved = false;
+                    }
+                    else
+                    {
+                        partOrder.approved = true;
+                        Email newEmail = new Email(partOrder);
+                        newEmail.SendOrderEmails();
+                    }
+                    partOrder.UpdateDatabase(cnn);
+                }
+                cnn.Close();
+            }
+        }
+
+        /* Description: Calculates how much of the part should be reordered based on some very specific calculations
+         * Req: part class filled
+         * Returns: int holding the qty to order
+         */
+        private int calculateReorderAmount()
+        {
+            if(exptdLife <= 7)
+            {
+                return exptdLife * 7;//if the part is used frequently (more than once a week) then a multiple of 7 is ordered.
+            }
+            else if(exptdLife > 7 && exptdLife <= 28)
+            {
+                return reorderPoint * 2; //parts lasting 1-4 weeks are ordered at double the minimum amount
+            }
+            else if(exptdLife > 28)
+            {
+                return reorderPoint; //parts lasting longer than 4 weeks are ordered at the threshold (doubling it)
+            }
+            else
+            {
+                return 1;
+            }
         }
 
        

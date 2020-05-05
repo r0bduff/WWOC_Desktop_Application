@@ -5,6 +5,7 @@
  * 
  */
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,15 +15,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.XPath;
 
 namespace WWOC_Desktop_App
 {
     public partial class MainMenu : Form
     {
-        public int currentUserID;//bad code ignore pls
+        public int currentUserID;
         private int accessLevel;
-        private Order order;//maybe worse also ignore
-        private OrderLineItem item;//probably even worse chiltion just keep scrolling
+        private Order order;
+        private OrderLineItem item;
+        private Part part;
         private SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117");
 
         public MainMenu(int currentUser, int accessLevel)
@@ -40,7 +43,9 @@ namespace WWOC_Desktop_App
          */
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            
+            //remove exired orders before anything happens.
+            checkForExpiredOrders();
+
             //DATAGRID TABLE LOADING
             //Location
             this.locationTableAdapter.Fill(this.gROUP4DataSetLocation.Location);
@@ -75,6 +80,9 @@ namespace WWOC_Desktop_App
             dataGridOH_PartsInOrder.Columns.Add("partID", "Part ID");
             dataGridOH_PartsInOrder.Columns.Add("qty", "Quantity");
             dataGridOH_PartsInOrder.Columns.Add("unitPrice", "Price per Part");
+
+            cbPartName.Text = "";
+            cbPartLocSelect.Text = "";  
         }
 
         /* Description: When the metrics button is clicked the metrics form is opened
@@ -96,6 +104,37 @@ namespace WWOC_Desktop_App
             Form Login = new Login();
             Login.Show();
             this.Hide();
+        }
+
+        /* Description: Removes month old orders from the database to not clog up the table
+         * Req: nothing
+         * Returns: deletes old records from the database
+         */
+        private void checkForExpiredOrders()
+        {
+            cnn.Open();
+            {
+                List<int> tempid = new List<int>();
+                SqlCommand check = new SqlCommand("Select * FROM Orders WHERE poDate < (DATEADD(month, -1, SYSDATETIME()))", cnn);
+                SqlDataReader reader = check.ExecuteReader();
+                while (reader.Read())
+                {
+                    tempid.Add(Convert.ToInt32(reader["orderID"]));
+                }
+                reader.Close();
+
+                int[] arr = tempid.ToArray();
+                for(int i = 0; i < arr.Length; i++)
+                {
+                    SqlCommand removeorderitem = new SqlCommand("DELETE FROM Order_Line_Item WHERE orderID=" + arr[i], cnn);
+                    removeorderitem.ExecuteNonQuery();
+
+                    SqlCommand removeOrder = new SqlCommand("DELETE FROM Orders WHERE orderID=" + arr[i], cnn);
+                    removeOrder.ExecuteNonQuery();
+                }
+
+            }
+            cnn.Close();
         }
 
         //---------------------------------------------------------------------------ORDER REQUEST TAB METHODS---------------------------------------------------------------------------
@@ -261,10 +300,19 @@ namespace WWOC_Desktop_App
             else if (order.totalPrice > 25000)
                 order.approved = false;
             else
+            {
                 order.approved = true;
+            }
+                
             cnn.Open();
                 order.UpdateDatabase(cnn);
             cnn.Close();
+
+            if(order.approved == true)
+            {
+                Email newEmail = new Email(order);
+                string test = newEmail.SendOrderEmails();
+            }
 
             groupBoxOrderSummary.Enabled = false;
             groupBoxOrderInfo.Enabled = false;
@@ -340,7 +388,11 @@ namespace WWOC_Desktop_App
             cnn.Open();
                 order.ApproveOrderDB(cnn);
             cnn.Close();
-            MessageBox.Show("Order Approved");
+
+            Email newEmail = new Email(order);
+            string test = newEmail.SendOrderEmails();
+
+            MessageBox.Show("Order Approved and " + test);
 
             tbPO_OrderID.Text = "";
             tbPO_Username.Text = "";
@@ -506,6 +558,7 @@ namespace WWOC_Desktop_App
                     tbAddName.Text = "";
                     tbAddUsername.Text = "";
                     tbAddPassword.Text = "";
+                    tbAddConfPassword.Text = "";
                     cbJobTitle.Text = "";
                 }            
             }
@@ -584,6 +637,7 @@ namespace WWOC_Desktop_App
                 Part newPart = new Part(tbAddItemDesc.Text, Convert.ToDouble(tbAddItemCost.Text), findVendor.vendorID, Convert.ToInt32(tbAddQTY.Text), Convert.ToInt32(tbAddReorderPoint.Text), Convert.ToInt32(tbAddExptLife.Text), tbAddShipTime.Text, findLoc.locationID);
                 this.partsTableAdapter.Fill(this.gROUP4DataSetParts.Parts);
 
+                tbAddItemDesc.Text = "";
                 tbAddItemCost.Text = "";
                 tbAddPartVendor.Text = "";
                 tbAddQTY.Text = "";
@@ -594,6 +648,27 @@ namespace WWOC_Desktop_App
             } 
         }
 
-       
+        private void btnPartCheckOut_Click(object sender, EventArgs e)
+        {
+            part.checkOutPart(Convert.ToInt32(tbInvQtyTaken.Text));
+            MessageBox.Show(tbInvQtyTaken.Text + " " + part.itemDesc + " taken from the inventory");
+            tbInvQtyTaken.Text = "";
+            this.partsTableAdapter.Fill(this.gROUP4DataSetParts.Parts);
+            part.autoOrder();
+            //update the order tables incase of the event that there was an auto order
+            this.ordersTableAdapter.FillBy(this.gROUP4DataSetPendingOrders.Orders);
+            this.ordersTableAdapter2.FillByApprovedReceived(this.gROUP4DataSetOrderConfirmation.Orders);
+        }
+
+        private void cbPartName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbPartName.Text != "")
+            {
+                part = new Part(cbPartName.Text);
+
+                tbInvQtyOH.Text = part.qtyOH.ToString();
+            }
+        }
+
     }
 }
