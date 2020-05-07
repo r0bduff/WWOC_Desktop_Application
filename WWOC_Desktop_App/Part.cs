@@ -22,6 +22,7 @@ namespace WWOC_Desktop_App
         public int vendorID { get; set; }
         public int qtyOH { get; set; }
         public int reorderPoint { get; set; }
+        public int reorderAmount { get; set; }
         public int exptdLife { get; set; }
         public string shipmentTime { get; set; }
         public int locationID { get; set; }
@@ -55,13 +56,14 @@ namespace WWOC_Desktop_App
          * Req: string itemDesc, double costUSD, int vendorID, int qtyOH, int reorderPoint, int exptdLife, string shipmentTime, int locationID
          * Returns: nothing
          */
-        public Part(string itemDesc, double costUSD, int vendorID, int qtyOH, int reorderPoint, int exptdLife, string shipmentTime, int locationID)
+        public Part(string itemDesc, double costUSD, int vendorID, int qtyOH, int reorderPoint,int reorderAmount, int exptdLife, string shipmentTime, int locationID)
         {
             this.itemDesc = itemDesc;
             this.costUSD = costUSD;
             this.vendorID = vendorID;
             this.qtyOH = qtyOH;
             this.reorderPoint = reorderPoint;
+            this.reorderAmount = reorderAmount;
             this.exptdLife = exptdLife;
             this.shipmentTime = shipmentTime;
             this.locationID = locationID;
@@ -75,12 +77,13 @@ namespace WWOC_Desktop_App
         private void addPartDB()
         {
             cnn.Open();
-            SqlCommand addPart = new SqlCommand("INSERT INTO Parts (itemDesc, costUSD, vendorID, qty, reorderPoint, exptdLife, shipmentTime, locationID) VALUES (@itemDesc, @Cost, @vendor, @quanit, @reorderPoint, @exptdLife, @shipmentTime, @location)", cnn);
+            SqlCommand addPart = new SqlCommand("INSERT INTO Parts (itemDesc, costUSD, vendorID, qty, reorderPoint, reorderAmount, exptdLife, shipmentTime, locationID) VALUES (@itemDesc, @Cost, @vendor, @quanit, @reorderPoint, @reorderAmount, @exptdLife, @shipmentTime, @location)", cnn);
             addPart.Parameters.AddWithValue("@itemDesc", itemDesc);
             addPart.Parameters.AddWithValue("@Cost", costUSD);
             addPart.Parameters.AddWithValue("@vendor", vendorID);
             addPart.Parameters.AddWithValue("@quanit", qtyOH);
             addPart.Parameters.AddWithValue("@reorderPoint", reorderPoint);
+            addPart.Parameters.AddWithValue("@reorderAmount", reorderAmount);
             addPart.Parameters.AddWithValue("@exptdLife", exptdLife);
             addPart.Parameters.AddWithValue("@shipmentTime", shipmentTime);
             addPart.Parameters.AddWithValue("@location", locationID);
@@ -106,6 +109,7 @@ namespace WWOC_Desktop_App
             vendorID = Convert.ToInt32(reader["vendorID"]);
             qtyOH = Convert.ToInt32(reader["qty"]);
             reorderPoint = Convert.ToInt32(reader["reorderPoint"]);
+            reorderAmount = Convert.ToInt32(reader["reorderAmount"]);
             exptdLife = Convert.ToInt32(reader["exptdLife"]);
             shipmentTime = (reader["shipmentTime"]).ToString();
             locationID = Convert.ToInt32(reader["locationID"]);
@@ -133,7 +137,7 @@ namespace WWOC_Desktop_App
         public void updateDB()
         {
             cnn.Open();
-            SqlCommand updateDB = new SqlCommand("UPDATE Parts SET itemDesc='" + itemDesc + "', costUSD=" + costUSD +", vendorID=" + vendorID +", qty=" + qtyOH +", reorderPoint=" + reorderPoint +
+            SqlCommand updateDB = new SqlCommand("UPDATE Parts SET itemDesc='" + itemDesc + "', costUSD=" + costUSD +", vendorID=" + vendorID +", qty=" + qtyOH +", reorderPoint=" + reorderPoint +", reorderAmount=" + reorderAmount +
                                                                     ", exptdLife=" + exptdLife +", shipmentTime='" + shipmentTime +"', locationID=" + locationID +"WHERE partID=" + partID, cnn);
             
             updateDB.ExecuteNonQuery();
@@ -165,8 +169,9 @@ namespace WWOC_Desktop_App
                     {
                         partNew.partID = partID;
                         partNew.orderID = partOrder.orderID;
-                        partNew.qty = calculateReorderAmount();
+                        partNew.qty = reorderAmount;
                         partNew.unitPrice = (float)Convert.ToDouble(costUSD);
+                        partNew.vendorID = vendorID;
                         partNew.AddOrderLineItem(cnn);
                     }
                     partOrder.AddPartToOrder(partNew);
@@ -188,10 +193,11 @@ namespace WWOC_Desktop_App
             }
         }
 
-        /* Description: Calculates how much of the part should be reordered based on some very specific calculations
+        /* Removed due to addition of reorderAmount. Saved incase something breaks in the future.
+         * Description: Calculates how much of the part should be reordered based on some very specific calculations
          * Req: part class filled
          * Returns: int holding the qty to order
-         */
+         *
         private int calculateReorderAmount()
         {
             if(exptdLife <= 7)
@@ -211,6 +217,7 @@ namespace WWOC_Desktop_App
                 return 1;
             }
         }
+        */
 
        
     }

@@ -199,7 +199,7 @@ namespace WWOC_Desktop_App
 
         private void btnSkip_Click(object sender, EventArgs e)
         {
-            Form mainmenu = new MainMenu(1,1);
+            Form mainmenu = new MainMenu(1,2);
             mainmenu.Show();
         }
 

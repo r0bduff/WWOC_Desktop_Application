@@ -261,6 +261,8 @@
             this.ordersTableAdapter2 = new WWOC_Desktop_App.GROUP4DataSetOrderConfirmationTableAdapters.OrdersTableAdapter();
             this.gROUP4DataSetOrderConfirmationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.timerUpdate = new System.Windows.Forms.Timer(this.components);
+            this.label60 = new System.Windows.Forms.Label();
+            this.tbAddReorderAmount = new System.Windows.Forms.TextBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageParts.SuspendLayout();
             this.groupBoxCheckOut.SuspendLayout();
@@ -1732,6 +1734,8 @@
             // 
             // groupBoxAddPart
             // 
+            this.groupBoxAddPart.Controls.Add(this.label60);
+            this.groupBoxAddPart.Controls.Add(this.tbAddReorderAmount);
             this.groupBoxAddPart.Controls.Add(this.btnAddPart);
             this.groupBoxAddPart.Controls.Add(this.label54);
             this.groupBoxAddPart.Controls.Add(this.label53);
@@ -1758,7 +1762,7 @@
             // 
             // btnAddPart
             // 
-            this.btnAddPart.Location = new System.Drawing.Point(30, 397);
+            this.btnAddPart.Location = new System.Drawing.Point(31, 447);
             this.btnAddPart.Name = "btnAddPart";
             this.btnAddPart.Size = new System.Drawing.Size(229, 36);
             this.btnAddPart.TabIndex = 16;
@@ -1769,7 +1773,7 @@
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(27, 338);
+            this.label54.Location = new System.Drawing.Point(28, 388);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(70, 16);
             this.label54.TabIndex = 15;
@@ -1778,7 +1782,7 @@
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(27, 293);
+            this.label53.Location = new System.Drawing.Point(28, 343);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(111, 16);
             this.label53.TabIndex = 14;
@@ -1787,7 +1791,7 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(27, 248);
+            this.label52.Location = new System.Drawing.Point(28, 298);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(103, 16);
             this.label52.TabIndex = 13;
@@ -1844,7 +1848,7 @@
             this.cbPartLocSelect.DataSource = this.locationBindingSource;
             this.cbPartLocSelect.DisplayMember = "name";
             this.cbPartLocSelect.FormattingEnabled = true;
-            this.cbPartLocSelect.Location = new System.Drawing.Point(29, 357);
+            this.cbPartLocSelect.Location = new System.Drawing.Point(30, 407);
             this.cbPartLocSelect.Name = "cbPartLocSelect";
             this.cbPartLocSelect.Size = new System.Drawing.Size(230, 24);
             this.cbPartLocSelect.TabIndex = 7;
@@ -1875,14 +1879,14 @@
             // 
             // tbAddShipTime
             // 
-            this.tbAddShipTime.Location = new System.Drawing.Point(29, 312);
+            this.tbAddShipTime.Location = new System.Drawing.Point(30, 362);
             this.tbAddShipTime.Name = "tbAddShipTime";
             this.tbAddShipTime.Size = new System.Drawing.Size(230, 23);
             this.tbAddShipTime.TabIndex = 5;
             // 
             // tbAddExptLife
             // 
-            this.tbAddExptLife.Location = new System.Drawing.Point(29, 267);
+            this.tbAddExptLife.Location = new System.Drawing.Point(30, 317);
             this.tbAddExptLife.Name = "tbAddExptLife";
             this.tbAddExptLife.Size = new System.Drawing.Size(230, 23);
             this.tbAddExptLife.TabIndex = 4;
@@ -2425,7 +2429,22 @@
             // 
             this.timerUpdate.Enabled = true;
             this.timerUpdate.Interval = 30000;
-            this.timerUpdate.Tick += new System.EventHandler(this.timerUpdate_Tick);
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(26, 250);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(119, 16);
+            this.label60.TabIndex = 18;
+            this.label60.Text = "Reorder Amount:";
+            // 
+            // tbAddReorderAmount
+            // 
+            this.tbAddReorderAmount.Location = new System.Drawing.Point(29, 269);
+            this.tbAddReorderAmount.Name = "tbAddReorderAmount";
+            this.tbAddReorderAmount.Size = new System.Drawing.Size(231, 23);
+            this.tbAddReorderAmount.TabIndex = 17;
             // 
             // MainMenu
             // 
@@ -2752,5 +2771,7 @@
         private System.Windows.Forms.BindingSource gROUP4DataSetOrderConfirmationBindingSource;
         private System.Windows.Forms.BindingSource partsBindingSource2;
         private System.Windows.Forms.Timer timerUpdate;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.TextBox tbAddReorderAmount;
     }
 }

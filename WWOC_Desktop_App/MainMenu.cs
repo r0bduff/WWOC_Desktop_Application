@@ -131,6 +131,7 @@ namespace WWOC_Desktop_App
             this.Hide();
         }
 
+        /*
         private void timerUpdate_Tick(object sender, EventArgs e)
         {
             //DATAGRID TABLE ReLoading
@@ -151,6 +152,8 @@ namespace WWOC_Desktop_App
             //Inventory
             this.partsTableAdapter.Fill(this.gROUP4DataSetParts.Parts);
         }
+        */
+
 
         /* Description: Removes month old orders from the database to not clog up the table
          * Req: nothing
@@ -680,7 +683,7 @@ namespace WWOC_Desktop_App
                 Vendor findVendor = new Vendor(tbAddPartVendor.Text);
                 Location findLoc = new Location(cbPartLocSelect.Text);
 
-                Part newPart = new Part(tbAddItemDesc.Text, Convert.ToDouble(tbAddItemCost.Text), findVendor.vendorID, Convert.ToInt32(tbAddQTY.Text), Convert.ToInt32(tbAddReorderPoint.Text), Convert.ToInt32(tbAddExptLife.Text), tbAddShipTime.Text, findLoc.locationID);
+                Part newPart = new Part(tbAddItemDesc.Text, Convert.ToDouble(tbAddItemCost.Text), findVendor.vendorID, Convert.ToInt32(tbAddQTY.Text), Convert.ToInt32(tbAddReorderPoint.Text), Convert.ToInt32(tbAddReorderAmount.Text),Convert.ToInt32(tbAddExptLife.Text), tbAddShipTime.Text, findLoc.locationID);
                 this.partsTableAdapter.Fill(this.gROUP4DataSetParts.Parts);
 
                 tbAddItemDesc.Text = "";
