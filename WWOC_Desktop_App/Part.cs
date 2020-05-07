@@ -172,6 +172,7 @@ namespace WWOC_Desktop_App
                         partNew.qty = reorderAmount;
                         partNew.unitPrice = (float)Convert.ToDouble(costUSD);
                         partNew.vendorID = vendorID;
+                        partNew.itemDesc = itemDesc;
                         partNew.AddOrderLineItem(cnn);
                     }
                     partOrder.AddPartToOrder(partNew);
