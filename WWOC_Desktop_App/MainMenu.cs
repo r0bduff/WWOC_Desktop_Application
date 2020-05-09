@@ -27,11 +27,11 @@ namespace WWOC_Desktop_App
         private OrderLineItem item;
         private Part part;
         private SqlConnection cnn = new SqlConnection("Data Source=10.135.85.184;Initial Catalog=GROUP4;User ID=Group4;Password=Grp4s2117");
-        System.Threading.Thread t;
 
         public MainMenu(int currentUser, int accessLevel)
         {
             InitializeComponent();
+            InitializeTimer();
             currentUserID = currentUser;
             this.accessLevel = accessLevel;
         }
@@ -44,10 +44,13 @@ namespace WWOC_Desktop_App
          */
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            
             //remove exired orders before anything happens.
             checkForExpiredOrders();
 
             //DATAGRID TABLE LOADING
+            // Drop down menus 
+            this.partsTableAdapter2.Fill(this.gROUP4DataSetDropDownMenus.Parts);
             //Location
             this.locationTableAdapter.Fill(this.gROUP4DataSetLocation.Location);
             //Users
@@ -81,7 +84,9 @@ namespace WWOC_Desktop_App
             dataGridOH_PartsInOrder.Columns.Add("partID", "Part ID");
             dataGridOH_PartsInOrder.Columns.Add("qty", "Quantity");
             dataGridOH_PartsInOrder.Columns.Add("unitPrice", "Price per Part");
-
+            //add data to some upset combo boxes
+            fillcBoxPartDesc();
+            fillcbPartName();
 
             cbPartName.Text = "";
             cbPartLocSelect.Text = "";  
@@ -131,28 +136,36 @@ namespace WWOC_Desktop_App
             this.Hide();
         }
 
-        /*
-        private void timerUpdate_Tick(object sender, EventArgs e)
+        private void InitializeTimer()
+        {
+            timerUpdate.Interval = 10000;
+            timerUpdate.Enabled = true;
+            // Hook up timer's tick event handler.  
+            this.timerUpdate.Tick += new System.EventHandler(this.timerUpdate_Tick);
+        }
+
+        private void timerUpdate_Tick(object Sender, EventArgs e)
         {
             //DATAGRID TABLE ReLoading
             //Location
-            this.locationTableAdapter.Fill(this.gROUP4DataSetLocation.Location);
+            //this.locationTableAdapter.Fill(this.gROUP4DataSetLocation.Location);
             //Users
-            this.usersTableAdapter.Fill(this.gROUP4DataSetUsers.Users);
+            //this.usersTableAdapter.Fill(this.gROUP4DataSetUsers.Users);
             //OrderConfirmation
             this.ordersTableAdapter2.FillByApprovedReceived(this.gROUP4DataSetOrderConfirmation.Orders);
             //OrderPending
             this.ordersTableAdapter.FillBy(this.gROUP4DataSetPendingOrders.Orders);
             //OrderRequest1
-            this.partsTableAdapter1.Fill(this.gROUP4DataSetOrderLineItem.Parts);
+            //this.partsTableAdapter1.Fill(this.gROUP4DataSetOrderLineItem.Parts);
             //OrderRequest2
-            this.order_Line_ItemTableAdapter.Fill(this.gROUP4DataSetOrderLineItem.Order_Line_Item);
+            //this.order_Line_ItemTableAdapter.Fill(this.gROUP4DataSetOrderLineItem.Order_Line_Item);
             //Vendors
-            this.vendorsTableAdapter.Fill(this.gROUP4DataSet.Vendors);
+            //this.vendorsTableAdapter.Fill(this.gROUP4DataSet.Vendors);
             //Inventory
             this.partsTableAdapter.Fill(this.gROUP4DataSetParts.Parts);
-        }
-        */
+        }  
+
+         
 
 
         /* Description: Removes month old orders from the database to not clog up the table
@@ -182,6 +195,32 @@ namespace WWOC_Desktop_App
                     removeOrder.ExecuteNonQuery();
                 }
 
+            }
+            cnn.Close();
+        }
+
+        private void fillcBoxPartDesc()
+        {
+            cnn.Open();
+            SqlCommand itemDesc = new SqlCommand("SELECT itemDesc FROM Parts", cnn);
+            SqlDataReader reader = itemDesc.ExecuteReader();
+            cBoxPartDescription.Items.Add("");
+            while (reader.Read())
+            {
+                cBoxPartDescription.Items.Add(reader["itemDesc"].ToString());
+            }
+            cnn.Close();
+        }
+
+        private void fillcbPartName()
+        {
+            cnn.Open();
+            SqlCommand itemDesc = new SqlCommand("SELECT itemDesc FROM Parts", cnn);
+            SqlDataReader reader = itemDesc.ExecuteReader();
+            cbPartName.Items.Add("");
+            while (reader.Read())
+            {
+                cbPartName.Items.Add(reader["itemDesc"].ToString());
             }
             cnn.Close();
         }
@@ -707,6 +746,8 @@ namespace WWOC_Desktop_App
             //update the order tables incase of the event that there was an auto order
             this.ordersTableAdapter.FillBy(this.gROUP4DataSetPendingOrders.Orders);
             this.ordersTableAdapter2.FillByApprovedReceived(this.gROUP4DataSetOrderConfirmation.Orders);
+            cbPartName.SelectedIndex = 0;
+            tbInvQtyOH.Text = "";
         }
 
         private void cbPartName_SelectedIndexChanged(object sender, EventArgs e)

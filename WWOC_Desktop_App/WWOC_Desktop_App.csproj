@@ -49,6 +49,11 @@
   <ItemGroup>
     <Compile Include="DBConfig.cs" />
     <Compile Include="Email.cs" />
+    <Compile Include="GROUP4DataSetDropDownMenus.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GROUP4DataSetDropDownMenus.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GROUP4DataSetLocation.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -137,6 +142,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="GROUP4DataSetDropDownMenus.xsc">
+      <DependentUpon>GROUP4DataSetDropDownMenus.xsd</DependentUpon>
+    </None>
+    <None Include="GROUP4DataSetDropDownMenus.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GROUP4DataSetDropDownMenus.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GROUP4DataSetDropDownMenus.xss">
+      <DependentUpon>GROUP4DataSetDropDownMenus.xsd</DependentUpon>
+    </None>
     <None Include="GROUP4DataSetLocation.xsc">
       <DependentUpon>GROUP4DataSetLocation.xsd</DependentUpon>
     </None>

@@ -176,6 +176,8 @@
             this.gROUP4DataSet = new WWOC_Desktop_App.GROUP4DataSet();
             this.DGVMainMenu = new System.Windows.Forms.TabPage();
             this.groupBoxAddPart = new System.Windows.Forms.GroupBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.tbAddReorderAmount = new System.Windows.Forms.TextBox();
             this.btnAddPart = new System.Windows.Forms.Button();
             this.label54 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
@@ -260,9 +262,11 @@
             this.ordersBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.ordersTableAdapter2 = new WWOC_Desktop_App.GROUP4DataSetOrderConfirmationTableAdapters.OrdersTableAdapter();
             this.gROUP4DataSetOrderConfirmationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gROUP4DataSetDropDownMenus = new WWOC_Desktop_App.GROUP4DataSetDropDownMenus();
+            this.gROUP4DataSetDropDownMenusBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.partsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.partsTableAdapter2 = new WWOC_Desktop_App.GROUP4DataSetDropDownMenusTableAdapters.PartsTableAdapter();
             this.timerUpdate = new System.Windows.Forms.Timer(this.components);
-            this.label60 = new System.Windows.Forms.Label();
-            this.tbAddReorderAmount = new System.Windows.Forms.TextBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageParts.SuspendLayout();
             this.groupBoxCheckOut.SuspendLayout();
@@ -322,6 +326,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderConfirmationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetDropDownMenus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetDropDownMenusBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -413,15 +420,12 @@
             // 
             // cbPartName
             // 
-            this.cbPartName.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.partsBindingSource, "itemDesc", true));
-            this.cbPartName.DataSource = this.partsBindingSource2;
-            this.cbPartName.DisplayMember = "itemDesc";
+            this.cbPartName.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.partsBindingSource3, "itemDesc", true));
             this.cbPartName.FormattingEnabled = true;
             this.cbPartName.Location = new System.Drawing.Point(10, 43);
             this.cbPartName.Name = "cbPartName";
             this.cbPartName.Size = new System.Drawing.Size(229, 24);
             this.cbPartName.TabIndex = 1;
-            this.cbPartName.ValueMember = "itemDesc";
             this.cbPartName.SelectedIndexChanged += new System.EventHandler(this.cbPartName_SelectedIndexChanged);
             // 
             // partsBindingSource
@@ -483,7 +487,7 @@
             this.partIDDataGridViewTextBoxColumn.HeaderText = "Part ID";
             this.partIDDataGridViewTextBoxColumn.Name = "partIDDataGridViewTextBoxColumn";
             this.partIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.partIDDataGridViewTextBoxColumn.Width = 60;
+            this.partIDDataGridViewTextBoxColumn.Width = 79;
             // 
             // itemDescDataGridViewTextBoxColumn
             // 
@@ -509,7 +513,7 @@
             this.vendorIDDataGridViewTextBoxColumn.HeaderText = "Vendor ID";
             this.vendorIDDataGridViewTextBoxColumn.Name = "vendorIDDataGridViewTextBoxColumn";
             this.vendorIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vendorIDDataGridViewTextBoxColumn.Width = 90;
+            this.vendorIDDataGridViewTextBoxColumn.Width = 98;
             // 
             // qtyDataGridViewTextBoxColumn
             // 
@@ -518,7 +522,7 @@
             this.qtyDataGridViewTextBoxColumn.HeaderText = "Quantity OH";
             this.qtyDataGridViewTextBoxColumn.Name = "qtyDataGridViewTextBoxColumn";
             this.qtyDataGridViewTextBoxColumn.ReadOnly = true;
-            this.qtyDataGridViewTextBoxColumn.Width = 105;
+            this.qtyDataGridViewTextBoxColumn.Width = 114;
             // 
             // exptdLifeDataGridViewTextBoxColumn
             // 
@@ -896,16 +900,13 @@
             // cBoxPartDescription
             // 
             this.cBoxPartDescription.CausesValidation = false;
-            this.cBoxPartDescription.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.partsBindingSource, "partID", true));
-            this.cBoxPartDescription.DataSource = this.partsBindingSource;
-            this.cBoxPartDescription.DisplayMember = "itemDesc";
+            this.cBoxPartDescription.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.partsBindingSource2, "itemDesc", true));
             this.cBoxPartDescription.FormattingEnabled = true;
             this.cBoxPartDescription.ImeMode = System.Windows.Forms.ImeMode.On;
             this.cBoxPartDescription.Location = new System.Drawing.Point(144, 22);
             this.cBoxPartDescription.Name = "cBoxPartDescription";
             this.cBoxPartDescription.Size = new System.Drawing.Size(195, 24);
             this.cBoxPartDescription.TabIndex = 1;
-            this.cBoxPartDescription.ValueMember = "itemDesc";
             this.cBoxPartDescription.SelectedIndexChanged += new System.EventHandler(this.cBoxPartDescription_SelectedIndexChanged);
             // 
             // label1
@@ -1760,6 +1761,22 @@
             this.groupBoxAddPart.TabStop = false;
             this.groupBoxAddPart.Text = "Add Part";
             // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(26, 250);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(119, 16);
+            this.label60.TabIndex = 18;
+            this.label60.Text = "Reorder Amount:";
+            // 
+            // tbAddReorderAmount
+            // 
+            this.tbAddReorderAmount.Location = new System.Drawing.Point(29, 269);
+            this.tbAddReorderAmount.Name = "tbAddReorderAmount";
+            this.tbAddReorderAmount.Size = new System.Drawing.Size(231, 23);
+            this.tbAddReorderAmount.TabIndex = 17;
+            // 
             // btnAddPart
             // 
             this.btnAddPart.Location = new System.Drawing.Point(31, 447);
@@ -2425,26 +2442,29 @@
             this.gROUP4DataSetOrderConfirmationBindingSource.DataSource = this.gROUP4DataSetOrderConfirmation;
             this.gROUP4DataSetOrderConfirmationBindingSource.Position = 0;
             // 
+            // gROUP4DataSetDropDownMenus
+            // 
+            this.gROUP4DataSetDropDownMenus.DataSetName = "GROUP4DataSetDropDownMenus";
+            this.gROUP4DataSetDropDownMenus.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gROUP4DataSetDropDownMenusBindingSource
+            // 
+            this.gROUP4DataSetDropDownMenusBindingSource.DataSource = this.gROUP4DataSetDropDownMenus;
+            this.gROUP4DataSetDropDownMenusBindingSource.Position = 0;
+            // 
+            // partsBindingSource3
+            // 
+            this.partsBindingSource3.DataMember = "Parts";
+            this.partsBindingSource3.DataSource = this.gROUP4DataSetDropDownMenusBindingSource;
+            // 
+            // partsTableAdapter2
+            // 
+            this.partsTableAdapter2.ClearBeforeFill = true;
+            // 
             // timerUpdate
             // 
             this.timerUpdate.Enabled = true;
             this.timerUpdate.Interval = 30000;
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(26, 250);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(119, 16);
-            this.label60.TabIndex = 18;
-            this.label60.Text = "Reorder Amount:";
-            // 
-            // tbAddReorderAmount
-            // 
-            this.tbAddReorderAmount.Location = new System.Drawing.Point(29, 269);
-            this.tbAddReorderAmount.Name = "tbAddReorderAmount";
-            this.tbAddReorderAmount.Size = new System.Drawing.Size(231, 23);
-            this.tbAddReorderAmount.TabIndex = 17;
             // 
             // MainMenu
             // 
@@ -2534,6 +2554,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetOrderConfirmationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetDropDownMenus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gROUP4DataSetDropDownMenusBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2770,8 +2793,12 @@
         private System.Windows.Forms.BindingSource ordersBindingSource3;
         private System.Windows.Forms.BindingSource gROUP4DataSetOrderConfirmationBindingSource;
         private System.Windows.Forms.BindingSource partsBindingSource2;
-        private System.Windows.Forms.Timer timerUpdate;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.TextBox tbAddReorderAmount;
+        private System.Windows.Forms.BindingSource gROUP4DataSetDropDownMenusBindingSource;
+        private GROUP4DataSetDropDownMenus gROUP4DataSetDropDownMenus;
+        private System.Windows.Forms.BindingSource partsBindingSource3;
+        private GROUP4DataSetDropDownMenusTableAdapters.PartsTableAdapter partsTableAdapter2;
+        private System.Windows.Forms.Timer timerUpdate;
     }
 }

@@ -47,8 +47,8 @@ namespace WWOC_Desktop_App
                         pushCounter(user.username, 0);
                         accessLevel = user.getAccessLevel();
                         Form mainmenu = new MainMenu(userId, accessLevel);
-                        mainmenu.Show();
                         this.Hide();
+                        mainmenu.Show(); 
                     }
                     else
                     {
